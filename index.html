@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyPoupar — Descobre Quanto Podes Poupar Hoje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #070b12;
+  --surface: #0d1522;
+  --surface2: #121c2e;
+  --surface3: #1a2540;
+  --border: rgba(255,255,255,0.07);
+  --gold: #f0b429;
+  --gold2: #ffd166;
+  --teal: #00d4aa;
+  --teal2: #00f5c4;
+  --text: #e8edf6;
+  --muted: #5e6e8a;
+  --energy: #f77f00;
+  --telco: #0096c7;
+  --green: #25d366;
+  --r: 14px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;}
+
+.bg-mesh{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 90% 50% at 5% -5%,rgba(0,212,170,.055) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 45% at 95% 105%,rgba(240,180,41,.065) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 30% at 50% 45%,rgba(0,150,199,.035) 0%,transparent 65%);}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 36px;
+  background:rgba(7,11,18,.88);backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.18rem;letter-spacing:-.03em;}
+.logo em{color:var(--gold);font-style:normal;}
+.logo sup{color:var(--teal);font-size:.55rem;vertical-align:super;}
+.hdr-right{display:flex;align-items:center;gap:10px;}
+.hdr-tel{font-size:.78rem;color:var(--muted);display:flex;align-items:center;gap:6px;}
+.hdr-tel a{color:var(--teal);text-decoration:none;font-weight:600;}
+.badge-ai{font-size:.6rem;color:var(--muted);border:1px solid var(--border);
+  padding:3px 8px;border-radius:20px;letter-spacing:.08em;text-transform:uppercase;}
+.badge-ai b{color:var(--teal);}
+
+/* HERO */
+.hero{position:relative;z-index:1;padding:120px 32px 50px;text-align:center;max-width:780px;margin:0 auto;}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,212,170,.07);border:1px solid rgba(0,212,170,.18);
+  padding:6px 16px;border-radius:40px;font-size:.72rem;color:var(--teal);
+  letter-spacing:.07em;text-transform:uppercase;margin-bottom:24px;
+  animation:fadeUp .55s ease both;}
+.pulse{width:7px;height:7px;background:var(--teal);border-radius:50%;animation:blink 1.5s ease infinite;}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(1.6)}}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:800;
+  line-height:1.06;letter-spacing:-.035em;margin-bottom:18px;animation:fadeUp .55s .1s ease both;}
+.hl{background:linear-gradient(120deg,var(--gold),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:1rem;color:var(--muted);line-height:1.7;max-width:500px;margin:0 auto 32px;animation:fadeUp .55s .2s ease both;}
+.hero-stats{display:flex;gap:28px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;animation:fadeUp .55s .3s ease both;}
+.stat .val{font-family:'Syne',sans-serif;font-size:1.65rem;font-weight:800;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.stat .lbl{font-size:.72rem;color:var(--muted);margin-top:2px;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SLIDESHOW ── */
+.slideshow-section{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:0 20px 56px;}
+.section-eyebrow{font-size:.68rem;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;text-align:center;margin-bottom:10px;}
+.section-title{font-family:'Syne',sans-serif;font-size:clamp(1.2rem,3vw,1.65rem);font-weight:800;text-align:center;letter-spacing:-.025em;margin-bottom:28px;}
+.slideshow{position:relative;overflow:hidden;border-radius:20px;border:1px solid var(--border);box-shadow:0 24px 60px rgba(0,0,0,.45);}
+.slides-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);}
+.slide{min-width:100%;flex-shrink:0;}
+.ss-progress{position:absolute;bottom:0;left:0;height:2px;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .1s linear;}
+.ss-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;}
+.ss-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--border);background:var(--surface2);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s;}
+.ss-btn:hover{border-color:var(--teal);color:var(--teal);}
+.ss-dots{display:flex;gap:6px;}
+.ss-dot{width:7px;height:7px;border-radius:50%;background:var(--border);cursor:pointer;transition:all .25s;}
+.ss-dot.active{background:var(--teal);width:20px;border-radius:4px;}
+
+/* Slide styles */
+.sp{padding:32px 36px;}
+.slide-tag{font-size:.64rem;color:var(--gold);letter-spacing:.07em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+.sp h3{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:8px;letter-spacing:-.02em;}
+.sp .sdesc{font-size:.85rem;color:var(--muted);line-height:1.62;margin-bottom:20px;}
+
+.before-after{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;}
+.ba-box{background:var(--surface2);border-radius:12px;padding:14px;text-align:center;}
+.ba-box.after{border:1.5px solid var(--teal);}
+.ba-lbl{font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.ba-val{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;}
+.ba-val.bad{color:#ff6b6b;}.ba-val.good{color:var(--teal);}
+.ba-arrow{font-size:1.3rem;color:var(--gold);text-align:center;}
+
+.op-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+.op-card{background:var(--surface2);border:1px solid var(--border);border-radius:11px;padding:13px 10px;text-align:center;transition:border-color .2s;}
+.op-card:hover{border-color:rgba(255,255,255,.2);}
+.op-em{font-size:1.4rem;margin-bottom:5px;}
+.op-name{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;}
+.op-save{font-size:.68rem;color:var(--teal);margin-top:2px;}
+
+.steps-flow{display:flex;flex-direction:column;gap:13px;}
+.flow-step{display:flex;align-items:flex-start;gap:13px;}
+.flow-num{width:30px;height:30px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--teal),#00b890);
+  color:#070b12;font-family:'Syne',sans-serif;font-weight:800;font-size:.82rem;
+  display:flex;align-items:center;justify-content:center;}
+.flow-text .ft{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:700;margin-bottom:2px;}
+.flow-text .fs{font-size:.76rem;color:var(--muted);line-height:1.45;}
+
+.testi-inner{position:relative;overflow:hidden;min-height:130px;}
+.testi-slides{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1);}
+.testi-slide{min-width:100%;flex-shrink:0;}
+.testi-stars{color:var(--gold);font-size:.85rem;margin-bottom:9px;letter-spacing:2px;}
+.testi-quote{font-size:.88rem;line-height:1.65;color:var(--text);margin-bottom:13px;font-style:italic;}
+.testi-meta{display:flex;align-items:center;justify-content:space-between;}
+.tn{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;}
+.tl{font-size:.7rem;color:var(--muted);}
+.ts{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:800;color:var(--teal);}
+
+.slide-promo{background:linear-gradient(135deg,#0c2018 0%,#081422 100%);border:1px solid rgba(0,212,170,.12);padding:36px 36px;text-align:center;}
+.promo-badge{display:inline-flex;align-items:center;gap:7px;
+  background:rgba(240,180,41,.09);border:1px solid rgba(240,180,41,.22);
+  color:var(--gold);font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;
+  padding:5px 14px;border-radius:20px;margin-bottom:16px;}
+.promo-h{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:9px;letter-spacing:-.025em;}
+.promo-sub{font-size:.85rem;color:var(--muted);line-height:1.6;margin-bottom:22px;}
+.promo-counter{display:flex;gap:10px;justify-content:center;margin-bottom:22px;}
+.count-box{background:var(--surface3);border:1px solid var(--border);border-radius:10px;padding:12px 14px;min-width:58px;text-align:center;}
+.count-num{font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;}
+.count-lbl{font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:3px;}
+
+.calc-visual{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+.calc-col{background:var(--surface2);border-radius:11px;padding:14px;}
+.calc-col-lbl{font-size:.64rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-bottom:7px;}
+.calc-item{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);font-size:.78rem;}
+.calc-item:last-child{border:none;}
+.ci-name{color:var(--muted);}
+.ci-val{font-family:'Syne',sans-serif;font-weight:700;}
+.ci-val.red{color:#ff6b6b;}.ci-val.green{color:var(--teal);}
+.calc-total{text-align:center;font-size:.8rem;color:var(--muted);}
+.calc-total b{font-family:'Syne',sans-serif;font-size:1.15rem;color:var(--gold);}
+
+/* FUNNEL */
+.funnel-wrap{position:relative;z-index:1;max-width:640px;margin:0 auto;padding:0 20px 70px;}
+.funnel-card{background:var(--surface);border:1px solid var(--border);border-radius:22px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.5);}
+.progress-track{height:3px;background:var(--surface2);}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));transition:width .45s cubic-bezier(.4,0,.2,1);}
+.funnel-hdr{padding:24px 28px 0;display:flex;align-items:center;justify-content:space-between;}
+.step-lbl{font-size:.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;}
+.step-pct{font-family:'Syne',sans-serif;font-size:.82rem;color:var(--muted);}
+.step-pct b{color:var(--text);}
+.funnel-body{padding:24px 28px 28px;}
+.fstep{display:none;}
+.fstep.active{display:block;animation:stepIn .32s ease both;}
+@keyframes stepIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
+.fstep h2{font-family:'Syne',sans-serif;font-size:1.28rem;font-weight:800;margin-bottom:5px;letter-spacing:-.02em;}
+.fstep .sub{font-size:.85rem;color:var(--muted);margin-bottom:20px;line-height:1.55;}
+
+.choices{display:grid;gap:10px;}
+.choices.c2{grid-template-columns:1fr 1fr;}
+.choice{background:var(--surface2);border:2px solid var(--border);border-radius:var(--r);padding:18px 16px;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;align-items:flex-start;gap:7px;}
+.choice:hover{border-color:rgba(255,255,255,.18);transform:translateY(-2px);}
+.choice.sel-energy{border-color:var(--energy);background:rgba(247,127,0,.07);}
+.choice.sel-telco{border-color:var(--telco);background:rgba(0,150,199,.07);}
+.choice.sel{border-color:var(--teal);background:rgba(0,212,170,.07);}
+.c-icon{font-size:1.7rem;}
+.c-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.9rem;}
+.c-sub{font-size:.74rem;color:var(--muted);line-height:1.4;}
+.c-badge{font-size:.62rem;font-weight:600;padding:2px 8px;border-radius:20px;background:rgba(240,180,41,.12);color:var(--gold);}
+
+.ig{display:flex;flex-direction:column;gap:5px;margin-bottom:13px;}
+.ig label{font-size:.7rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;}
+.ig input,.ig select{background:var(--surface2);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:.92rem;color:var(--text);outline:none;transition:border-color .2s;width:100%;}
+.ig input:focus,.ig select:focus{border-color:var(--teal);}
+.ig select option{background:#121c2e;}
+
+.range-wrap{margin:16px 0;}
+.range-lbl-row{display:flex;justify-content:space-between;font-size:.7rem;color:var(--muted);margin-bottom:6px;}
+.range-big{text-align:center;font-family:'Syne',sans-serif;font-size:2.2rem;font-weight:800;background:linear-gradient(135deg,var(--gold2),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px;}
+input[type=range]{-webkit-appearance:none;width:100%;height:5px;background:var(--surface2);border-radius:3px;outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--teal));cursor:pointer;border:3px solid var(--bg);box-shadow:0 0 10px rgba(0,212,170,.4);}
+
+.check-list{display:flex;flex-direction:column;gap:8px;}
+.check-item{display:flex;align-items:center;gap:12px;background:var(--surface2);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;transition:all .2s;}
+.check-item:hover{border-color:rgba(255,255,255,.16);}
+.check-item.chk{border-color:var(--teal);background:rgba(0,212,170,.06);}
+.chk-box{width:19px;height:19px;border-radius:5px;border:2px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.check-item.chk .chk-box{background:var(--teal);border-color:var(--teal);}
+.chk-box svg{display:none;}
+.check-item.chk .chk-box svg{display:block;}
+.chk-text{font-size:.86rem;}
+.chk-sub{font-size:.72rem;color:var(--muted);}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;border:none;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;padding:15px;border-radius:12px;cursor:pointer;transition:all .22s;margin-top:16px;position:relative;overflow:hidden;}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent,rgba(255,255,255,.1));opacity:0;transition:opacity .2s;}
+.btn:hover::after{opacity:1;}
+.btn:hover{transform:translateY(-2px);}
+.btn-teal{background:linear-gradient(135deg,var(--teal),#00b890);color:#070b12;}
+.btn-teal:hover{box-shadow:0 10px 35px rgba(0,212,170,.32);}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#d9a010);color:#070b12;}
+.btn-gold:hover{box-shadow:0 10px 35px rgba(240,180,41,.38);}
+.btn-ghost{background:none;border:1.5px solid var(--border);color:var(--muted);font-size:.82rem;font-family:'DM Sans',sans-serif;margin-top:10px;}
+.btn-ghost:hover{border-color:var(--muted);color:var(--text);transform:none;}
+.btn-wa{background:linear-gradient(135deg,#25d366,#1aad52);color:#fff;}
+.btn-wa:hover{box-shadow:0 10px 32px rgba(37,211,102,.35);}
+.btn-call{background:var(--surface2);border:1.5px solid var(--border);color:var(--text);}
+.btn-call:hover{border-color:var(--teal);color:var(--teal);transform:none;}
+
+.ring-wrap{width:148px;height:148px;margin:0 auto 16px;position:relative;display:flex;align-items:center;justify-content:center;}
+.ring-wrap svg{position:absolute;inset:0;transform:rotate(-90deg);}
+.rg-bg{fill:none;stroke:var(--surface2);stroke-width:9;}
+.rg-fill{fill:none;stroke:url(#rg);stroke-width:9;stroke-linecap:round;stroke-dasharray:439.82;stroke-dashoffset:439.82;transition:stroke-dashoffset 1.4s cubic-bezier(.4,0,.2,1) .3s;}
+.ring-inner{text-align:center;}
+.ring-amt{font-family:'Syne',sans-serif;font-size:1.45rem;font-weight:800;background:linear-gradient(135deg,var(--gold2),var(--teal));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.ring-sub-lbl{font-size:.64rem;color:var(--muted);margin-top:1px;}
+.res-title{font-family:'Syne',sans-serif;font-size:1.28rem;font-weight:800;text-align:center;margin-bottom:7px;}
+.res-desc{font-size:.82rem;color:var(--muted);line-height:1.6;text-align:center;margin-bottom:18px;}
+.offer-cards{display:grid;gap:8px;margin-bottom:16px;}
+.oc{background:var(--surface2);border:1px solid var(--border);border-radius:13px;padding:13px 15px;display:flex;align-items:center;justify-content:space-between;}
+.oc.best{border-color:var(--gold);background:rgba(240,180,41,.05);}
+.oc-left{display:flex;align-items:center;gap:10px;}
+.oc-icon{font-size:1.3rem;}
+.oc-name{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;}
+.oc-desc{font-size:.7rem;color:var(--muted);}
+.oc-price{text-align:right;}
+.oc-mo{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--gold);}
+.oc-sv{font-size:.68rem;color:var(--teal);}
+.trust-row{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;padding:14px 0 0;border-top:1px solid var(--border);}
+.tr-item{display:flex;align-items:center;gap:4px;font-size:.68rem;color:var(--muted);}
+
+/* CTA BAND */
+.cta-band{position:relative;z-index:1;max-width:720px;margin:0 auto 56px;padding:0 20px;}
+.cta-band-inner{background:linear-gradient(135deg,rgba(0,212,170,.06),rgba(240,180,41,.04));border:1px solid rgba(0,212,170,.14);border-radius:20px;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.cb-left h3{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;margin-bottom:4px;}
+.cb-left p{font-size:.78rem;color:var(--muted);}
+.cb-right{display:flex;gap:9px;flex-wrap:wrap;}
+.cb-btn{display:flex;align-items:center;gap:7px;padding:11px 17px;border-radius:10px;border:none;cursor:pointer;font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;transition:all .2s;}
+.cb-btn:hover{transform:translateY(-2px);}
+.cb-wa{background:linear-gradient(135deg,#25d366,#1aad52);color:#fff;}
+.cb-wa:hover{box-shadow:0 8px 22px rgba(37,211,102,.3);}
+.cb-phone{background:var(--surface2);border:1.5px solid var(--border);color:var(--text);}
+.cb-phone:hover{border-color:var(--teal);color:var(--teal);}
+.cb-email{background:var(--surface2);border:1.5px solid var(--border);color:var(--text);}
+.cb-email:hover{border-color:var(--gold);color:var(--gold);}
+
+footer{position:relative;z-index:1;text-align:center;padding:20px 20px 34px;font-size:.68rem;color:var(--muted);border-top:1px solid var(--border);}
+footer a{color:var(--muted);text-decoration:none;}
+footer a:hover{color:var(--teal);}
+
+.notif{position:fixed;bottom:22px;right:18px;z-index:999;background:var(--surface);border:1px solid rgba(0,212,170,.2);border-radius:12px;padding:11px 15px;font-size:.78rem;display:flex;align-items:center;gap:8px;box-shadow:0 8px 28px rgba(0,0,0,.4);transform:translateY(80px);opacity:0;transition:all .4s cubic-bezier(.34,1.56,.64,1);max-width:252px;}
+.notif.show{transform:translateY(0);opacity:1;}
+.n-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);flex-shrink:0;}
+
+@media(max-width:540px){
+  header{padding:13px 18px;}
+  .hdr-tel{display:none;}
+  .hero{padding:88px 18px 32px;}
+  .sp{padding:22px 20px;}
+  .slide-promo{padding:28px 22px;}
+  .funnel-body{padding:18px;}
+  .funnel-hdr{padding:18px 18px 0;}
+  .op-grid{grid-template-columns:repeat(2,1fr);}
+  .calc-visual{grid-template-columns:1fr;}
+  .cta-band-inner{flex-direction:column;}
+  .cb-right{width:100%;}
+  .cb-btn{flex:1;justify-content:center;}
+  .before-after{gap:6px;}
+  .ba-val{font-size:1.2rem;}
+}
+</style>
+</head>
+<body>
+<div class="bg-mesh"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">MY<em>POUPAR</em><sup>+</sup></div>
+  <div class="hdr-right">
+    <div class="hdr-tel">📞 <a href="tel:+351968677320">968 677 320</a></div>
+    <div class="badge-ai">Powered by <b>LUMIN IA</b></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-pill"><div class="pulse"></div>Comparação em tempo real · Portugal</div>
+  <h1>Para de pagar a mais<br>em <span class="hl">Energia &amp; Telecom</span></h1>
+  <p>Em 3 minutos descobres exatamente quanto podes poupar — sem compromisso, sem burocracia.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="val">€38</div><div class="lbl">poupança média/mês</div></div>
+    <div class="stat"><div class="val">12.400+</div><div class="lbl">clientes ativos</div></div>
+    <div class="stat"><div class="val">94%</div><div class="lbl">recomendam</div></div>
+    <div class="stat"><div class="val">3 min</div><div class="lbl">para ver resultados</div></div>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     SLIDESHOW 1: PORQUÊ TROCAR
+════════════════════════ -->
+<section class="slideshow-section">
+  <div class="section-eyebrow">Porque MyPoupar?</div>
+  <div class="section-title">O que estás a perder por não trocar 👇</div>
+  <div class="slideshow" id="ss1">
+    <div class="slides-track" id="ss1-track">
+
+      <div class="slide"><div class="sp">
+        <div class="slide-tag">📡 Caso Real · Telecom</div>
+        <h3>MEO → Digi: €38/mês poupados</h3>
+        <p class="sdesc">Cliente do Porto com Internet + TV + Telemóvel pagava €79/mês. Após análise MyPoupar mudou para Digi em 48h sem corte de serviço.</p>
+        <div class="before-after">
+          <div class="ba-box"><div class="ba-lbl">Antes (MEO)</div><div class="ba-val bad">€79/mês</div></div>
+          <div class="ba-arrow">→</div>
+          <div class="ba-box after"><div class="ba-lbl">Depois (Digi)</div><div class="ba-val good">€41/mês</div></div>
+        </div>
+      </div></div>
+
+      <div class="slide"><div class="sp">
+        <div class="slide-tag">⚡ Caso Real · Energia</div>
+        <h3>EDP → Endesa: €22/mês poupados</h3>
+        <p class="sdesc">Cliente de Lisboa no mercado regulado EDP. Após análise MyPoupar migrou para Endesa Verde em 3 dias — mesma eletricidade, fatura bem diferente.</p>
+        <div class="before-after">
+          <div class="ba-box"><div class="ba-lbl">Antes (EDP)</div><div class="ba-val bad">€95/mês</div></div>
+          <div class="ba-arrow">→</div>
+          <div class="ba-box after"><div class="ba-lbl">Depois (Endesa)</div><div class="ba-val good">€73/mês</div></div>
+        </div>
+      </div></div>
+
+      <div class="slide"><div class="sp">
+        <div class="slide-tag">🔥 Caso Real · Energia + Telecom</div>
+        <h3>Pacote completo: €65/mês poupados</h3>
+        <p class="sdesc">Família de Braga com 4 pessoas — Internet, TV, 2 telemóveis, luz e gás. MyPoupar renegociou todos os contratos de uma vez.</p>
+        <div class="before-after">
+          <div class="ba-box"><div class="ba-lbl">Antes</div><div class="ba-val bad">€198/mês</div></div>
+          <div class="ba-arrow">→</div>
+          <div class="ba-box after"><div class="ba-lbl">Depois</div><div class="ba-val good">€133/mês</div></div>
+        </div>
+      </div></div>
+
+      <div class="slide"><div class="sp">
+        <h3>Quanto estás a desperdiçar por ano? 💸</h3>
+        <p class="sdesc" style="margin-bottom:14px">Estimativa para quem não troca há mais de 2 anos:</p>
+        <div class="calc-visual">
+          <div class="calc-col">
+            <div class="calc-col-lbl">💸 A pagar a mais</div>
+            <div class="calc-item"><span class="ci-name">Internet</span><span class="ci-val red">+€18/mês</span></div>
+            <div class="calc-item"><span class="ci-name">Telemóvel</span><span class="ci-val red">+€12/mês</span></div>
+            <div class="calc-item"><span class="ci-name">Eletricidade</span><span class="ci-val red">+€15/mês</span></div>
+            <div class="calc-item"><span class="ci-name">Gás</span><span class="ci-val red">+€8/mês</span></div>
+          </div>
+          <div class="calc-col">
+            <div class="calc-col-lbl">✅ Com MyPoupar</div>
+            <div class="calc-item"><span class="ci-name">Internet</span><span class="ci-val green">Otimizado</span></div>
+            <div class="calc-item"><span class="ci-name">Telemóvel</span><span class="ci-val green">Otimizado</span></div>
+            <div class="calc-item"><span class="ci-name">Eletricidade</span><span class="ci-val green">Otimizado</span></div>
+            <div class="calc-item"><span class="ci-name">Gás</span><span class="ci-val green">Otimizado</span></div>
+          </div>
+        </div>
+        <div class="calc-total">Total desperdiçado por ano sem trocar: <b>€636</b></div>
+      </div></div>
+
+    </div>
+    <div class="ss-progress" id="ss1-prog"></div>
+  </div>
+  <div class="ss-controls">
+    <button class="ss-btn" onclick="ssNav('ss1',-1)">←</button>
+    <div class="ss-dots" id="ss1-dots"></div>
+    <button class="ss-btn" onclick="ssNav('ss1',1)">→</button>
+  </div>
+</section>
+
+<!-- ════════════════════════
+     FUNNEL FORMULÁRIO
+════════════════════════ -->
+<div class="funnel-wrap" id="funnel-anchor">
+  <div class="funnel-card">
+    <div class="progress-track"><div class="progress-fill" id="pfill" style="width:14%"></div></div>
+    <div class="funnel-hdr">
+      <div class="step-lbl" id="slbl">Passo 1 de 7</div>
+      <div class="step-pct"><b id="spct">14</b>% concluído</div>
+    </div>
+    <div class="funnel-body">
+
+      <div class="fstep active" data-step="1">
+        <h2>O que pretendes poupar? 💡</h2>
+        <div class="sub">Escolhe a categoria e encontramos as melhores ofertas para ti.</div>
+        <div class="choices c2">
+          <div class="choice" onclick="selCat(this,'energy')">
+            <div class="c-icon">⚡</div><div class="c-title">Energia</div>
+            <div class="c-sub">Luz, Gás, Aquecimento</div>
+            <span class="c-badge">até €25/mês</span>
+          </div>
+          <div class="choice" onclick="selCat(this,'telco')">
+            <div class="c-icon">📡</div><div class="c-title">Telecom</div>
+            <div class="c-sub">Internet, Telemóvel, Cabo</div>
+            <span class="c-badge">até €40/mês</span>
+          </div>
+          <div class="choice" onclick="selCat(this,'both')" style="grid-column:span 2">
+            <div class="c-icon">🔥</div><div class="c-title">Energia + Telecom</div>
+            <div class="c-sub">Poupa nos dois ao mesmo tempo</div>
+            <span class="c-badge" style="background:rgba(0,212,170,.12);color:var(--teal)">MAIS POPULAR · até €65/mês</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="fstep" data-step="2">
+        <h2>Qual é o teu operador atual? 📋</h2>
+        <div class="sub">Ajuda-nos a identificar onde estás a pagar a mais.</div>
+        <div class="choices" id="op-list"></div>
+        <button class="btn btn-ghost" onclick="goBack()">← Voltar</button>
+      </div>
+
+      <div class="fstep" data-step="3">
+        <h2>Quanto pagas por mês? 💳</h2>
+        <div class="sub">Valor aproximado na tua fatura (soma de todos os serviços).</div>
+        <div class="range-wrap">
+          <div class="range-big" id="rdisplay">€65 / mês</div>
+          <div class="range-lbl-row"><span>€20</span><span>€200+</span></div>
+          <input type="range" id="brange" min="20" max="200" value="65" oninput="upRange(this.value)">
+        </div>
+        <button class="btn btn-teal" onclick="nextStep()">Continuar →</button>
+        <button class="btn btn-ghost" onclick="goBack()">← Voltar</button>
+      </div>
+
+      <div class="fstep" data-step="4">
+        <h2>O que inclui o teu plano? 📦</h2>
+        <div class="sub">Seleciona todos os serviços que tens atualmente.</div>
+        <div class="check-list">
+          <div class="check-item" onclick="toggleChk(this)" data-v="internet">
+            <div class="chk-box"><svg width="11" height="9" viewBox="0 0 11 9"><polyline points="1,4.5 3.8,8 10,1" fill="none" stroke="#070b12" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+            <div><div class="chk-text">🌐 Internet em Casa</div><div class="chk-sub">Fibra ou cabo</div></div>
+          </div>
+          <div class="check-item" onclick="toggleChk(this)" data-v="tv">
+            <div class="chk-box"><svg width="11" height="9" viewBox="0 0 11 9"><polyline points="1,4.5 3.8,8 10,1" fill="none" stroke="#070b12" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+            <div><div class="chk-text">📺 Televisão / Cabo</div><div class="chk-sub">Canais + gravação</div></div>
+          </div>
+          <div class="check-item" onclick="toggleChk(this)" data-v="mobile">
+            <div class="chk-box"><svg width="11" height="9" viewBox="0 0 11 9"><polyline points="1,4.5 3.8,8 10,1" fill="none" stroke="#070b12" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+            <div><div class="chk-text">📱 Telemóvel (linha móvel)</div><div class="chk-sub">Minutos + dados</div></div>
+          </div>
+          <div class="check-item" onclick="toggleChk(this)" data-v="electric">
+            <div class="chk-box"><svg width="11" height="9" viewBox="0 0 11 9"><polyline points="1,4.5 3.8,8 10,1" fill="none" stroke="#070b12" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+            <div><div class="chk-text">⚡ Eletricidade</div><div class="chk-sub">Contrato de luz</div></div>
+          </div>
+          <div class="check-item" onclick="toggleChk(this)" data-v="gas">
+            <div class="chk-box"><svg width="11" height="9" viewBox="0 0 11 9"><polyline points="1,4.5 3.8,8 10,1" fill="none" stroke="#070b12" stroke-width="2.2" stroke-linecap="round"/></svg></div>
+            <div><div class="chk-text">🔥 Gás Natural</div><div class="chk-sub">Contrato de gás</div></div>
+          </div>
+        </div>
+        <button class="btn btn-teal" onclick="nextStep()">Continuar →</button>
+        <button class="btn btn-ghost" onclick="goBack()">← Voltar</button>
+      </div>
+
+      <div class="fstep" data-step="5">
+        <h2>Qual é o teu distrito? 📍</h2>
+        <div class="sub">A disponibilidade de operadoras varia por zona.</div>
+        <div class="ig">
+          <label>Distrito</label>
+          <select id="dist">
+            <option value="">Seleciona o teu distrito</option>
+            <option>Aveiro</option><option>Beja</option><option>Braga</option><option>Bragança</option>
+            <option>Castelo Branco</option><option>Coimbra</option><option>Évora</option><option>Faro</option>
+            <option>Guarda</option><option>Leiria</option><option>Lisboa</option><option>Portalegre</option>
+            <option>Porto</option><option>Santarém</option><option>Setúbal</option>
+            <option>Viana do Castelo</option><option>Vila Real</option><option>Viseu</option>
+            <option>Madeira</option><option>Açores</option>
+          </select>
+        </div>
+        <div class="ig">
+          <label>Situação de Habitação</label>
+          <select id="housing">
+            <option value="">Seleciona</option>
+            <option>Casa própria</option><option>Arrendamento</option><option>Com família</option>
+          </select>
+        </div>
+        <button class="btn btn-teal" onclick="stepDist()">Calcular Poupança →</button>
+        <button class="btn btn-ghost" onclick="goBack()">← Voltar</button>
+      </div>
+
+      <div class="fstep" data-step="6">
+        <h2>Para onde enviamos a proposta? 📲</h2>
+        <div class="sub">Recebes os resultados por WhatsApp. Gratuito, sem compromisso.</div>
+        <div class="ig"><label>Nome</label><input type="text" id="lname" placeholder="O teu primeiro nome"></div>
+        <div class="ig"><label>Telemóvel (WhatsApp)</label><input type="tel" id="lphone" placeholder="+351 9XX XXX XXX"></div>
+        <div class="ig"><label>Email (opcional)</label><input type="email" id="lemail" placeholder="email@exemplo.com"></div>
+        <div style="font-size:.68rem;color:var(--muted);margin-bottom:4px;">🔒 Dados protegidos pelo RGPD. Nunca partilhados com terceiros.</div>
+        <button class="btn btn-gold" onclick="submitLead()">Ver a Minha Poupança Gratuita →</button>
+        <button class="btn btn-ghost" onclick="goBack()">← Voltar</button>
+      </div>
+
+      <div class="fstep" data-step="7">
+        <div style="text-align:center">
+          <div class="ring-wrap">
+            <svg viewBox="0 0 150 150" width="148" height="148">
+              <defs>
+                <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00d4aa"/>
+                  <stop offset="100%" stop-color="#f0b429"/>
+                </linearGradient>
+              </defs>
+              <circle class="rg-bg" cx="75" cy="75" r="70"/>
+              <circle class="rg-fill" id="rfill" cx="75" cy="75" r="70"/>
+            </svg>
+            <div class="ring-inner">
+              <div class="ring-amt" id="ramount">€0</div>
+              <div class="ring-sub-lbl">por mês</div>
+            </div>
+          </div>
+          <div class="res-title" id="rtitle"></div>
+          <div class="res-desc" id="rdesc"></div>
+        </div>
+        <div class="offer-cards" id="ocards"></div>
+        <button class="btn btn-wa" onclick="openWA()">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Falar com Especialista — WhatsApp
+        </button>
+        <button class="btn btn-call" onclick="callNow()" style="margin-top:8px">
+          📞 Ligar Agora — 968 677 320
+        </button>
+        <div class="trust-row">
+          <div class="tr-item">✅ RGPD</div>
+          <div class="tr-item">🔒 Encriptado</div>
+          <div class="tr-item">🎁 Gratuito</div>
+          <div class="tr-item">⚡ Sem Compromisso</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════
+     SLIDESHOW 2: COMO FUNCIONA / OPERADORES / TESTEMUNHOS / URGÊNCIA
+════════════════════════ -->
+<section class="slideshow-section">
+  <div class="section-eyebrow">Tudo o que precisas de saber</div>
+  <div class="section-title">Simples, rápido, sem riscos ✅</div>
+  <div class="slideshow" id="ss2">
+    <div class="slides-track" id="ss2-track">
+
+      <div class="slide"><div class="sp">
+        <h3>3 passos para poupar 🚀</h3>
+        <p class="sdesc" style="margin-bottom:16px">Sem documentos, sem visitas, sem burocracia.</p>
+        <div class="steps-flow">
+          <div class="flow-step">
+            <div class="flow-num">1</div>
+            <div class="flow-text">
+              <div class="ft">Preenches o formulário (3 min)</div>
+              <div class="fs">Dizes-nos o que tens e quanto pagas. Tudo online, tudo simples.</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">2</div>
+            <div class="flow-text">
+              <div class="ft">LUMIN IA analisa, especialista contacta</div>
+              <div class="fs">Comparamos todas as ofertas da tua zona e enviamos proposta por WhatsApp.</div>
+            </div>
+          </div>
+          <div class="flow-step">
+            <div class="flow-num">3</div>
+            <div class="flow-text">
+              <div class="ft">Tu aceitas — nós tratamos de tudo</div>
+              <div class="fs">Sem corte de serviço. Portabilidade, contratos e ativação por nossa conta.</div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+
+      <div class="slide"><div class="sp">
+        <h3>Comparamos todas as operadoras 🔍</h3>
+        <p class="sdesc" style="margin-bottom:16px">Independentes — sem preferências comerciais. Só o melhor para ti.</p>
+        <div class="op-grid">
+          <div class="op-card"><div class="op-em">📡</div><div class="op-name">MEO</div><div class="op-save">Fibra até 2Gb</div></div>
+          <div class="op-card"><div class="op-em">🔵</div><div class="op-name">NOS</div><div class="op-save">TV 4K + 5G</div></div>
+          <div class="op-card"><div class="op-em">🔴</div><div class="op-name">Vodafone</div><div class="op-save">5G nacional</div></div>
+          <div class="op-card"><div class="op-em">🟢</div><div class="op-name">Digi</div><div class="op-save">desde €20/mês</div></div>
+          <div class="op-card"><div class="op-em">⚡</div><div class="op-name">EDP</div><div class="op-save">Tarifa dinâmica</div></div>
+          <div class="op-card"><div class="op-em">🌱</div><div class="op-name">Endesa</div><div class="op-save">100% renovável</div></div>
+          <div class="op-card"><div class="op-em">🔆</div><div class="op-name">Galp</div><div class="op-save">Energia + Gás</div></div>
+          <div class="op-card"><div class="op-em">🛢️</div><div class="op-name">Repsol</div><div class="op-save">Pacote dual</div></div>
+          <div class="op-card"><div class="op-em">⚙️</div><div class="op-name">Iberdrola</div><div class="op-save">Mercado livre</div></div>
+        </div>
+      </div></div>
+
+      <div class="slide"><div class="sp">
+        <h3>O que dizem os nossos clientes ⭐</h3>
+        <div class="testi-inner">
+          <div class="testi-slides" id="tsi-track">
+            <div class="testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote">"Não acreditei que era possível. Em 48 horas tinha Internet mais rápida e pagava €38 a menos. Recomendo a toda a gente!"</div>
+              <div class="testi-meta">
+                <div><div class="tn">João Ferreira</div><div class="tl">Porto · Telecom</div></div>
+                <div class="ts">€38/mês poupados</div>
+              </div>
+            </div>
+            <div class="testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote">"Trataram de tudo sem eu me preocupar. A fatura da luz baixou €22 logo no primeiro mês. Serviço excecional!"</div>
+              <div class="testi-meta">
+                <div><div class="tn">Mariana Costa</div><div class="tl">Lisboa · Energia</div></div>
+                <div class="ts">€22/mês poupados</div>
+              </div>
+            </div>
+            <div class="testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote">"Mudei energia E telecom ao mesmo tempo. €65 de diferença na fatura. Já recomendei à minha família toda!"</div>
+              <div class="testi-meta">
+                <div><div class="tn">Rui Mendes</div><div class="tl">Braga · Energia + Telecom</div></div>
+                <div class="ts">€65/mês poupados</div>
+              </div>
+            </div>
+            <div class="testi-slide">
+              <div class="testi-stars">★★★★★</div>
+              <div class="testi-quote">"Estava há 6 anos com a mesma operadora. Em 3 minutos de questionário descobri que pagava €40 a mais. Obrigada MyPoupar!"</div>
+              <div class="testi-meta">
+                <div><div class="tn">Sofia Lopes</div><div class="tl">Setúbal · Telecom</div></div>
+                <div class="ts">€40/mês poupados</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:14px;">
+          <button class="ss-btn" onclick="tsiNav(-1)">←</button>
+          <div class="ss-dots" id="tsi-dots"></div>
+          <button class="ss-btn" onclick="tsiNav(1)">→</button>
+        </div>
+      </div></div>
+
+      <div class="slide">
+        <div class="slide-promo">
+          <div class="promo-badge">🔥 Oferta Limitada</div>
+          <h3 class="promo-h">Especialistas disponíveis agora</h3>
+          <div class="promo-sub">Faz a simulação e recebe proposta personalizada por WhatsApp ainda hoje. Sem espera, sem filas.</div>
+          <div class="promo-counter">
+            <div class="count-box"><div class="count-num" id="cc-h">08</div><div class="count-lbl">horas</div></div>
+            <div class="count-box"><div class="count-num" id="cc-m">47</div><div class="count-lbl">min</div></div>
+            <div class="count-box"><div class="count-num" id="cc-s">23</div><div class="count-lbl">seg</div></div>
+          </div>
+          <button class="btn btn-gold" onclick="scrollToFunnel()" style="max-width:290px;margin:0 auto;color:#070b12;">
+            Simular Agora — Gratuito →
+          </button>
+        </div>
+      </div>
+
+    </div>
+    <div class="ss-progress" id="ss2-prog"></div>
+  </div>
+  <div class="ss-controls">
+    <button class="ss-btn" onclick="ssNav('ss2',-1)">←</button>
+    <div class="ss-dots" id="ss2-dots"></div>
+    <button class="ss-btn" onclick="ssNav('ss2',1)">→</button>
+  </div>
+</section>
+
+<!-- CONTACT CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-inner">
+    <div class="cb-left">
+      <h3>Preferes falar diretamente? 👋</h3>
+      <p>Equipa disponível Seg–Sáb, 9h–20h · Resposta rápida garantida</p>
+    </div>
+    <div class="cb-right">
+      <button class="cb-btn cb-wa" onclick="openWAdirect()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        WhatsApp
+      </button>
+      <button class="cb-btn cb-phone" onclick="callNow()">📞 968 677 320</button>
+      <button class="cb-btn cb-email" onclick="sendEmail()">✉️ Email</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div style="margin-bottom:7px;">
+    <a href="https://mypoupar.com">mypoupar.com</a> ·
+    <a href="https://mypoupar.com/sobre">Sobre</a> ·
+    <a href="https://mypoupar.com/contacto">Contacto</a> ·
+    <a href="mailto:parcerias@mypoupar.com">parcerias@mypoupar.com</a>
+  </div>
+  © 2025 MyPoupar · Powered by LUMIN IA · Todos os direitos reservados · RGPD
+</footer>
+
+<div class="notif" id="notif"><div class="n-dot"></div><span id="ntxt">João poupou €38/mês no Porto</span></div>
+
+<script>
+// ══════════════════════════════
+// SLIDESHOW ENGINE
+// ══════════════════════════════
+const SS = {};
+function ssInit(id, total, autoMs) {
+  SS[id] = { cur: 0, total, autoMs, timer: null };
+  const c = document.getElementById(id+'-dots');
+  if(c){ c.innerHTML=''; for(let i=0;i<total;i++){const d=document.createElement('div');d.className='ss-dot'+(i===0?' active':'');d.onclick=()=>ssGo(id,i);c.appendChild(d);} }
+  ssAutoPlay(id);
+}
+function ssGo(id, idx) {
+  const s=SS[id]; if(!s)return;
+  s.cur=(idx+s.total)%s.total;
+  const tr=document.getElementById(id+'-track');
+  if(tr) tr.style.transform=`translateX(-${s.cur*100}%)`;
+  document.querySelectorAll(`#${id}-dots .ss-dot`).forEach((d,i)=>d.classList.toggle('active',i===s.cur));
+  const pg=document.getElementById(id+'-prog');
+  if(pg){pg.style.transition='none';pg.style.width='0%';}
+}
+function ssNav(id,dir){clearTimeout(SS[id].timer);ssGo(id,SS[id].cur+dir);ssAutoPlay(id);}
+function ssAutoPlay(id){
+  const s=SS[id]; if(!s)return;
+  clearTimeout(s.timer);
+  const pg=document.getElementById(id+'-prog');
+  if(pg){requestAnimationFrame(()=>requestAnimationFrame(()=>{pg.style.transition=`width ${s.autoMs}ms linear`;pg.style.width='100%';}));}
+  s.timer=setTimeout(()=>{ssGo(id,s.cur+1);ssAutoPlay(id);},s.autoMs);
+}
+
+// Testimonials inner
+let tsiCur=0, tsiTotal=4;
+function tsiNav(dir){
+  tsiCur=(tsiCur+dir+tsiTotal)%tsiTotal;
+  document.getElementById('tsi-track').style.transform=`translateX(-${tsiCur*100}%)`;
+  document.querySelectorAll('#tsi-dots .ss-dot').forEach((d,i)=>d.classList.toggle('active',i===tsiCur));
+}
+function buildTsiDots(){
+  const c=document.getElementById('tsi-dots');if(!c)return;c.innerHTML='';
+  for(let i=0;i<tsiTotal;i++){const d=document.createElement('div');d.className='ss-dot'+(i===0?' active':'');d.onclick=()=>{tsiCur=i;document.getElementById('tsi-track').style.transform=`translateX(-${i*100}%)`;document.querySelectorAll('#tsi-dots .ss-dot').forEach((d2,j)=>d2.classList.toggle('active',j===i));};c.appendChild(d);}
+}
+setInterval(()=>tsiNav(1),4500);
+
+// Init
+document.addEventListener('DOMContentLoaded',()=>{
+  ssInit('ss1',4,6000);
+  ssInit('ss2',4,7000);
+  buildTsiDots();
+  startCountdown();
+});
+
+// ── COUNTDOWN ──
+function startCountdown(){
+  let h=8,m=47,s=23;
+  setInterval(()=>{
+    s--;if(s<0){s=59;m--;}if(m<0){m=59;h--;}if(h<0){h=0;m=0;s=0;}
+    const fmt=n=>String(n).padStart(2,'0');
+    const ch=document.getElementById('cc-h'),cm=document.getElementById('cc-m'),cs=document.getElementById('cc-s');
+    if(ch)ch.textContent=fmt(h);if(cm)cm.textContent=fmt(m);if(cs)cs.textContent=fmt(s);
+  },1000);
+}
+
+// ══════════════════════════════
+// FUNNEL
+// ══════════════════════════════
+const ST={step:1,total:7,cat:null,op:null,bill:65,services:[],dist:'',housing:'',name:'',phone:'',email:''};
+const pMap={1:14,2:28,3:42,4:57,5:71,6:85,7:100};
+function updP(){const p=pMap[ST.step];document.getElementById('pfill').style.width=p+'%';document.getElementById('slbl').textContent=`Passo ${ST.step} de ${ST.total}`;document.getElementById('spct').textContent=p;}
+function showStep(n){document.querySelectorAll('.fstep').forEach(s=>s.classList.remove('active'));document.querySelector(`[data-step="${n}"]`).classList.add('active');ST.step=n;updP();document.getElementById('funnel-anchor').scrollIntoView({behavior:'smooth',block:'nearest'});}
+function nextStep(){showStep(ST.step+1);}
+function goBack(){if(ST.step>1)showStep(ST.step-1);}
+
+function selCat(el,cat){
+  document.querySelectorAll('.choice').forEach(c=>c.classList.remove('sel-energy','sel-telco','sel'));
+  el.classList.add(cat==='energy'?'sel-energy':cat==='telco'?'sel-telco':'sel');
+  ST.cat=cat; buildOps(cat); setTimeout(()=>showStep(2),260);
+}
+const OPS={
+  energy:[{i:'⚡',n:'EDP',s:'Operadora principal'},{i:'🔆',n:'Galp',s:'Energia + gás'},{i:'🌱',n:'Endesa',s:'100% renovável'},{i:'🛢️',n:'Repsol',s:'Gás + eletricidade'},{i:'⚙️',n:'Iberdrola',s:'Mercado liberalizado'},{i:'❓',n:'Outra / Regulado',s:'Não sei'}],
+  telco:[{i:'📡',n:'MEO',s:'Altice Portugal'},{i:'🔵',n:'NOS',s:'Internet+TV+Móvel'},{i:'🔴',n:'Vodafone',s:'Fibra+5G'},{i:'🟢',n:'Digi',s:'Low cost'},{i:'📶',n:'Nowo',s:'Cable+Internet'},{i:'❓',n:'Outro',s:'Operador regional'}],
+  both:[{i:'⚡',n:'EDP',s:'Energia'},{i:'📡',n:'MEO',s:'Telecom'},{i:'🔵',n:'NOS',s:'Telecom'},{i:'🔴',n:'Vodafone',s:'Telecom'},{i:'🔆',n:'Galp',s:'Energia'},{i:'❓',n:'Vários',s:'Diferentes operadoras'}]
+};
+function buildOps(cat){
+  const list=OPS[cat]||OPS.telco,c=document.getElementById('op-list');c.innerHTML='';
+  list.forEach(op=>{const d=document.createElement('div');d.className='choice';d.style.cssText='flex-direction:row;align-items:center;gap:11px;';d.innerHTML=`<div style="font-size:1.25rem">${op.i}</div><div><div class="c-title">${op.n}</div><div class="c-sub">${op.s}</div></div>`;d.onclick=()=>{document.querySelectorAll('#op-list .choice').forEach(c2=>c2.classList.remove('sel'));d.classList.add('sel');ST.op=op.n;setTimeout(nextStep,230);};c.appendChild(d);});
+}
+function upRange(v){ST.bill=parseInt(v);document.getElementById('rdisplay').textContent=`€${v} / mês`;}
+function toggleChk(el){el.classList.toggle('chk');const v=el.dataset.v;if(el.classList.contains('chk')){if(!ST.services.includes(v))ST.services.push(v);}else ST.services=ST.services.filter(s=>s!==v);}
+function stepDist(){const d=document.getElementById('dist').value,h=document.getElementById('housing').value;if(!d||!h){alert('Por favor preenche todos os campos.');return;}ST.dist=d;ST.housing=h;nextStep();}
+function submitLead(){const n=document.getElementById('lname').value.trim(),p=document.getElementById('lphone').value.trim();if(!n||!p){alert('Por favor indica o teu nome e telemóvel.');return;}ST.name=n;ST.phone=p;ST.email=document.getElementById('lemail').value.trim();showResults();showStep(7);}
+
+function showResults(){
+  let pct=ST.cat==='both'?.38:ST.cat==='energy'?.22:.28;if(ST.services.length>3)pct+=.05;
+  const sav=Math.round(ST.bill*pct),annual=sav*12;
+  document.getElementById('ramount').textContent=`€${sav}`;
+  document.getElementById('rtitle').textContent=`${ST.name}, podes poupar €${sav}/mês! 🎉`;
+  document.getElementById('rdesc').textContent=`Com base na tua fatura atual (€${ST.bill}/mês em ${ST.op||'operadora atual'}) e a tua zona (${ST.dist}), identificámos ofertas que te podem poupar €${annual} por ano. O nosso especialista contacta-te hoje.`;
+  setTimeout(()=>{const f=document.getElementById('rfill');f.style.strokeDashoffset=439.82*(1-Math.min(sav/80,1));},200);
+  const c=document.getElementById('ocards');c.innerHTML='';
+  buildOffers(ST.cat,sav).forEach((o,i)=>{const d=document.createElement('div');d.className='oc'+(i===0?' best':'');d.innerHTML=`<div class="oc-left"><div class="oc-icon">${o.i}</div><div><div class="oc-name">${o.n}${i===0?'<span style="font-size:.6rem;background:rgba(240,180,41,.15);color:var(--gold);padding:1px 6px;border-radius:8px;margin-left:5px">MELHOR</span>':''}</div><div class="oc-desc">${o.d}</div></div></div><div class="oc-price"><div class="oc-mo">€${o.p}/mês</div><div class="oc-sv">poupa €${o.s}/mês</div></div>`;c.appendChild(d);});
+}
+function buildOffers(cat,sav){
+  const b=ST.bill;
+  const T=[{i:'🟢',n:'Digi',d:'Fibra 1Gb+TV+Móvel',p:Math.max(19,b-Math.round(sav*1.1)),s:Math.round(sav*1.1)},{i:'📡',n:'MEO Smart',d:'Fibra+4 linhas',p:Math.max(26,b-Math.round(sav*.8)),s:Math.round(sav*.8)},{i:'🔵',n:'NOS Família',d:'Fibra+TV 4K',p:Math.max(29,b-Math.round(sav*.6)),s:Math.round(sav*.6)}];
+  const E=[{i:'🌱',n:'Endesa Verde',d:'100% renovável',p:Math.max(17,b-Math.round(sav*1.1)),s:Math.round(sav*1.1)},{i:'⚡',n:'EDP Bi-horária',d:'Tarifa inteligente',p:Math.max(21,b-Math.round(sav*.9)),s:Math.round(sav*.9)},{i:'🛢️',n:'Repsol Dual',d:'Gás+Eletricidade',p:Math.max(24,b-Math.round(sav*.7)),s:Math.round(sav*.7)}];
+  if(cat==='energy')return E;
+  if(cat==='both')return [{i:'🏆',n:'Pacote MyPoupar',d:'Energia+Fibra+TV+Móvel',p:Math.max(38,b-Math.round(sav*1.25)),s:Math.round(sav*1.25)},...T.slice(0,1),...E.slice(0,1)];
+  return T;
+}
+
+// ── CTAs ──
+function openWA(){
+  const sav=Math.round(ST.bill*(ST.cat==='both'?.38:ST.cat==='energy'?.22:.28));
+  const cat=ST.cat==='energy'?'energia':ST.cat==='telco'?'telecom':'energia e telecom';
+  const msg=`Olá! Sou ${ST.name||'um cliente'} e fiz a simulação no MyPoupar. Quero poupar €${sav}/mês em ${cat}${ST.dist?` (${ST.dist})`:''}. Podem ajudar-me? 📱`;
+  window.open(`https://wa.me/351968677320?text=${encodeURIComponent(msg)}`,'_blank');
+}
+function openWAdirect(){window.open(`https://wa.me/351968677320?text=${encodeURIComponent('Olá! Vi o MyPoupar e gostaria de saber como poupar em energia e telecom. Podem ajudar-me?')}`,'_blank');}
+function callNow(){window.location.href='tel:+351968677320';}
+function sendEmail(){window.location.href='mailto:parcerias@mypoupar.com?subject=Pedido%20de%20Informa%C3%A7%C3%A3o%20MyPoupar&body=Ol%C3%A1%2C%20gostaria%20de%20poupar%20em%20energia%20e%20telecom.';}
+function scrollToFunnel(){document.getElementById('funnel-anchor').scrollIntoView({behavior:'smooth'});}
+
+// ── Social Proof ──
+const NOTIFS=['João acabou de poupar €38/mês no Porto','Ana guardou €456 este ano com MyPoupar','Nova simulação concluída em Lisboa','Rui trocou de operadora — €45/mês','Maria de Braga poupou €31 na fatura de luz','Paulo em Setúbal ativou proposta telecom','Catarina trocou EDP→Endesa: €22/mês','Família do Porto: €65/mês em energia+telecom','Carlos do Algarve poupou €33/mês'];
+let nIdx=0;
+function showNotif(){const el=document.getElementById('notif'),t=document.getElementById('ntxt');t.textContent=NOTIFS[nIdx%NOTIFS.length];nIdx++;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),3800);}
+setTimeout(()=>{showNotif();setInterval(showNotif,8000);},2500);
+</script>
+</body>
+</html>
