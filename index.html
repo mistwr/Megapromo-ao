@@ -424,6 +424,101 @@ footer a:hover{color:rgba(255,255,255,.8);}
 .rb-note{font-size:.75rem;color:var(--g);font-weight:700;text-align:center;
   background:var(--gl);border-radius:8px;padding:7px 12px;}
 
+/* ══ UPLOAD FATURA ══ */
+.upl-card{background:var(--bg);border:1.5px solid var(--bd);border-radius:var(--rxl);
+  overflow:hidden;box-shadow:var(--s2);}
+
+/* Drop zone */
+.upl-zone{border:2.5px dashed var(--bd);border-radius:var(--rl);margin:20px 20px 0;
+  padding:32px 20px;text-align:center;cursor:pointer;transition:all .2s;
+  background:#fff;position:relative;}
+.upl-zone:hover,.upl-zone.drag-over{border-color:var(--g);background:var(--gll);}
+.upl-zone.drag-over{transform:scale(1.01);box-shadow:0 0 0 4px rgba(13,122,78,.1);}
+.upl-zone.has-file{border-style:solid;border-color:var(--g);background:var(--gl);}
+.upl-icon{font-size:2.4rem;margin-bottom:10px;animation:bounce 2s ease infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.upl-zone.has-file .upl-icon{animation:none;}
+.upl-title{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:var(--dark);margin-bottom:5px;}
+.upl-sub{font-size:.78rem;color:var(--muted);margin-bottom:14px;}
+.upl-types{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;}
+.utype{font-size:.66rem;font-weight:700;background:var(--bg);border:1px solid var(--bd);
+  color:var(--mid);padding:3px 9px;border-radius:20px;}
+/* File preview */
+.upl-file-ic{font-size:2.6rem;margin-bottom:8px;}
+.upl-file-name{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:800;color:var(--dark);
+  word-break:break-all;margin-bottom:4px;}
+.upl-file-size{font-size:.74rem;color:var(--muted);margin-bottom:8px;}
+.upl-file-ok{font-size:.78rem;font-weight:700;color:var(--g);
+  background:var(--gl);border:1px solid var(--bd);padding:5px 14px;border-radius:20px;
+  display:inline-block;margin-bottom:10px;}
+.upl-change{background:none;border:1.5px solid var(--bd);color:var(--muted);
+  font-size:.72rem;padding:4px 12px;border-radius:20px;cursor:pointer;transition:all .18s;}
+.upl-change:hover{border-color:var(--mid);color:var(--dark);}
+
+/* Fields */
+.upl-fields{padding:14px 20px 0;}
+.upl-fields .ig input{font-size:.88rem;padding:10px 12px;}
+@media(max-width:480px){.upl-fields .ig{display:flex;flex-direction:column;}
+  .upl-fields>div:first-child{grid-template-columns:1fr !important;}}
+
+/* Methods */
+.upl-methods{padding:16px 20px 0;}
+.upl-methods-title{font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:800;
+  color:var(--mid);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;}
+.upl-btns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+@media(max-width:580px){.upl-btns-grid{grid-template-columns:1fr;}}
+.upl-btn{border:none;border-radius:var(--r);padding:14px 14px;
+  display:flex;align-items:center;gap:10px;cursor:pointer;
+  transition:all .2s;text-align:left;position:relative;overflow:hidden;}
+.upl-btn:hover{transform:translateY(-2px);}
+.upl-btn::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.08);
+  opacity:0;transition:opacity .2s;}
+.upl-btn:hover::after{opacity:1;}
+.upl-wa{background:linear-gradient(135deg,#25d366,#1aad52);color:#fff;
+  box-shadow:0 4px 16px rgba(37,211,102,.3);}
+.upl-wa:hover{box-shadow:0 8px 24px rgba(37,211,102,.4);}
+.upl-email{background:linear-gradient(135deg,var(--g),var(--g1));color:#fff;
+  box-shadow:0 4px 16px rgba(13,122,78,.25);}
+.upl-email:hover{box-shadow:0 8px 24px rgba(13,122,78,.35);}
+.upl-sms{background:linear-gradient(135deg,#2563eb,#1d4ed8);color:#fff;
+  box-shadow:0 4px 16px rgba(37,99,235,.25);}
+.upl-sms:hover{box-shadow:0 8px 24px rgba(37,99,235,.35);}
+.upl-btn-icon{font-size:1.3rem;flex-shrink:0;}
+.upl-btn-info{flex:1;min-width:0;}
+.ubl-t{font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:800;line-height:1.1;}
+.ubl-s{font-size:.68rem;opacity:.85;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.upl-btn-badge{font-size:.54rem;font-weight:800;padding:2px 6px;border-radius:20px;
+  letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;align-self:flex-start;margin-top:2px;}
+
+/* Success */
+.upl-success{padding:32px 20px;text-align:center;}
+.us-icon{font-size:2.8rem;margin-bottom:12px;}
+.us-t{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:800;color:var(--g);margin-bottom:7px;}
+.us-s{font-size:.84rem;color:var(--mid);line-height:1.6;max-width:420px;margin:0 auto 20px;}
+.us-steps{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;}
+.us-step{display:flex;align-items:center;gap:6px;font-size:.76rem;font-weight:700;color:var(--mid);}
+.us-step span{width:22px;height:22px;background:var(--g);color:#fff;border-radius:50%;
+  font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.us-arr{color:var(--muted);font-size:.9rem;}
+
+/* How to */
+.upl-howto{padding:16px 20px;border-top:1.5px solid var(--bd);margin-top:16px;
+  display:flex;flex-direction:column;gap:9px;}
+.uh-item{display:flex;align-items:flex-start;gap:10px;font-size:.8rem;color:var(--mid);line-height:1.5;}
+.uh-n{width:22px;height:22px;background:var(--g);color:#fff;border-radius:50%;flex-shrink:0;
+  font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;}
+.upl-rgpd{font-size:.68rem;color:var(--muted);text-align:center;
+  padding:12px 20px 16px;line-height:1.5;}
+
+/* Header upload button */
+.hdr-upl{background:var(--amb);color:#fff;font-family:'Outfit',sans-serif;
+  font-weight:800;font-size:.75rem;padding:7px 13px;border-radius:9px;
+  transition:all .18s;display:flex;align-items:center;gap:5px;}
+.hdr-upl:hover{background:#d97706;transform:translateY(-1px);}
+@media(max-width:520px){.hdr-upl span{display:none;}}
+
 /* ══ FLOAT BUTTON ══ */
 .floatbtn{position:fixed;bottom:20px;right:16px;z-index:800;
   background:var(--g);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.78rem;
@@ -475,6 +570,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
   <div class="logo">MY<em>POUPAR</em><sup>+</sup></div>
   <div class="hdr-r">
     <div class="hpill">Powered by LUMIN IA</div>
+    <button class="hdr-upl" onclick="scrollUpload()">📄 <span>Enviar Fatura</span></button>
     <button class="hbtn" onclick="scrollFunnel()">Simular Grátis</button>
   </div>
 </header>
@@ -1066,6 +1162,126 @@ footer a:hover{color:rgba(255,255,255,.8);}
   </div>
 </section>
 
+<!-- UPLOAD FATURA -->
+<section class="sec" id="upload-sec" style="background:#fff;">
+  <div class="sn">
+    <div class="sec-hd">
+      <div class="eye" style="background:#fef3c7;border-color:#f59e0b;color:#b45309">📄 Análise Gratuita</div>
+      <div class="sec-t">Envia a tua Fatura — Analisamos Grátis</div>
+      <p class="sec-s">Envia a tua fatura de luz, gás ou telecom e o nosso especialista diz-te exatamente quanto podes poupar. Resposta em menos de 2 horas.</p>
+    </div>
+
+    <div class="upl-card">
+      <!-- DROP ZONE -->
+      <div class="upl-zone" id="upl-zone" onclick="document.getElementById('upl-input').click()" ondragover="uplDragOver(event)" ondragleave="uplDragLeave(event)" ondrop="uplDrop(event)">
+        <input type="file" id="upl-input" accept=".pdf,.jpg,.jpeg,.png,.heic,.webp" style="display:none" onchange="uplFile(this.files[0])">
+        <div id="upl-idle">
+          <div class="upl-icon">📄</div>
+          <div class="upl-title">Clica ou arrasta a tua fatura aqui</div>
+          <div class="upl-sub">PDF, JPG, PNG · Fatura de luz, gás, Internet ou telemóvel</div>
+          <div class="upl-types">
+            <span class="utype">⚡ EDP</span>
+            <span class="utype">🌱 Endesa</span>
+            <span class="utype">🔆 Galp</span>
+            <span class="utype">📡 MEO</span>
+            <span class="utype">🔵 NOS</span>
+            <span class="utype">🔴 Vodafone</span>
+            <span class="utype">+ outras</span>
+          </div>
+        </div>
+        <div id="upl-preview" style="display:none">
+          <div class="upl-file-ic" id="upl-file-ic">📄</div>
+          <div class="upl-file-name" id="upl-file-name">fatura.pdf</div>
+          <div class="upl-file-size" id="upl-file-size">245 KB</div>
+          <div class="upl-file-ok">✅ Ficheiro pronto para enviar</div>
+          <button class="upl-change" onclick="uplReset(event)">Trocar ficheiro</button>
+        </div>
+      </div>
+
+      <!-- NOME + NOTAS -->
+      <div class="upl-fields" id="upl-fields">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+          <div class="ig">
+            <label>O teu nome</label>
+            <input type="text" id="upl-nome" placeholder="Primeiro nome" autocomplete="given-name">
+          </div>
+          <div class="ig">
+            <label>Telemóvel</label>
+            <input type="tel" id="upl-tel" placeholder="+351 9XX XXX XXX" autocomplete="tel">
+          </div>
+        </div>
+        <div class="ig">
+          <label>Nota (opcional)</label>
+          <input type="text" id="upl-nota" placeholder="Ex: Quero trocar de MEO · Pago €85/mês · Somos 4 pessoas">
+        </div>
+      </div>
+
+      <!-- SEND METHODS -->
+      <div class="upl-methods" id="upl-methods">
+        <div class="upl-methods-title">Como queres enviar a fatura?</div>
+        <div class="upl-btns-grid">
+
+          <!-- WHATSAPP -->
+          <button class="upl-btn upl-wa" onclick="sendViaWA()">
+            <div class="upl-btn-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </div>
+            <div class="upl-btn-info">
+              <div class="ubl-t">WhatsApp</div>
+              <div class="ubl-s">Envia direto · Resposta imediata</div>
+            </div>
+            <div class="upl-btn-badge" style="background:rgba(255,255,255,.2)">MAIS RÁPIDO</div>
+          </button>
+
+          <!-- EMAIL -->
+          <button class="upl-btn upl-email" onclick="sendViaEmail()">
+            <div class="upl-btn-icon">📧</div>
+            <div class="upl-btn-info">
+              <div class="ubl-t">Email</div>
+              <div class="ubl-s">parcerias@mypoupar.com</div>
+            </div>
+            <div class="upl-btn-badge" style="background:rgba(255,255,255,.15)">RECOMENDADO</div>
+          </button>
+
+          <!-- SMS -->
+          <button class="upl-btn upl-sms" onclick="sendViaSMS()">
+            <div class="upl-btn-icon">💬</div>
+            <div class="upl-btn-info">
+              <div class="ubl-t">SMS / Chamada</div>
+              <div class="ubl-s">968 677 320 · Ligar agora</div>
+            </div>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- SUCCESS STATE -->
+      <div class="upl-success" id="upl-success" style="display:none">
+        <div class="us-icon">🎉</div>
+        <div class="us-t">Fatura enviada com sucesso!</div>
+        <p class="us-s">O nosso especialista vai analisar a tua fatura e contactar-te em menos de 2 horas com a melhor proposta personalizada.</p>
+        <div class="us-steps">
+          <div class="us-step"><span>1</span> Análise da fatura</div>
+          <div class="us-arr">→</div>
+          <div class="us-step"><span>2</span> Proposta por WhatsApp</div>
+          <div class="us-arr">→</div>
+          <div class="us-step"><span>3</span> Tu decides</div>
+        </div>
+        <button class="btn-go" style="max-width:320px;margin:14px auto 0" onclick="uplRestart()">📄 Enviar Outra Fatura</button>
+      </div>
+
+      <!-- HOW IT WORKS -->
+      <div class="upl-howto">
+        <div class="uh-item"><div class="uh-n">1</div><div><strong>Fotografa ou descarrega</strong> a tua fatura mais recente (PDF ou foto)</div></div>
+        <div class="uh-item"><div class="uh-n">2</div><div><strong>Carrega o ficheiro</strong> e escolhe como enviar (WhatsApp, email ou SMS)</div></div>
+        <div class="uh-item"><div class="uh-n">3</div><div><strong>Recebe análise</strong> completa em menos de 2 horas com poupança real calculada</div></div>
+      </div>
+
+      <p class="upl-rgpd">🔒 A tua fatura é usada exclusivamente para análise de poupança. Dados protegidos pelo RGPD. Não partilhamos com terceiros.</p>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-sec">
   <div class="cta-in">
@@ -1087,7 +1303,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
     <a href="https://mypoupar.com">mypoupar.com</a> ·
     <a href="https://mypoupar.com/sobre">Sobre</a> ·
     <a href="https://mypoupar.com/contacto">Contacto</a> ·
-    <a href="mailto:parcerias@mypoupar.com">parcerias@mypoupar.com</a> ·
+    <a href="/cdn-cgi/l/email-protection#40302132232532292133002d39302f353021326e232f2d"><span class="__cf_email__" data-cfemail="89f9e8fbeaecfbe0e8fac9e4f0f9e6fcf9e8fba7eae6e4">[email&#160;protected]</span></a> ·
     <a href="tel:+351968677320">968 677 320</a>
   </div>
   © 2025 MyPoupar · Powered by LUMIN IA · RGPD · Todos os direitos reservados<br>
@@ -1136,7 +1352,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (function(){
 "use strict";
 
@@ -1511,7 +1727,7 @@ function showToast(){
   if(!el||!t) return;
   t.textContent=TOASTS[nIdx%TOASTS.length]; nIdx++;
   el.classList.add('on');
-  setTimeout(function(){ el.classList.remove('on'); },3800);
+  setTimeout(function(){ el.classList.remove('on'); }, 3800);
 }
 
 /* ═══ INIT ═══ */
@@ -1520,7 +1736,123 @@ document.addEventListener('DOMContentLoaded',function(){
   setTimeout(function(){ showToast(); setInterval(showToast,8000); },3000);
 });
 
+/* ═══ UPLOAD FATURA ═══ */
+var uplFileData=null,uplFileName='',uplFileSize='';
+function scrollUpload(){var s=document.getElementById('upload-sec');if(s)s.scrollIntoView({behavior:'smooth'});}
+window.scrollUpload=scrollUpload;
+function uplDragOver(e){e.preventDefault();var z=document.getElementById('upl-zone');if(z)z.classList.add('drag-over');}
+function uplDragLeave(){var z=document.getElementById('upl-zone');if(z)z.classList.remove('drag-over');}
+function uplDrop(e){e.preventDefault();var z=document.getElementById('upl-zone');if(z)z.classList.remove('drag-over');var files=e.dataTransfer&&e.dataTransfer.files;if(files&&files[0])uplFile(files[0]);}
+window.uplDragOver=uplDragOver;window.uplDragLeave=uplDragLeave;window.uplDrop=uplDrop;
+function uplFile(file){
+  if(!file)return;
+  var allowedExt=['pdf','jpg','jpeg','png','heic','webp'];
+  var ext=file.name.split('.').pop().toLowerCase();
+  if(allowedExt.indexOf(ext)===-1){alert('Formato não suportado. Usa PDF, JPG ou PNG.');return;}
+  if(file.size>20*1024*1024){alert('Ficheiro demasiado grande. Máximo 20MB.');return;}
+  uplFileData=file;uplFileName=file.name;
+  var kb=Math.round(file.size/1024);
+  uplFileSize=kb>1024?(kb/1024).toFixed(1)+' MB':kb+' KB';
+  var ic=document.getElementById('upl-file-ic');
+  var nm=document.getElementById('upl-file-name');
+  var sz=document.getElementById('upl-file-size');
+  if(ic)ic.textContent=ext==='pdf'?'📋':(ext==='png'||ext==='jpg'||ext==='jpeg')?'🖼️':'📄';
+  if(nm)nm.textContent=uplFileName;
+  if(sz)sz.textContent=uplFileSize;
+  var zone=document.getElementById('upl-zone');
+  var idle=document.getElementById('upl-idle');
+  var prev=document.getElementById('upl-preview');
+  if(zone)zone.classList.add('has-file');
+  if(idle)idle.style.display='none';
+  if(prev)prev.style.display='block';
+}
+window.uplFile=uplFile;
+function uplReset(e){
+  if(e)e.stopPropagation();
+  uplFileData=null;uplFileName='';uplFileSize='';
+  var zone=document.getElementById('upl-zone');
+  var idle=document.getElementById('upl-idle');
+  var prev=document.getElementById('upl-preview');
+  var inp=document.getElementById('upl-input');
+  if(zone)zone.classList.remove('has-file');
+  if(idle)idle.style.display='block';
+  if(prev)prev.style.display='none';
+  if(inp)inp.value='';
+}
+window.uplReset=uplReset;
+function uplRestart(){
+  uplReset();
+  var s=document.getElementById('upl-success');
+  var m=document.getElementById('upl-methods');
+  var fi=document.getElementById('upl-fields');
+  if(s)s.style.display='none';
+  if(m)m.style.display='block';
+  if(fi)fi.style.display='block';
+  document.getElementById('upload-sec').scrollIntoView({behavior:'smooth'});
+}
+window.uplRestart=uplRestart;
+function getUplMeta(){
+  var nm=(document.getElementById('upl-nome')||{}).value||'';
+  var tel=(document.getElementById('upl-tel')||{}).value||'';
+  var nota=(document.getElementById('upl-nota')||{}).value||'';
+  return{nm:nm.trim(),tel:tel.trim(),nota:nota.trim()};
+}
+function showUplSuccess(){
+  var s=document.getElementById('upl-success');
+  var m=document.getElementById('upl-methods');
+  var fi=document.getElementById('upl-fields');
+  if(m)m.style.display='none';
+  if(fi)fi.style.display='none';
+  if(s){s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'nearest'});}
+}
+function showToastMsg(msg,dur){
+  var el=document.getElementById('toast'),t=document.getElementById('toast-txt');
+  if(!el||!t)return;
+  t.textContent=msg;el.classList.add('on');
+  setTimeout(function(){el.classList.remove('on');},dur||4000);
+}
+function sendViaWA(){
+  var meta=getUplMeta();
+  var fileInfo=uplFileName?'📎 *Fatura:* '+uplFileName+' ('+uplFileSize+')':'(sem ficheiro ainda — enviarei a seguir)';
+  var msg='🔔 *ANÁLISE DE FATURA — MyPoupar*
+
+'+fileInfo+'
+'
+    +(meta.nm?'
+👤 *Nome:* '+meta.nm:'')
+    +(meta.tel?'
+📱 *Tel:* '+meta.tel:'')
+    +(meta.nota?'
+📝 *Nota:* '+meta.nota:'')
+    +'
+
+Olá! Gostava de analisar a minha fatura para ver quanto posso poupar. Aguardo proposta!';
+  window.open('https://wa.me/351968677320?text='+encodeURIComponent(msg),'_blank');
+  showToastMsg('💡 No WhatsApp, anexa o ficheiro da fatura na conversa!',5500);
+  if(uplFileName)setTimeout(showUplSuccess,800);
+}
+function sendViaEmail(){
+  var meta=getUplMeta();
+  var subject='Análise de Fatura MyPoupar'+(meta.nm?' — '+meta.nm:'');
+  var body='Olá MyPoupar!\n\nGostava de pedir uma análise gratuita da minha fatura.\n\n'
+    +'Ficheiro: '+uplFileName+' ('+uplFileSize+')\n'
+    +(meta.nm?'Nome: '+meta.nm+'\n':'')
+    +(meta.tel?'Telemóvel: '+meta.tel+'\n':'')
+    +(meta.nota?'Nota: '+meta.nota+'\n':'')
+    +'\nAguardo a vossa proposta. Obrigado!';
+  window.location.href='mailto:parcerias@mypoupar.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  showToastMsg('📧 Abre o email, anexa a fatura e envia!',6000);
+  if(uplFileName)setTimeout(showUplSuccess,2500);
+}
+function sendViaSMS(){
+  var meta=getUplMeta();
+  var msg='Ola MyPoupar! Quero analisar a minha fatura para poupar.'+(meta.nm?' Nome: '+meta.nm:'')+(uplFileName?' Fatura: '+uplFileName:'');
+  window.location.href='sms:+351968677320?body='+encodeURIComponent(msg);
+  showToastMsg('📞 Ou liga: 968 677 320 — pedimos a fatura por WhatsApp!',6000);
+}
+window.sendViaWA=sendViaWA;window.sendViaEmail=sendViaEmail;window.sendViaSMS=sendViaSMS;
+
 })();
 </script>
 </body>
-</html>
+  </html>
