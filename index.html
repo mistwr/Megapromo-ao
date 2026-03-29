@@ -46,7 +46,7 @@ button{cursor:pointer;font-family:inherit;border:none;outline:none;}a{text-decor
 .pain-pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:22px;}
 .pp{font-size:.72rem;font-weight:600;padding:6px 12px;border-radius:20px;}.pp-red{background:#fef2f2;color:#dc2626;border:1px solid #fecaca;}
 .hero-reassure{font-size:.72rem;color:var(--muted);margin-top:12px;}
-@media(max-width:460px){.hero{padding:74px 16px 40px;}.hero-stats{flex-wrap:wrap;}.hs{min-width:50%;border-right:none;border-bottom:1px solid var(--bd);}.hero-btns{flex-direction:column;align-items:center;max-width:320px;margin:0 auto;}.btn-call-agent{width:100%;justify-content:center;}.pain-pills{flex-direction:column;align-items:center;}}
+@media(max-width:460px){.hero{padding:74px 16px 40px;}.hero-stats{flex-wrap:wrap;}.hs{min-width:50%;border-right:none;border-bottom:1px solid var(--bd);}.hero-btns{flex-direction:column;align-items:center;max-width:320px;margin:0 auto;}.btn-sim{width:100%;justify-content:center;font-size:1rem;padding:18px;}.btn-call-agent{width:100%;justify-content:center;}.pain-pills{flex-direction:column;align-items:center;}}
 .strip{background:#fff;border-top:1.5px solid var(--bd);border-bottom:1.5px solid var(--bd);padding:12px 0;overflow:hidden;position:relative;}
 .strip::before,.strip::after{content:'';position:absolute;top:0;bottom:0;width:60px;z-index:2;}
 .strip::before{left:0;background:linear-gradient(90deg,#fff,transparent);}.strip::after{right:0;background:linear-gradient(-90deg,#fff,transparent);}
@@ -61,9 +61,18 @@ button{cursor:pointer;font-family:inherit;border:none;outline:none;}a{text-decor
 .eye{display:inline-block;font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:800;color:var(--g);background:var(--gl);border:1px solid var(--bd);padding:4px 12px;border-radius:20px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;}
 .sec-t{font-family:'Outfit',sans-serif;font-size:clamp(1.45rem,3.3vw,2rem);font-weight:800;color:var(--dark);letter-spacing:-.025em;}
 .sec-s{font-size:.88rem;color:var(--mid);margin-top:6px;line-height:1.6;}
-.tabs{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
-.tab{font-family:'Outfit',sans-serif;font-weight:700;font-size:.82rem;padding:8px 18px;border-radius:40px;border:1.5px solid var(--bd);background:#fff;color:var(--mid);transition:all .18s;cursor:pointer;}
-.tab.on{background:var(--g);color:#fff;border-color:var(--g);}.tab:hover:not(.on){border-color:var(--g);color:var(--g);}
+
+/* ══ TABS — MOBILE GRANDE ══ */
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+.tab{font-family:'Outfit',sans-serif;font-weight:700;font-size:.82rem;padding:10px 20px;border-radius:40px;border:1.5px solid var(--bd);background:#fff;color:var(--mid);transition:all .18s;cursor:pointer;}
+.tab.on{background:var(--g);color:#fff;border-color:var(--g);box-shadow:0 4px 14px rgba(13,122,78,.22);}
+.tab:hover:not(.on){border-color:var(--g);color:var(--g);}
+@media(max-width:600px){
+  .tabs{flex-direction:column;gap:10px;padding:0 4px;}
+  .tab{width:100%;text-align:center;padding:18px 20px;font-size:1.05rem;border-radius:14px;border-width:2px;display:flex;align-items:center;justify-content:center;gap:8px;}
+  .tab.on{box-shadow:0 6px 20px rgba(13,122,78,.28);}
+}
+
 .tab-content{display:none;}.tab-content.on{display:block;}
 .camps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
 @media(max-width:740px){.camps-grid{grid-template-columns:1fr;}}
@@ -82,16 +91,18 @@ button{cursor:pointer;font-family:inherit;border:none;outline:none;}a{text-decor
 .camp-feats{padding:12px 16px;flex:1;}
 .cf{display:flex;align-items:flex-start;gap:7px;margin-bottom:7px;font-size:.8rem;color:var(--mid);}.cf:last-child{margin-bottom:0;}
 .cf-ok{color:var(--g);font-weight:800;flex-shrink:0;}.camp-foot{padding:10px 16px 14px;}
-.btn-camp{width:100%;background:var(--g);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.86rem;padding:12px;border-radius:10px;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:6px;}
+.btn-camp{width:100%;background:var(--g);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.86rem;padding:14px;border-radius:10px;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:6px;}
 .btn-camp:hover{background:var(--g1);transform:translateY(-1px);}
 a.btn-camp,a.digi-btn,a.btn-sim,a.cb-wa{display:flex;text-decoration:none;}
 .btn-camp.wa{background:#25d366;}.btn-camp.wa:hover{background:#1fba58;}
 .camp-note{font-size:.65rem;color:var(--muted);text-align:center;margin-top:6px;line-height:1.4;}
+
+/* ══ ENERGY SIM ══ */
 .energy-sim{background:#fff;border-radius:var(--rxl);border:1.5px solid var(--bd);box-shadow:var(--s2);overflow:hidden;}
 .esim-top{background:linear-gradient(120deg,var(--g),var(--g1));padding:22px 28px 18px;}
 .esim-top h3{font-family:'Outfit',sans-serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:4px;}.esim-top p{font-size:.82rem;color:rgba(255,255,255,.8);}
 .esim-body{padding:24px 28px;}.esim-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;}
-@media(max-width:520px){.esim-grid{grid-template-columns:1fr;}}
+@media(max-width:520px){.esim-grid{grid-template-columns:1fr;}.esim-body{padding:18px 16px;}}
 .esim-group{display:flex;flex-direction:column;gap:5px;}.esim-label{font-size:.68rem;font-weight:800;color:var(--mid);text-transform:uppercase;letter-spacing:.06em;}
 .esim-val{font-family:'Outfit',sans-serif;font-size:1.4rem;font-weight:900;color:var(--g);text-align:center;margin:6px 0;}
 .esim-select{border:2px solid var(--bd);border-radius:9px;padding:11px 12px;font-family:'Nunito',sans-serif;font-size:.9rem;color:var(--dark);background:#fff;outline:none;width:100%;transition:border-color .16s;-webkit-appearance:none;appearance:none;}
@@ -100,9 +111,10 @@ input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--g);border:3px solid #fff;box-shadow:0 2px 8px rgba(13,122,78,.28);cursor:pointer;}
 input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--g);border:3px solid #fff;cursor:pointer;}
 .esim-tariff-row{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;}
-.tariff-btn{border:1.5px solid var(--bd);border-radius:8px;padding:8px 14px;font-family:'Outfit',sans-serif;font-size:.76rem;font-weight:700;background:#fff;color:var(--mid);cursor:pointer;transition:all .16s;}
+.tariff-btn{border:1.5px solid var(--bd);border-radius:8px;padding:10px 16px;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:700;background:#fff;color:var(--mid);cursor:pointer;transition:all .16s;}
 .tariff-btn.on{background:var(--g);color:#fff;border-color:var(--g);}.tariff-btn:hover:not(.on){border-color:var(--g);color:var(--g);}
-.esim-calc-btn{width:100%;background:var(--g);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.94rem;padding:14px;border-radius:var(--r);box-shadow:0 4px 14px rgba(13,122,78,.22);transition:all .18s;}
+@media(max-width:480px){.tariff-btn{flex:1;text-align:center;padding:12px 8px;font-size:.82rem;}}
+.esim-calc-btn{width:100%;background:var(--g);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.94rem;padding:16px;border-radius:var(--r);box-shadow:0 4px 14px rgba(13,122,78,.22);transition:all .18s;}
 .esim-calc-btn:hover{background:var(--g1);transform:translateY(-1px);}
 .eresults{display:none;margin-top:22px;}.eresults.show{display:block;}
 .ertable{width:100%;border-collapse:collapse;font-size:.82rem;}
@@ -110,17 +122,26 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .ertable thead th:first-child{border-radius:8px 0 0 0;}.ertable thead th:last-child{border-radius:0 8px 0 0;text-align:right;}
 .ertable tbody tr{border-bottom:1px solid var(--bd2);transition:background .15s;}.ertable tbody tr:hover{background:var(--gll);}
 .ertable tbody tr.best-row{background:var(--gl);font-weight:700;}.ertable td{padding:10px 12px;}.ertable td:last-child{text-align:right;}
-.ertable .provider{font-family:'Outfit',sans-serif;font-weight:700;display:flex;align-items:center;gap:7px;}
+.ertable .provider{font-family:'Outfit',sans-serif;font-weight:700;display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
 .save-badge{font-size:.62rem;font-weight:800;background:var(--ambl);color:#92400e;padding:1px 7px;border-radius:20px;}
 .best-badge{font-size:.58rem;font-weight:800;background:var(--g);color:#fff;padding:1px 6px;border-radius:20px;margin-left:4px;}
 .er-monthly{font-family:'Outfit',sans-serif;font-weight:800;color:var(--g);}.er-monthly.current{color:var(--red);}
 .er-note{font-size:.68rem;color:var(--muted);margin-top:12px;line-height:1.5;background:var(--bg);border-radius:8px;padding:10px 12px;}
+
+/* ══ DIGITAL GRID — MOBILE FIX ══ */
 .dig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
-@media(max-width:680px){.dig-grid{grid-template-columns:1fr 1fr;}}@media(max-width:400px){.dig-grid{grid-template-columns:1fr;}}
+@media(max-width:680px){.dig-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:420px){.dig-grid{grid-template-columns:1fr;}}
 .dig-card{background:#fff;border:1.5px solid var(--bd);border-radius:var(--rl);padding:20px 18px;transition:all .2s;}
 .dig-card:hover{border-color:var(--g);box-shadow:var(--s1);transform:translateY(-2px);}
 .dig-ic{font-size:2rem;margin-bottom:10px;}.dig-t{font-family:'Outfit',sans-serif;font-size:.92rem;font-weight:800;color:var(--dark);margin-bottom:4px;}
 .dig-s{font-size:.76rem;color:var(--mid);line-height:1.5;}.dig-price{font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:800;color:var(--g);margin-top:8px;}
+@media(max-width:480px){
+  .dig-card{display:flex;align-items:flex-start;gap:14px;padding:16px;}
+  .dig-ic{font-size:1.8rem;margin-bottom:0;flex-shrink:0;margin-top:2px;}
+}
+
+/* ══ SLIDESHOW ══ */
 .ss-wrap{border-radius:var(--rxl);border:1.5px solid var(--bd);overflow:hidden;box-shadow:var(--s2);background:#fff;}
 .ss-track{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1);}.ss-slide{min-width:100%;flex-shrink:0;}.sp{padding:34px 38px;}
 .stag{display:inline-flex;align-items:center;gap:6px;font-family:'Outfit',sans-serif;font-size:.63rem;font-weight:800;color:#f59e0b;background:#fef3c7;padding:4px 11px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;}
@@ -138,6 +159,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .ss-arr{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--bd);background:#fff;color:var(--mid);font-size:.76rem;display:flex;align-items:center;justify-content:center;transition:all .18s;}
 .ss-arr:hover{border-color:var(--g);color:var(--g);}
 @media(max-width:520px){.sp{padding:20px 18px;}.sh{font-size:1.1rem;}.ba{gap:6px;}.ba-v{font-size:1.3rem;}}
+
+/* ══ FUNNEL ══ */
 .funnel-bg{background:linear-gradient(155deg,var(--gll) 0%,#fff 65%);}
 .fcard{background:#fff;border-radius:var(--rxl);box-shadow:var(--s3);border:1.5px solid var(--bd);overflow:hidden;max-width:640px;margin:0 auto;}
 .fpt{height:5px;background:var(--bd);}.fpf{height:100%;background:linear-gradient(90deg,var(--g),var(--g2));transition:width .36s ease;}
@@ -169,7 +192,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .ck-t{font-size:.84rem;color:var(--dark);}.ck-s{font-size:.68rem;color:var(--muted);}
 .rng-wrap{margin:10px 0 16px;}.rng-big{font-family:'Outfit',sans-serif;font-size:2.6rem;font-weight:900;color:var(--g);text-align:center;letter-spacing:-.03em;margin-bottom:7px;}
 .rng-lbls{display:flex;justify-content:space-between;font-size:.66rem;color:var(--muted);margin-bottom:4px;}
-.btn-go{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;background:var(--g);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.92rem;padding:14px;border-radius:var(--r);transition:all .18s;margin-top:12px;box-shadow:0 4px 14px rgba(13,122,78,.22);}
+.btn-go{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;background:var(--g);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.92rem;padding:16px;border-radius:var(--r);transition:all .18s;margin-top:12px;box-shadow:0 4px 14px rgba(13,122,78,.22);}
 .btn-go:hover{background:var(--g1);transform:translateY(-2px);}
 .btn-bk{display:flex;align-items:center;justify-content:center;width:100%;background:#fff;border:2px solid var(--bd);color:var(--muted);font-family:'Nunito',sans-serif;font-size:.78rem;padding:10px;border-radius:10px;transition:all .16s;margin-top:7px;}
 .btn-bk:hover{border-color:var(--mid);color:var(--dark);}
@@ -189,11 +212,13 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .bl{font-size:.55rem;font-weight:800;background:var(--g);color:#fff;padding:1px 5px;border-radius:20px;margin-left:4px;}
 .ofr-r{text-align:right;}.ofr-p{font-family:'Outfit',sans-serif;font-size:.96rem;font-weight:900;color:var(--g);}.ofr-s{font-size:.66rem;color:#f59e0b;font-weight:700;}
 .trust{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;padding-top:10px;border-top:1px solid var(--bd);}.tri{font-size:.67rem;color:var(--muted);}
-.btn-wa{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;background:#25d366;color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.92rem;padding:14px;border-radius:var(--r);box-shadow:0 4px 14px rgba(37,211,102,.24);transition:all .18s;margin-top:9px;}
+.btn-wa{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;background:#25d366;color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.92rem;padding:16px;border-radius:var(--r);box-shadow:0 4px 14px rgba(37,211,102,.24);transition:all .18s;margin-top:9px;}
 .btn-wa:hover{background:#1fba58;transform:translateY(-2px);}
-.btn-cf{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;background:#fff;color:var(--g);border:2px solid var(--g);font-family:'Outfit',sans-serif;font-weight:800;font-size:.92rem;padding:12px;border-radius:var(--r);transition:all .18s;margin-top:8px;}
+.btn-cf{display:flex;align-items:center;justify-content:center;gap:7px;width:100%;background:#fff;color:var(--g);border:2px solid var(--g);font-family:'Outfit',sans-serif;font-weight:800;font-size:.92rem;padding:14px;border-radius:var(--r);transition:all .18s;margin-top:8px;}
 .btn-cf:hover{background:var(--gl);}
 @media(max-width:500px){.fbody{padding:16px 16px 18px;}.ftop{padding:14px 16px 0;}}
+
+/* ══ TESTIMONIALS ══ */
 .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;}
 .tc{background:#fff;border:1.5px solid var(--bd);border-radius:var(--rl);padding:20px;transition:all .2s;}
 .tc:hover{box-shadow:var(--s2);border-color:var(--g);transform:translateY(-3px);}
@@ -201,18 +226,25 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 .tc-q{font-size:.82rem;color:var(--mid);line-height:1.6;margin-bottom:12px;font-style:italic;}
 .tc-nm{font-family:'Outfit',sans-serif;font-size:.82rem;font-weight:800;color:var(--dark);}.tc-sv{font-size:.71rem;color:var(--g);font-weight:700;margin-top:2px;}
 @media(max-width:620px){.tg{grid-template-columns:1fr;}}
+
+/* ══ CTA ══ */
 .cta-sec{background:var(--g);padding:56px 20px;position:relative;overflow:hidden;}
 .cta-sec::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.05);pointer-events:none;}
 .cta-in{max-width:640px;margin:0 auto;text-align:center;position:relative;z-index:1;}
 .cta-in h2{font-family:'Outfit',sans-serif;font-size:clamp(1.65rem,4vw,2.2rem);font-weight:900;color:#fff;margin-bottom:10px;}
 .cta-in p{color:rgba(255,255,255,.8);font-size:.9rem;margin-bottom:26px;line-height:1.6;}
 .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-.cb-wa{background:#fff;color:var(--g);font-family:'Outfit',sans-serif;font-weight:800;font-size:.88rem;padding:13px 20px;border-radius:var(--r);display:flex;align-items:center;gap:7px;transition:all .18s;}
+.cb-wa{background:#fff;color:var(--g);font-family:'Outfit',sans-serif;font-weight:800;font-size:.88rem;padding:14px 22px;border-radius:var(--r);display:flex;align-items:center;gap:7px;transition:all .18s;}
 .cb-wa:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.14);}
-.cb-out{background:rgba(255,255,255,.1);color:#fff;border:2px solid rgba(255,255,255,.3);font-family:'Outfit',sans-serif;font-weight:700;font-size:.88rem;padding:11px 18px;border-radius:var(--r);display:flex;align-items:center;gap:6px;transition:all .18s;}
+.cb-out{background:rgba(255,255,255,.1);color:#fff;border:2px solid rgba(255,255,255,.3);font-family:'Outfit',sans-serif;font-weight:700;font-size:.88rem;padding:12px 18px;border-radius:var(--r);display:flex;align-items:center;gap:6px;transition:all .18s;}
 .cb-out:hover{background:rgba(255,255,255,.18);}
+@media(max-width:480px){.cta-btns{flex-direction:column;}.cb-wa,.cb-out{justify-content:center;}}
+
+/* ══ FOOTER ══ */
 footer{background:var(--dark);color:rgba(255,255,255,.45);font-size:.68rem;padding:20px 20px 26px;text-align:center;}
 footer a:hover{color:rgba(255,255,255,.8);}
+
+/* ══ PAIN SECTION ══ */
 .pain-sec{padding:56px 20px;background:#fff;}
 .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
 @media(max-width:720px){.pain-grid{grid-template-columns:1fr 1fr;}}@media(max-width:440px){.pain-grid{grid-template-columns:1fr;}}
@@ -231,6 +263,8 @@ footer a:hover{color:rgba(255,255,255,.8);}
 .rb-bar-fill{height:100%;border-radius:5px;animation:barGrow .9s ease .2s both;}@keyframes barGrow{from{width:0!important}to{}}
 .rb-num{font-size:.7rem;color:var(--muted);text-align:right;}
 .rb-note{font-size:.75rem;color:var(--g);font-weight:700;text-align:center;background:var(--gl);border-radius:8px;padding:7px 12px;}
+
+/* ══ UPLOAD ══ */
 .upl-card{background:var(--bg);border:1.5px solid var(--bd);border-radius:var(--rxl);overflow:hidden;box-shadow:var(--s2);}
 .upl-zone{border:2.5px dashed var(--bd);border-radius:var(--rl);margin:20px 20px 0;padding:32px 20px;text-align:center;cursor:pointer;transition:all .2s;background:#fff;position:relative;}
 .upl-zone:hover,.upl-zone.drag-over{border-color:var(--g);background:var(--gll);}
@@ -277,10 +311,15 @@ footer a:hover{color:rgba(255,255,255,.8);}
 .upl-rgpd{font-size:.68rem;color:var(--muted);text-align:center;padding:12px 20px 16px;line-height:1.5;}
 .hdr-upl{background:#f59e0b;color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.75rem;padding:7px 13px;border-radius:9px;transition:all .18s;display:flex;align-items:center;gap:5px;}
 .hdr-upl:hover{background:#d97706;transform:translateY(-1px);}@media(max-width:520px){.hdr-upl span{display:none;}}
-.floatbtn{position:fixed;bottom:20px;right:16px;z-index:800;background:var(--g);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.78rem;padding:11px 16px;border-radius:40px;display:flex;align-items:center;gap:7px;box-shadow:0 6px 22px rgba(13,122,78,.42);transition:all .2s;animation:flt .5s 1.5s ease both;}
+
+/* ══ FLOAT BTN — MAIOR MOBILE ══ */
+.floatbtn{position:fixed;bottom:20px;right:16px;z-index:800;background:var(--g);color:#fff;font-family:'Outfit',sans-serif;font-weight:800;font-size:.88rem;padding:14px 20px;border-radius:40px;display:flex;align-items:center;gap:7px;box-shadow:0 6px 22px rgba(13,122,78,.42);transition:all .2s;animation:flt .5s 1.5s ease both;}
 @keyframes flt{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 .floatbtn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(13,122,78,.46);}
 .fdot{width:7px;height:7px;background:#fff;border-radius:50%;animation:pulse 1.4s ease infinite;}
+@media(max-width:480px){.floatbtn{bottom:16px;right:12px;font-size:.82rem;padding:13px 18px;}}
+
+/* ══ MODAL ══ */
 .overlay{position:fixed;inset:0;z-index:1000;background:rgba(13,31,23,.55);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .22s ease;}
 .overlay.open{opacity:1;pointer-events:all;}
 .modal{background:#fff;border-radius:var(--rxl);padding:32px 28px;max-width:400px;width:100%;box-shadow:0 32px 80px rgba(0,0,0,.22);position:relative;transform:scale(.95) translateY(14px);transition:transform .3s cubic-bezier(.34,1.56,.64,1);}
@@ -292,19 +331,19 @@ footer a:hover{color:rgba(255,255,255,.8);}
 .m-sub{font-size:.82rem;color:var(--mid);line-height:1.55;margin-bottom:18px;}
 .m-ok{display:none;text-align:center;padding:6px 0;}.m-ok-ic{font-size:2.2rem;margin-bottom:10px;}
 .m-ok-h{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:800;color:var(--g);margin-bottom:5px;}.m-ok-s{font-size:.8rem;color:var(--mid);line-height:1.55;}
+
+/* ══ TOAST ══ */
 .toast{position:fixed;bottom:20px;left:16px;z-index:700;background:#fff;border:1.5px solid var(--bd);border-radius:12px;padding:11px 14px;display:flex;align-items:center;gap:8px;box-shadow:var(--s2);font-size:.77rem;color:var(--dark);max-width:232px;transform:translateY(70px);opacity:0;pointer-events:none;transition:all .38s cubic-bezier(.34,1.56,.64,1);}
 .toast.on{transform:translateY(0);opacity:1;}.t-dot{width:7px;height:7px;border-radius:50%;background:var(--g2);flex-shrink:0;}
 
-/* ══ DIGI FEATURED ══ */
+/* ══ DIGI HERO ══ */
 .digi-hero{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);border-radius:var(--rxl);padding:0;overflow:hidden;margin-bottom:20px;box-shadow:0 16px 48px rgba(0,0,0,.22);border:2px solid #e94560;}
 .digi-hero-top{display:grid;grid-template-columns:1fr 1fr;gap:0;}
 @media(max-width:640px){.digi-hero-top{grid-template-columns:1fr;}}
 .digi-left{padding:28px 30px;}
 .digi-badge-row{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap;}
 .digi-badge{font-family:'Outfit',sans-serif;font-size:.62rem;font-weight:800;padding:4px 12px;border-radius:20px;letter-spacing:.07em;text-transform:uppercase;}
-.db-red{background:#e94560;color:#fff;}
-.db-green{background:#00b894;color:#fff;}
-.db-yellow{background:#fdcb6e;color:#2d3436;}
+.db-red{background:#e94560;color:#fff;}.db-green{background:#00b894;color:#fff;}.db-yellow{background:#fdcb6e;color:#2d3436;}
 .digi-logo{font-family:'Outfit',sans-serif;font-size:2.4rem;font-weight:900;color:#fff;letter-spacing:-.04em;margin-bottom:4px;}
 .digi-logo span{color:#e94560;}
 .digi-tagline{font-size:.82rem;color:rgba(255,255,255,.7);margin-bottom:18px;}
@@ -321,8 +360,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
 .digi-right{padding:28px 24px;border-left:1px solid rgba(255,255,255,.08);}
 @media(max-width:640px){.digi-right{border-left:none;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;}}
 .digi-feats-title{font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:800;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
-.digi-feat{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
-.digi-feat:last-child{margin-bottom:0;}
+.digi-feat{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}.digi-feat:last-child{margin-bottom:0;}
 .digi-feat-ic{font-size:1.1rem;flex-shrink:0;margin-top:1px;}
 .digi-feat-txt{font-size:.82rem;color:rgba(255,255,255,.85);line-height:1.4;}
 .digi-feat-txt strong{color:#fff;}
@@ -350,7 +388,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
 </header>
 
 <section class="hero">
-  <div class="badge"><div class="live"></div>Campanhas P&#250;blicas &middot; Portugal &middot; Mar&#231;o 2026</div>
+  <div class="badge"><div class="live"></div>Campanhas P&#250;blicas &middot; Portugal &middot; Abril 2026</div>
   <div class="hero-pain">
     <div class="pain-emoji">&#128580;</div>
     <div class="pain-text">A tua fatura subiu outra vez e ningu&#233;m te avisou?</div>
@@ -377,12 +415,10 @@ footer a:hover{color:rgba(255,255,255,.8);}
 <rect x="19" y="26" width="6" height="5" rx="2" fill="#f5c6a0"/>
 <circle cx="22" cy="20" r="9" fill="#f5c6a0"/>
 <path d="M13 19 Q13 10 22 10 Q31 10 31 19 Q30 13 22 13 Q14 13 13 19Z" fill="#3d2c1e"/>
-<circle cx="19" cy="20" r="1.2" fill="#3d2c1e"/>
-<circle cx="25" cy="20" r="1.2" fill="#3d2c1e"/>
+<circle cx="19" cy="20" r="1.2" fill="#3d2c1e"/><circle cx="25" cy="20" r="1.2" fill="#3d2c1e"/>
 <path d="M18.5 23.5 Q22 26 25.5 23.5" stroke="#c0704a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
 <path d="M14 18 Q14 10 22 10 Q30 10 30 18" stroke="#0d7a4e" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-<rect x="12" y="18" width="4" height="6" rx="2" fill="#0d7a4e"/>
-<rect x="28" y="18" width="4" height="6" rx="2" fill="#0d7a4e"/>
+<rect x="12" y="18" width="4" height="6" rx="2" fill="#0d7a4e"/><rect x="28" y="18" width="4" height="6" rx="2" fill="#0d7a4e"/>
 <path d="M28 23 Q32 24 31 27" stroke="#0d7a4e" stroke-width="1.8" fill="none" stroke-linecap="round"/>
 <circle cx="31" cy="27.5" r="1.3" fill="#0d7a4e"/>
 </svg><div class="agent-status"></div></div>
@@ -406,6 +442,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
     <div class="mpill"><span>&#9881;&#65039;</span>Iberdrola 0.1463&#8364;/kWh</div>
     <div class="mpill"><span>&#128738;&#65039;</span>Repsol 0.1480&#8364;/kWh</div>
     <div class="mpill"><span>&#128262;</span>Galp 0.1561&#8364;/kWh</div>
+    <div class="mpill"><span>&#127774;</span>Plenitude 0.1389&#8364;/kWh</div>
     <div class="mpill"><span>&#128188;</span>Marketing Digital</div>
     <div class="mpill"><span>&#128225;</span>MEO &#8364;64.99</div>
     <div class="mpill"><span>&#128309;</span>NOS &#8364;64.99</div>
@@ -416,6 +453,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
     <div class="mpill"><span>&#9881;&#65039;</span>Iberdrola 0.1463&#8364;/kWh</div>
     <div class="mpill"><span>&#128738;&#65039;</span>Repsol 0.1480&#8364;/kWh</div>
     <div class="mpill"><span>&#128262;</span>Galp 0.1561&#8364;/kWh</div>
+    <div class="mpill"><span>&#127774;</span>Plenitude 0.1389&#8364;/kWh</div>
     <div class="mpill"><span>&#128188;</span>Marketing Digital</div>
   </div>
 </div>
@@ -443,7 +481,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
       <div class="pain-card"><div class="pc-icon">&#128565;</div><div class="pc-t">Contratos imposs&#237;veis de entender</div><div class="pc-d">Letra mi&#250;da, condi&#231;&#245;es escondidas e taxas que aparecem na fatura sem nenhuma explica&#231;&#227;o.</div><div class="pc-stat">1 em cada 2 pessoas n&#227;o sabe o que paga exatamente</div></div>
       <div class="pain-card"><div class="pc-icon">&#128184;</div><div class="pc-t">Paga mais do que o vizinho</div><div class="pc-d">O mesmo servi&#231;o, a mesma rua &#8212; pre&#231;os completamente diferentes. A fidelidade &#233; penalizada.</div><div class="pc-stat">Clientes antigos pagam em m&#233;dia &#8364;28/m&#234;s a mais</div></div>
       <div class="pain-card"><div class="pc-icon">&#128268;</div><div class="pc-t">Luz e g&#225;s no mercado regulado</div><div class="pc-d">O mercado regulado &#233; dos mais caros. A Endesa tem o kWh a 0.1292&#8364; &#8212; 22% mais barato que o regulado (0.1658&#8364;).</div><div class="pc-stat">Potencial poupan&#231;a: &#8364;22/m&#234;s s&#243; na eletricidade</div></div>
-      <div class="pain-card pc-cta"><div class="pc-icon">&#127919;</div><div class="pc-t">J&#225; basta. A solu&#231;&#227;o &#233; simples.</div><div class="pc-d">Em 3 minutos analisamos a tua situa&#231;&#227;o e mostramos-te as melhores ofertas dispon&#237;veis na tua zona.</div><button class="btn-sim" style="margin-top:12px;width:100%;font-size:.86rem;padding:12px" onclick="scrollFunnel()">Ver Quanto Pago a Mais &#8594;</button></div>
+      <div class="pain-card pc-cta"><div class="pc-icon">&#127919;</div><div class="pc-t">J&#225; basta. A solu&#231;&#227;o &#233; simples.</div><div class="pc-d">Em 3 minutos analisamos a tua situa&#231;&#227;o e mostramos-te as melhores ofertas dispon&#237;veis na tua zona.</div><button class="btn-sim" style="margin-top:12px;width:100%;font-size:.86rem;padding:14px" onclick="scrollFunnel()">Ver Quanto Pago a Mais &#8594;</button></div>
     </div>
     <div class="recl-bar">
       <div class="rb-title">&#128202; Reclama&#231;&#245;es registadas no Portal da Queixa &middot; Portugal</div>
@@ -463,7 +501,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
     <div class="sec-hd">
       <div class="eye">Campanhas &amp; Simuladores</div>
       <div class="sec-t">Escolhe o que queres poupar hoje</div>
-      <p class="sec-s">Campanhas p&#250;blicas em vigor &middot; Pre&#231;os atualizados Mar&#231;o 2026</p>
+      <p class="sec-s">Campanhas p&#250;blicas em vigor &middot; Pre&#231;os atualizados Abril 2026</p>
     </div>
     <div class="tabs">
       <button class="tab on" onclick="switchTab('telecom',this)">&#128225; Telecom</button>
@@ -472,60 +510,48 @@ footer a:hover{color:rgba(255,255,255,.8);}
     </div>
 
     <div class="tab-content on" id="tab-telecom">
-      <!-- DIGI HERO CARD -->
-<div class="digi-hero">
-  <div class="digi-hero-top">
-    <div class="digi-left">
-      <div class="digi-badge-row">
-        <span class="digi-badge db-red">&#127981; MAIS BARATO DE PORTUGAL</span>
-        <span class="digi-badge db-green">&#9989; SEM AUMENTO 2026</span>
-        <span class="digi-badge db-yellow">&#9971; S&#211; 3 MESES FIDELIZ.</span>
-      </div>
-      <div class="digi-logo">DIGI<span>.</span>PT</div>
-      <div class="digi-tagline">Fibra + TV + 2 M&#243;veis Ilimitados 5G</div>
-      <div class="digi-main-price">
-        <div class="digi-price-big">&#8364;32</div>
-        <div class="digi-price-info">
-          <div class="digi-price-unit">/m&#234;s</div>
-          <div class="digi-price-plan">1Gbps + TV + 2 ILIMITADOs</div>
+      <div class="digi-hero">
+        <div class="digi-hero-top">
+          <div class="digi-left">
+            <div class="digi-badge-row">
+              <span class="digi-badge db-red">&#127981; MAIS BARATO DE PORTUGAL</span>
+              <span class="digi-badge db-green">&#9989; SEM AUMENTO 2026</span>
+              <span class="digi-badge db-yellow">&#9971; S&#211; 3 MESES FIDELIZ.</span>
+            </div>
+            <div class="digi-logo">DIGI<span>.</span>PT</div>
+            <div class="digi-tagline">Fibra + TV + 2 M&#243;veis Ilimitados 5G</div>
+            <div class="digi-main-price">
+              <div class="digi-price-big">&#8364;32</div>
+              <div class="digi-price-info"><div class="digi-price-unit">/m&#234;s</div><div class="digi-price-plan">1Gbps + TV + 2 ILIMITADOs</div></div>
+            </div>
+            <div class="digi-vs">
+              <div class="digi-vs-txt">vs MEO/NOS &#8364;64.99</div>
+              <div class="digi-vs-save">= POUPA &#8364;33/m&#234;s &#183; &#8364;396/ano</div>
+            </div>
+            <a class="digi-btn" href="https://wa.me/351968677320?text=Ol%C3%A1%20MyPoupar%21%20Tenho%20interesse%20na%20%2ADIGI%2A%20%E2%80%94%20Fibra%201Gbps%20%2B%20TV%20%2B%202%20M%C3%B3veis%20ILIMITADOS%205G%20por%20%E2%82%AC32/m%C3%AAs.%20Podem%20ajudar-me%20a%20aderir%3F" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Aderir via WhatsApp &#8212; Gr&#225;tis</a>
+          </div>
+          <div class="digi-right">
+            <div class="digi-feats-title">O que est&#225; inclu&#237;do</div>
+            <div class="digi-feat"><div class="digi-feat-ic">&#9889;</div><div><div class="digi-feat-txt"><strong>Fibra 1Gbps sim&#233;trico</strong></div><div class="digi-feat-sub">Router Wi-Fi gratuito &middot; 3 meses fideliza&#231;&#227;o</div></div></div>
+            <div class="digi-feat"><div class="digi-feat-ic">&#128250;</div><div><div class="digi-feat-txt"><strong>DIGI TV &#8212; 80+ canais</strong></div><div class="digi-feat-sub">Desporto, filmes, s&#233;ries, entretenimento</div></div></div>
+            <div class="digi-feat"><div class="digi-feat-ic">&#128241;</div><div><div class="digi-feat-txt"><strong>2 M&#243;veis ILIMITADOS 5G</strong></div><div class="digi-feat-sub">Dados ilimitados &middot; Chamadas ilimitadas</div></div></div>
+            <div class="digi-feat"><div class="digi-feat-ic">&#128176;</div><div><div class="digi-feat-txt"><strong>Pre&#231;os congelados em 2026</strong></div><div class="digi-feat-sub">&#218;nica operadora sem aumento de pre&#231;os este ano</div></div></div>
+            <div class="digi-feat"><div class="digi-feat-ic">&#128275;</div><div><div class="digi-feat-txt"><strong>Sem letra min&#250;scula</strong></div><div class="digi-feat-sub">Mudar quando quiseres, sem penaliza&#231;&#245;es</div></div></div>
+          </div>
         </div>
+        <div class="digi-plans">
+          <div class="dp"><div class="dp-label">Net apenas</div><div class="dp-price">&#8364;10<span>/m&#234;s</span></div><div class="dp-desc">1Gbps fibra</div></div>
+          <div class="dp"><div class="dp-label">Net + TV</div><div class="dp-price">&#8364;22<span>/m&#234;s</span></div><div class="dp-desc">1Gbps + 80 canais</div></div>
+          <div class="dp dp-hot"><div class="dp-label">&#11088; Net+TV+2 M&#243;veis</div><div class="dp-price">&#8364;32<span>/m&#234;s</span></div><div class="dp-desc">M&#225;x. poupan&#231;a</div></div>
+          <div class="dp"><div class="dp-label">PRO 10Gbps+TV+M&#243;vel</div><div class="dp-price">&#8364;32<span>/m&#234;s</span></div><div class="dp-desc">Ultravelocidade</div></div>
+        </div>
+        <div class="digi-note"><div class="digi-note-txt">&#9888;&#65039; Disponibilidade sujeita a cobertura DIGI &middot; Fonte: digi.pt &middot; Abril 2026</div></div>
       </div>
-      <div class="digi-vs">
-        <div class="digi-vs-txt">vs MEO/NOS &#8364;64.99</div>
-        <div class="digi-vs-save">= POUPA &#8364;33/m&#234;s &#183; &#8364;396/ano</div>
-      </div>
-      <a class="digi-btn" href="https://wa.me/351968677320?text=Ol%C3%A1%20MyPoupar%21%20Tenho%20interesse%20na%20%2ADIGI%2A%20%E2%80%94%20Fibra%201Gbps%20%2B%20TV%20%2B%202%20M%C3%B3veis%20ILIMITADOS%205G%20por%20%E2%82%AC32/m%C3%AAs.%20Podem%20ajudar-me%20a%20aderir%3F" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Aderir via WhatsApp &#8212; Gr&#225;tis</a>
-    </div>
-    <div class="digi-right">
-      <div class="digi-feats-title">O que est&#225; inclu&#237;do</div>
-      <div class="digi-feat"><div class="digi-feat-ic">&#9889;</div><div><div class="digi-feat-txt"><strong>Fibra 1Gbps sim&#233;trico</strong></div><div class="digi-feat-sub">Router Wi-Fi gratuito &middot; 3 meses fideliza&#231;&#227;o</div></div></div>
-      <div class="digi-feat"><div class="digi-feat-ic">&#128250;</div><div><div class="digi-feat-txt"><strong>DIGI TV &#8212; 80+ canais</strong></div><div class="digi-feat-sub">Desporto, filmes, s&#233;ries, entretenimento</div></div></div>
-      <div class="digi-feat"><div class="digi-feat-ic">&#128241;</div><div><div class="digi-feat-txt"><strong>2 M&#243;veis ILIMITADOS 5G</strong></div><div class="digi-feat-sub">Dados ilimitados &middot; Chamadas ilimitadas &middot; Dados acumulam</div></div></div>
-      <div class="digi-feat"><div class="digi-feat-ic">&#128176;</div><div><div class="digi-feat-txt"><strong>Pre&#231;os congelados em 2026</strong></div><div class="digi-feat-sub">&#218;nica operadora sem aumento de pre&#231;os este ano</div></div></div>
-      <div class="digi-feat"><div class="digi-feat-ic">&#128275;</div><div><div class="digi-feat-txt"><strong>Sem letra min&#250;scula</strong></div><div class="digi-feat-sub">Mudar de servi&#231;o quando quiseres, sem penaliza&#231;&#245;es</div></div></div>
-    </div>
-  </div>
-  <div class="digi-plans">
-    <div class="dp"><div class="dp-label">Net apenas</div><div class="dp-price">&#8364;10<span>/m&#234;s</span></div><div class="dp-desc">1Gbps fibra</div></div>
-    <div class="dp"><div class="dp-label">Net + TV</div><div class="dp-price">&#8364;22<span>/m&#234;s</span></div><div class="dp-desc">1Gbps + 80 canais</div></div>
-    <div class="dp dp-hot"><div class="dp-label">&#11088; Net+TV+2 M&#243;veis</div><div class="dp-price">&#8364;32<span>/m&#234;s</span></div><div class="dp-desc">M&#225;x. poupan&#231;a</div></div>
-    <div class="dp"><div class="dp-label">PRO 10Gbps+TV+M&#243;vel</div><div class="dp-price">&#8364;32<span>/m&#234;s</span></div><div class="dp-desc">Ultravelocidade</div></div>
-  </div>
-  <div class="digi-note">
-    <div class="digi-note-txt">&#9888;&#65039; Disponibilidade sujeita a cobertura de fibra DIGI na tua morada &middot; Verifica em digi.pt &middot; Fonte: digi.pt &middot; Mar&#231;o 2026</div>
-  </div>
-</div>
-<!-- FIM DIGI HERO CARD -->
 
-<div class="camps-grid">
-
+      <div class="camps-grid">
         <div class="camp hot">
           <div class="camp-hdr"><div class="camp-op op-meo">&#128225; MEO <span class="ctag tag-best">RECOMENDADO</span></div></div>
-          <div class="camp-price">
-            <div class="camp-big">&#8364;64<span>.99/m&#234;s</span></div>
-            <div class="camp-old">era &#8364;79.99/m&#234;s</div>
-            <span class="camp-save">Poupa &#8364;15/m&#234;s &middot; &#8364;180/ano</span>
-          </div>
+          <div class="camp-price"><div class="camp-big">&#8364;64<span>.99/m&#234;s</span></div><div class="camp-old">era &#8364;79.99/m&#234;s</div><span class="camp-save">Poupa &#8364;15/m&#234;s &middot; &#8364;180/ano</span></div>
           <div class="camp-feats">
             <div class="cf"><span class="cf-ok">&#10003;</span>M4 &#8212; 2 Cart&#245;es ILIMITADOS inclu&#237;dos</div>
             <div class="cf"><span class="cf-ok">&#10003;</span>Internet Fibra 1000Mb sim&#233;trico</div>
@@ -535,18 +561,13 @@ footer a:hover{color:rgba(255,255,255,.8);}
             <div class="cf"><span class="cf-ok">&#10003;</span>Fideliza&#231;&#227;o 24 meses &middot; IVA 23% inclu&#237;do</div>
           </div>
           <div class="camp-foot">
-            <a class="btn-camp wa" href="https://wa.me/351968677320?text=Ol%C3%A1%20MyPoupar%21%20Tenho%20interesse%20na%20campanha%20%2AMEO%2A%20%E2%80%94%20M4%20%E2%80%94%202%20Cart%C3%B5es%20Ilimitados%20%2B%20Fibra%201Gb%20%2B%20TV%20por%20%E2%82%AC64.99/m%C3%AAs.%20Podem%20ajudar-me%20a%20aderir%3F" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Aderir via WhatsApp</a>
-            <p class="camp-note">Tamb&#233;m dispon&#237;vel: M2 sem telm&#243;vel &#8364;42.49/m&#234;s &middot; M3 1 Cart&#227;o &#8364;56.99/m&#234;s</p>
+            <a class="btn-camp wa" href="https://wa.me/351968677320?text=Ol%C3%A1%20MyPoupar%21%20Tenho%20interesse%20na%20campanha%20%2AMEO%2A%20%E2%80%94%20M4%20%E2%80%94%202%20Cart%C3%B5es%20Ilimitados%20%2B%20Fibra%201Gb%20%2B%20TV%20por%20%E2%82%AC64.99/m%C3%AAs." target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Aderir via WhatsApp</a>
+            <p class="camp-note">Tamb&#233;m dispon&#237;vel: M2 &#8364;42.49/m&#234;s &middot; M3 1 Cart&#227;o &#8364;56.99/m&#234;s</p>
           </div>
         </div>
-
         <div class="camp">
           <div class="camp-hdr"><div class="camp-op op-nos">&#128309; NOS <span class="ctag tag-flash">CAMPANHA</span></div></div>
-          <div class="camp-price">
-            <div class="camp-big">&#8364;64<span>.99/m&#234;s</span></div>
-            <div class="camp-old">era &#8364;79.99/m&#234;s</div>
-            <span class="camp-save">Poupa &#8364;15/m&#234;s &middot; &#8364;180/ano</span>
-          </div>
+          <div class="camp-price"><div class="camp-big">&#8364;64<span>.99/m&#234;s</span></div><div class="camp-old">era &#8364;79.99/m&#234;s</div><span class="camp-save">Poupa &#8364;15/m&#234;s &middot; &#8364;180/ano</span></div>
           <div class="camp-feats">
             <div class="cf"><span class="cf-ok">&#10003;</span>2 Cart&#245;es ILIMITADOS inclu&#237;dos</div>
             <div class="cf"><span class="cf-ok">&#10003;</span>Internet Fibra 1000Mb</div>
@@ -556,18 +577,13 @@ footer a:hover{color:rgba(255,255,255,.8);}
             <div class="cf"><span class="cf-ok">&#10003;</span>Portabilidade tratada por n&#243;s</div>
           </div>
           <div class="camp-foot">
-            <a class="btn-camp wa" href="https://wa.me/351968677320?text=Ol%C3%A1%20MyPoupar%21%20Tenho%20interesse%20na%20campanha%20%2ANOS%2A%20%E2%80%94%20Fibra%201Gb%20%2B%20TV%20%2B%202%20Cart%C3%B5es%20Ilimitados%20por%20%E2%82%AC64.99/m%C3%AAs.%20Podem%20ajudar-me%20a%20aderir%3F" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Aderir via WhatsApp</a>
-            <p class="camp-note">Tamb&#233;m dispon&#237;vel: NOS sem telm&#243;vel &#8364;42.49/m&#234;s &middot; 1 Cart&#227;o &#8364;56.99/m&#234;s</p>
+            <a class="btn-camp wa" href="https://wa.me/351968677320?text=Ol%C3%A1%20MyPoupar%21%20Tenho%20interesse%20na%20campanha%20%2ANOS%2A%20por%20%E2%82%AC64.99/m%C3%AAs." target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Aderir via WhatsApp</a>
+            <p class="camp-note">Tamb&#233;m dispon&#237;vel: NOS &#8364;42.49/m&#234;s &middot; 1 Cart&#227;o &#8364;56.99/m&#234;s</p>
           </div>
         </div>
-
         <div class="camp">
           <div class="camp-hdr"><div class="camp-op op-vod">&#128308; Vodafone <span class="ctag tag-flash">CAMPANHA</span></div></div>
-          <div class="camp-price">
-            <div class="camp-big">&#8364;65<span>.50/m&#234;s</span></div>
-            <div class="camp-old">era &#8364;80.50/m&#234;s</div>
-            <span class="camp-save">Poupa &#8364;15/m&#234;s &middot; &#8364;180/ano</span>
-          </div>
+          <div class="camp-price"><div class="camp-big">&#8364;65<span>.50/m&#234;s</span></div><div class="camp-old">era &#8364;80.50/m&#234;s</div><span class="camp-save">Poupa &#8364;15/m&#234;s &middot; &#8364;180/ano</span></div>
           <div class="camp-feats">
             <div class="cf"><span class="cf-ok">&#10003;</span>Fibra 1/1 Gbps + Smart Router Wi-Fi 6</div>
             <div class="cf"><span class="cf-ok">&#10003;</span>2 N&#250;meros com DADOS ILIMITADOS</div>
@@ -577,18 +593,17 @@ footer a:hover{color:rgba(255,255,255,.8);}
             <div class="cf"><span class="cf-ok">&#10003;</span>Fideliza&#231;&#227;o 24 meses &middot; IVA 23% inclu&#237;do</div>
           </div>
           <div class="camp-foot">
-            <a class="btn-camp wa" href="https://wa.me/351968677320?text=Ol%C3%A1%20MyPoupar%21%20Tenho%20interesse%20na%20campanha%20%2AVodafone%2A%20%E2%80%94%20Fibra%201Gb%20%2B%20TV%20%2B%202%20N%C3%BAmeros%20Ilimitados%20por%20%E2%82%AC65.50/m%C3%AAs.%20Podem%20ajudar-me%20a%20aderir%3F" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Aderir via WhatsApp</a>
-            <p class="camp-note">Tamb&#233;m dispon&#237;vel: fibra+TV sem telm&#243;vel &#8364;42.50/m&#234;s &middot; 1 N&#250;mero &#8364;57.50/m&#234;s</p>
+            <a class="btn-camp wa" href="https://wa.me/351968677320?text=Ol%C3%A1%20MyPoupar%21%20Tenho%20interesse%20na%20campanha%20%2AVodafone%2A%20por%20%E2%82%AC65.50/m%C3%AAs." target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> Aderir via WhatsApp</a>
+            <p class="camp-note">Fibra+TV &#8364;42.50/m&#234;s &middot; 1 N&#250;mero &#8364;57.50/m&#234;s</p>
           </div>
         </div>
-
       </div>
     </div>
 
     <div class="tab-content" id="tab-energia">
       <div class="energy-sim">
         <div class="esim-top">
-          <h3>&#9889; Simulador de Energia &#8212; Dados Reais Mar&#231;o 2026</h3>
+          <h3>&#9889; Simulador de Energia &#8212; Dados Reais Abril 2026</h3>
           <p>Introduz o teu consumo e pot&#234;ncia para ver qual o fornecedor mais barato para ti</p>
         </div>
         <div class="esim-body">
@@ -599,7 +614,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
               <button class="tariff-btn" id="tipo-emp" onclick="setTipo('empresa',this)">&#127962; Empresa / Neg&#243;cio</button>
             </div>
             <div id="emp-note" style="display:none;font-size:.7rem;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:8px 12px;margin-top:8px;color:#92400e">
-              &#128188; <strong>Modo Empresa ativo</strong> &#8212; Pot&#234;ncias BTE dispon&#237;veis. Para pot&#234;ncias acima de 69 kVA contacte-nos para or&#231;amento personalizado.
+              &#128188; <strong>Modo Empresa ativo</strong> &#8212; Pot&#234;ncias BTE dispon&#237;veis.
             </div>
           </div>
           <div class="esim-grid">
@@ -651,9 +666,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
     </div>
 
     <div class="tab-content" id="tab-digital">
-      <p style="font-size:.88rem;color:var(--mid);text-align:center;max-width:540px;margin:0 auto 24px;line-height:1.6">
-        Solu&#231;&#245;es digitais completas para neg&#243;cios locais &#8212; talhos, barbeiros, solares, imobili&#225;rias, restaurantes e qualquer empresa que queira crescer online.
-      </p>
+      <p style="font-size:.88rem;color:var(--mid);text-align:center;max-width:540px;margin:0 auto 24px;line-height:1.6">Solu&#231;&#245;es digitais completas para neg&#243;cios locais &#8212; talhos, barbeiros, imobili&#225;rias, restaurantes e qualquer empresa que queira crescer online.</p>
       <div class="dig-grid">
         <div class="dig-card"><div class="dig-ic">&#127760;</div><div class="dig-t">Website Profissional</div><div class="dig-s">Site moderno, r&#225;pido e otimizado para Google. Inclui formul&#225;rio de contacto e WhatsApp direto.</div><div class="dig-price">desde &#8364;299 &middot; ou &#8364;29/m&#234;s</div></div>
         <div class="dig-card"><div class="dig-ic">&#128241;</div><div class="dig-t">Gest&#227;o Redes Sociais</div><div class="dig-s">Instagram, Facebook e Google My Business. Posts di&#225;rios, stories e resposta a mensagens.</div><div class="dig-price">desde &#8364;149/m&#234;s</div></div>
@@ -663,11 +676,12 @@ footer a:hover{color:rgba(255,255,255,.8);}
         <div class="dig-card"><div class="dig-ic">&#128230;</div><div class="dig-t">Pacote Digital 360&#176;</div><div class="dig-s">Site + Redes Sociais + IA Vendedora + Campanhas + Email/SMS. Tudo num s&#243; lugar.</div><div class="dig-price" style="color:#f59e0b">&#8364;299/m&#234;s &middot; Sem fideliza&#231;&#227;o</div></div>
       </div>
       <div style="text-align:center;margin-top:22px">
-        <a class="btn-sim" href="https://wa.me/351968677320?text=Ol%C3%A1%21%20Tenho%20interesse%20numa%20solu%C3%A7%C3%A3o%20de%20Marketing%20Digital%20para%20o%20meu%20neg%C3%B3cio.%20Podem%20enviar%20proposta%20personalizada%3F" target="_blank" rel="noopener">&#128172; Pedir Proposta Personalizada &#8212; WhatsApp</a>
+        <a class="btn-sim" href="https://wa.me/351968677320?text=Ol%C3%A1%21%20Tenho%20interesse%20numa%20solu%C3%A7%C3%A3o%20de%20Marketing%20Digital%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">&#128172; Pedir Proposta Personalizada &#8212; WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
+
 <section class="sec">
   <div class="sn">
     <div class="sec-hd"><div class="eye">Casos Reais</div><div class="sec-t">Quanto pouparam os nossos clientes</div></div>
@@ -675,17 +689,17 @@ footer a:hover{color:rgba(255,255,255,.8);}
       <div class="ss-track" id="ss1t">
         <div class="ss-slide"><div class="sp">
           <div class="stag">&#128225; Telecom &middot; Porto</div><div class="sh">MEO &#8594; Digi: &#8364;38/m&#234;s poupados</div>
-          <p class="sd">Jo&#227;o pagava &#8364;79/m&#234;s pela MEO com Internet + TV + Telm&#243;vel. Em 48h mudou para Digi sem corte de servi&#231;o &#8212; mesma velocidade, fatura muito diferente.</p>
+          <p class="sd">Jo&#227;o pagava &#8364;79/m&#234;s pela MEO. Em 48h mudou para Digi sem corte de servi&#231;o &#8212; mesma velocidade, fatura muito diferente.</p>
           <div class="ba"><div class="ba-box"><div class="ba-lbl">Antes &middot; MEO</div><div class="ba-v bad">&#8364;79/m&#234;s</div></div><div class="ba-arr">&#8594;</div><div class="ba-box ok"><div class="ba-lbl">Depois &middot; Digi</div><div class="ba-v ok">&#8364;41/m&#234;s</div></div></div>
         </div></div>
         <div class="ss-slide"><div class="sp">
           <div class="stag">&#9889; Energia &middot; Lisboa</div><div class="sh">EDP &#8594; Endesa: &#8364;22/m&#234;s poupados</div>
-          <p class="sd">Mariana estava no mercado regulado EDP h&#225; 5 anos. Ap&#243;s an&#225;lise MyPoupar migrou para Endesa Digital em 3 dias. 0.1658 &#8594; 0.1292&#8364;/kWh &#8212; 23% mais barato.</p>
+          <p class="sd">Mariana estava no mercado regulado EDP h&#225; 5 anos. Migrou para Endesa Digital em 3 dias. 0.1658 &#8594; 0.1292&#8364;/kWh &#8212; 23% mais barato.</p>
           <div class="ba"><div class="ba-box"><div class="ba-lbl">Antes &middot; EDP regulado</div><div class="ba-v bad">&#8364;95/m&#234;s</div></div><div class="ba-arr">&#8594;</div><div class="ba-box ok"><div class="ba-lbl">Depois &middot; Endesa</div><div class="ba-v ok">&#8364;73/m&#234;s</div></div></div>
         </div></div>
         <div class="ss-slide"><div class="sp">
           <div class="stag">&#128293; Energia + Telecom &middot; Braga</div><div class="sh">Pacote completo: &#8364;65/m&#234;s poupados</div>
-          <p class="sd">Fam&#237;lia com Internet, TV, 2 telm&#243;veis, luz e g&#225;s. MyPoupar renegociou tudo de uma vez. &#8364;780 de poupan&#231;a por ano sem mudar nada no dia-a-dia.</p>
+          <p class="sd">Fam&#237;lia com Internet, TV, 2 telm&#243;veis, luz e g&#225;s. MyPoupar renegociou tudo de uma vez. &#8364;780 de poupan&#231;a por ano.</p>
           <div class="ba"><div class="ba-box"><div class="ba-lbl">Antes</div><div class="ba-v bad">&#8364;198/m&#234;s</div></div><div class="ba-arr">&#8594;</div><div class="ba-box ok"><div class="ba-lbl">Depois</div><div class="ba-v ok">&#8364;133/m&#234;s</div></div></div>
         </div></div>
         <div class="ss-slide"><div class="sp">
@@ -705,6 +719,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
     </div>
   </div>
 </section>
+
 <section class="sec funnel-bg" id="funnel-sec">
   <div class="sn">
     <div class="sec-hd">
@@ -737,7 +752,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
         </div>
         <div class="fs" id="fs3">
           <div class="fh">Quanto pagas por m&#234;s? &#128179;</div>
-          <div class="fsub">Valor total da tua fatura mensal (todos os servi&#231;os).</div>
+          <div class="fsub">Valor total da tua fatura mensal.</div>
           <div class="rng-wrap">
             <div class="rng-big" id="rdv">&#8364;65 / m&#234;s</div>
             <div class="rng-lbls"><span>&#8364;20</span><span>&#8364;200+</span></div>
@@ -806,6 +821,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
     </div>
   </div>
 </section>
+
 <section class="sec" id="upload-sec" style="background:#fff;">
   <div class="sn">
     <div class="sec-hd">
@@ -838,7 +854,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
           <div class="ig"><label>O teu nome</label><input type="text" id="upl-nome" placeholder="Primeiro nome" autocomplete="given-name"></div>
           <div class="ig"><label>Telm&#243;vel</label><input type="tel" id="upl-tel" placeholder="+351 9XX XXX XXX" autocomplete="tel"></div>
         </div>
-        <div class="ig"><label>Nota (opcional)</label><input type="text" id="upl-nota" placeholder="Ex: Quero trocar de MEO &middot; Pago &#8364;85/m&#234;s &middot; Somos 4 pessoas"></div>
+        <div class="ig"><label>Nota (opcional)</label><input type="text" id="upl-nota" placeholder="Ex: Quero trocar de MEO &middot; Pago &#8364;85/m&#234;s"></div>
       </div>
       <div class="upl-methods" id="upl-methods">
         <div class="upl-methods-title">Como queres enviar a fatura?</div>
@@ -850,7 +866,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
           </button>
           <button class="upl-btn upl-email" onclick="sendViaEmail()">
             <div class="upl-btn-icon">&#128231;</div>
-            <div class="upl-btn-info"><div class="ubl-t">Email</div><div class="ubl-s"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5e2e3f2c3d3b2c373f2d1e33272e312b2e3f2c703d3133">[email&#160;protected]</a></div></div>
+            <div class="upl-btn-info"><div class="ubl-t">Email</div><div class="ubl-s">parcerias@mypoupar.com</div></div>
             <div class="upl-btn-badge" style="background:rgba(255,255,255,.15)">RECOMENDADO</div>
           </button>
           <button class="upl-btn upl-sms" onclick="sendViaSMS()">
@@ -875,7 +891,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
         <div class="uh-item"><div class="uh-n">2</div><div><strong>Carrega o ficheiro</strong> e escolhe como enviar (WhatsApp, email ou SMS)</div></div>
         <div class="uh-item"><div class="uh-n">3</div><div><strong>Recebe an&#225;lise</strong> completa em menos de 2 horas com poupan&#231;a real calculada</div></div>
       </div>
-      <p class="upl-rgpd">&#128274; A tua fatura &#233; usada exclusivamente para an&#225;lise de poupan&#231;a. Dados protegidos pelo RGPD. N&#227;o partilhamos com terceiros.</p>
+      <p class="upl-rgpd">&#128274; A tua fatura &#233; usada exclusivamente para an&#225;lise de poupan&#231;a. Dados protegidos pelo RGPD.</p>
     </div>
   </div>
 </section>
@@ -885,7 +901,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
     <h2>Pronto para poupar j&#225; hoje?</h2>
     <p>Mais de 12.400 portugueses j&#225; est&#227;o a poupar centenas de euros por ano. Campanhas reais em vigor agora &#8212; gratuito, sem compromisso.</p>
     <div class="cta-btns">
-      <a class="cb-wa" href="https://wa.me/351968677320?text=Ol%C3%A1%21%20Vi%20o%20MyPoupar%20e%20gostaria%20de%20saber%20como%20poupar%20em%20energia%20e%20telecom.%20Podem%20ajudar-me%3F" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="#0d7a4e"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp Direto</a>
+      <a class="cb-wa" href="https://wa.me/351968677320?text=Ol%C3%A1%21%20Vi%20o%20MyPoupar%20e%20gostaria%20de%20saber%20como%20poupar%20em%20energia%20e%20telecom." target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="#0d7a4e"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg> WhatsApp Direto</a>
       <button class="cb-out" onclick="openModal()">&#128222; Liguem-me Gr&#225;tis</button>
       <button class="cb-out" onclick="scrollFunnel()">&#128269; Simular Gr&#225;tis</button>
     </div>
@@ -894,14 +910,14 @@ footer a:hover{color:rgba(255,255,255,.8);}
 
 <footer>
   <div style="margin-bottom:7px">
-    <a href="https://mypoupar.com">mypoupar.com</a> &middot;
-    <a href="https://mypoupar.com/sobre">Sobre</a> &middot;
-    <a href="https://mypoupar.com/contacto">Contacto</a> &middot;
-    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4f3f2e3d2c2a3d262e3c0f22363f203a3f2e3d612c2022">[email&#160;protected]</a> &middot;
+    <a href="https://mypoupar.pt">mypoupar.pt</a> &middot;
+    <a href="https://mypoupar.pt/sobre">Sobre</a> &middot;
+    <a href="https://mypoupar.pt/contacto">Contacto</a> &middot;
+    parcerias@mypoupar.com &middot;
     <a href="tel:+351968677320">968 677 320</a>
   </div>
   &copy; 2026 MyPoupar &middot; Powered by LUMIN IA &middot; RGPD &middot; Todos os direitos reservados<br>
-  <span style="font-size:.6rem;opacity:.6">Pre&#231;os p&#250;blicos Mar&#231;o 2026 &middot; Fontes: comparamais.pt, meo.pt, nos.pt, vodafone.pt, escolhaendesa.pt, edp.pt &middot; Sujeito a altera&#231;&#245;es</span>
+  <span style="font-size:.6rem;opacity:.6">Pre&#231;os p&#250;blicos Abril 2026 &middot; Fontes: comparamais.pt, meo.pt, nos.pt, vodafone.pt, escolhaendesa.pt, edp.pt &middot; Sujeito a altera&#231;&#245;es</span>
 </footer>
 
 <button class="floatbtn" onclick="openModal()"><div class="fdot"></div>&#128222; Liguem-me Gr&#225;tis</button>
@@ -913,7 +929,7 @@ footer a:hover{color:rgba(255,255,255,.8);}
     <div id="m-form">
       <div class="m-ic">&#128222;</div>
       <div class="m-h">N&#243;s ligamos para ti &#8212; Gr&#225;tis!</div>
-      <p class="m-sub">Deixa o teu nome e n&#250;mero. Um especialista MyPoupar liga-te nos pr&#243;ximos minutos para ajudar a poupar em Energia e Telecom.</p>
+      <p class="m-sub">Deixa o teu nome e n&#250;mero. Um especialista MyPoupar liga-te nos pr&#243;ximos minutos.</p>
       <div class="ig"><label>Nome</label><input type="text" id="mnm" placeholder="O teu nome" autocomplete="given-name"></div>
       <div class="ig"><label>Telm&#243;vel</label><input type="tel" id="mph" placeholder="+351 9XX XXX XXX" autocomplete="tel"></div>
       <div class="ig"><label>Melhor hora para ligar</label>
@@ -941,23 +957,14 @@ footer a:hover{color:rgba(255,255,255,.8);}
     </div>
   </div>
 </div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+<script>
 (function(){
 "use strict";
 var WA='351968677320';
-function goToWA(msg){
-  var url='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
-  var a=document.createElement('a');
-  a.href=url;a.target='_blank';a.rel='noopener noreferrer';
-  document.body.appendChild(a);a.click();
-  setTimeout(function(){if(a.parentNode)a.parentNode.removeChild(a);},1000);
-}
+function goToWA(msg){var url='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);var a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener noreferrer';document.body.appendChild(a);a.click();setTimeout(function(){if(a.parentNode)a.parentNode.removeChild(a);},1000);}
 
-function switchTab(id,btn){
-  document.querySelectorAll('.tab-content').forEach(function(el){el.classList.remove('on');});
-  document.querySelectorAll('.tab').forEach(function(el){el.classList.remove('on');});
-  var tc=document.getElementById('tab-'+id);if(tc)tc.classList.add('on');if(btn)btn.classList.add('on');
-}
+function switchTab(id,btn){document.querySelectorAll('.tab-content').forEach(function(el){el.classList.remove('on');});document.querySelectorAll('.tab').forEach(function(el){el.classList.remove('on');});var tc=document.getElementById('tab-'+id);if(tc)tc.classList.add('on');if(btn)btn.classList.add('on');}
 window.switchTab=switchTab;
 
 var SS=[{track:'ss1t',dots:'ss1d',bar:'ss1p',total:4,cur:0,ms:6000,timer:null}];
@@ -968,14 +975,15 @@ function ssAuto(i){var s=SS[i];ssClear(i);var bar=document.getElementById(s.bar)
 function ssNav(i,dir){ssClear(i);ssGo(i,SS[i].cur+dir);ssAuto(i);}
 window.ssNav=ssNav;
 
-/* ═══ ENERGY ═══ */
+/* ═══ ENERGY — COM PLENITUDE ═══ */
 var PROVIDERS=[
-  {name:'Endesa Digital',ic:'🌱',kwh:0.1292,kwh_v:0.0920,kwh_fv:0.1490,kwh_p:0.1260,kwh_cv:0.0870,kwh_vaz:0.0680,pot:{3.45:0.3180,4.60:0.4280,5.75:0.5380,6.90:0.6480,10.35:0.9510,13.80:1.2540,17.25:1.5570,20.70:1.8600,27.60:2.4800,34.50:3.1000,41.40:3.7200,52.00:4.6730,69.00:6.2000},desc:'0.1292€/kWh · 17% desconto permanente · melhor preço do mercado',best:true},
+  {name:'Endesa Digital',ic:'🌱',kwh:0.1292,kwh_v:0.0920,kwh_fv:0.1490,kwh_p:0.1260,kwh_cv:0.0870,kwh_vaz:0.0680,pot:{3.45:0.3180,4.60:0.4280,5.75:0.5380,6.90:0.6480,10.35:0.9510,13.80:1.2540,17.25:1.5570,20.70:1.8600,27.60:2.4800,34.50:3.1000,41.40:3.7200,52.00:4.6730,69.00:6.2000},desc:'0.1292€/kWh · 17% desconto permanente · melhor preço',best:true},
+  {name:'Plenitude (ENI)',ic:'🌍',kwh:0.1389,kwh_v:0.0950,kwh_fv:0.1600,kwh_p:0.1320,kwh_cv:0.0900,kwh_vaz:0.0710,pot:{3.45:0.3100,4.60:0.4200,5.75:0.5300,6.90:0.6400,10.35:0.9400,13.80:1.2400,17.25:1.5400,20.70:1.8400,27.60:2.4500,34.50:3.0600,41.40:3.6700,52.00:4.6100,69.00:6.1100},desc:'0.1389€/kWh · energia 100% renovável · sem fidelização'},
   {name:'EDP Digital',ic:'⚡',kwh:0.1420,kwh_v:0.0951,kwh_fv:0.1645,kwh_p:0.1350,kwh_cv:0.0900,kwh_vaz:0.0720,pot:{3.45:0.2891,4.60:0.4347,5.75:0.5203,6.90:0.5780,10.35:0.8485,13.80:1.0943,17.25:1.3777,20.70:1.7068,27.60:2.2760,34.50:2.8450,41.40:3.4130,52.00:4.2870,69.00:5.6890},desc:'0.1420€/kWh · 15% desconto consumo'},
   {name:'Iberdrola',ic:'⚙️',kwh:0.1463,kwh_v:0.0890,kwh_fv:0.1690,kwh_p:0.1380,kwh_cv:0.0840,kwh_vaz:0.0700,pot:{3.45:0.3250,4.60:0.4420,5.75:0.5590,6.90:0.6760,10.35:0.9850,13.80:1.2940,17.25:1.6030,20.70:1.9120,27.60:2.4770,34.50:3.0970,41.40:3.7160,52.00:4.6630,69.00:6.1740},desc:'0.1463€/kWh · 18% desconto + €40 oferta adesão'},
   {name:'Repsol',ic:'🛢️',kwh:0.1480,kwh_v:0.0960,kwh_fv:0.1700,kwh_p:0.1400,kwh_cv:0.0910,kwh_vaz:0.0730,pot:{3.45:0.3200,4.60:0.4380,5.75:0.5560,6.90:0.6740,10.35:0.9840,13.80:1.2940,17.25:1.6040,20.70:1.9140,27.60:2.4800,34.50:3.1000,41.40:3.7200,52.00:4.8080,69.00:6.3800},desc:'0.1480€/kWh · energia verde + desconto combustíveis'},
   {name:'Galp Casa',ic:'🔆',kwh:0.1561,kwh_v:0.1020,kwh_fv:0.1847,kwh_p:0.1490,kwh_cv:0.0980,kwh_vaz:0.0790,pot:{3.45:0.3380,4.60:0.4550,5.75:0.5720,6.90:0.6890,10.35:1.0050,13.80:1.3210,17.25:1.6370,20.70:1.9530,27.60:2.6040,34.50:3.2550,41.40:3.9060,52.00:4.9060,69.00:6.5100},desc:'0.1561€/kWh · desconto Cartão Continente'},
-  {name:'Mercado Regulado (ERSE)',ic:'📋',kwh:0.1658,kwh_v:0.1100,kwh_fv:0.1900,kwh_p:0.1580,kwh_cv:0.1050,kwh_vaz:0.0850,pot:{3.45:0.3600,4.60:0.4800,5.75:0.6000,6.90:0.7200,10.35:1.0500,13.80:1.3800,17.25:1.7100,20.70:2.0400,27.60:2.7200,34.50:3.4000,41.40:4.0800,52.00:5.1240,69.00:6.8000},desc:'Preço regulado ERSE · sem desconto · referência'}
+  {name:'Mercado Regulado (ERSE)',ic:'📋',kwh:0.1658,kwh_v:0.1100,kwh_fv:0.1900,kwh_p:0.1580,kwh_cv:0.1050,kwh_vaz:0.0850,pot:{3.45:0.3600,4.60:0.4800,5.75:0.6000,6.90:0.7200,10.35:1.0500,13.80:1.3800,17.25:1.7100,20.70:2.0400,27.60:2.7200,34.50:3.4000,41.40:4.0800,52.00:5.1240,69.00:6.8000},desc:'Preço regulado ERSE · referência'}
 ];
 var curTariff='simples',curTipo='particular';
 function setTipo(tipo,btn){curTipo=tipo;document.querySelectorAll('#tipo-part,#tipo-emp').forEach(function(b){b.classList.remove('on');});if(btn)btn.classList.add('on');var en=document.getElementById('emp-note'),tri=document.getElementById('btn-tri'),r=document.getElementById('kwh-range'),mn=document.getElementById('kwh-min-lbl'),mx=document.getElementById('kwh-max-lbl'),hi=document.getElementById('kwh-hint');if(tipo==='empresa'){if(en)en.style.display='block';if(tri)tri.style.display='block';if(r){r.min=100;r.max=8000;r.value=1200;updateKwh(1200);}if(mn)mn.textContent='100';if(mx)mx.textContent='8.000';if(hi)hi.textContent='Loja pequena ~600 kWh · Restaurante ~1.500 kWh';}else{if(en)en.style.display='none';if(tri){tri.style.display='none';if(curTariff==='trihoraria'){curTariff='simples';document.querySelectorAll('.tariff-btn').forEach(function(b){b.classList.remove('on');});document.querySelector('.tariff-btn').classList.add('on');}}if(r){r.min=50;r.max=900;r.value=300;updateKwh(300);}if(mn)mn.textContent='50';if(mx)mx.textContent='900';if(hi)hi.textContent='Casal típico ~275 kWh · Família ~417 kWh';}}
@@ -1003,11 +1011,11 @@ function calcEnergy(){
   var tl=document.getElementById('eresults-title');
   if(tl)tl.textContent='Fatura estimada: '+kwh+' kWh/mês · '+pot+' kVA · Tarifa '+(curTariff==='simples'?'Simples':curTariff==='bihoraria'?'Bi-Horária':'Tri-Horária')+' · '+(isEmp?'Empresa/BTE':'Particular/BTN')+' · IVA 23% incluído';
   var table=document.getElementById('ertable');if(!table)return;
-  var html='<thead><tr><th>Fornecedor</th><th style="text-align:center">€/kWh</th><th style="text-align:center">Potência/mês</th><th style="text-align:right">Fatura/mês</th></tr></thead><tbody>';
+  var html='<thead><tr><th>Fornecedor</th><th style="text-align:center">€/kWh</th><th style="text-align:center">Pot./mês</th><th style="text-align:right">Fatura/mês</th></tr></thead><tbody>';
   results.forEach(function(r,i){
     var saving=Math.round((current-r.monthly)*100)/100,isBest=i===0,isReg=r.p.name.indexOf('Regulado')>-1;
     var ks=curTariff==='bihoraria'?r.p.kwh_v+'V/'+r.p.kwh_fv+'FV':curTariff==='trihoraria'?r.p.kwh_p+'P/'+r.p.kwh_cv+'C/'+r.p.kwh_vaz+'V':r.p.kwh;
-    html+='<tr class="'+(isBest?'best-row':'')+'"><td><div class="provider" style="flex-wrap:wrap;gap:4px">'+r.p.ic+' <strong>'+r.p.name+'</strong>'+(isBest?'<span class="best-badge">MELHOR</span>':'')+(saving>1&&!isReg?'<span class="save-badge">poupa €'+saving+'/mês</span>':'')+'</div><div style="font-size:.66rem;color:var(--muted);margin-top:2px">'+r.p.desc+'</div></td>';
+    html+='<tr class="'+(isBest?'best-row':'')+'"><td><div class="provider">'+r.p.ic+' <strong>'+r.p.name+'</strong>'+(isBest?'<span class="best-badge">MELHOR</span>':'')+(saving>1&&!isReg?'<span class="save-badge">poupa €'+saving+'/mês</span>':'')+'</div><div style="font-size:.66rem;color:var(--muted);margin-top:2px">'+r.p.desc+'</div></td>';
     html+='<td style="text-align:center;font-size:.79rem;color:var(--mid)">'+ks+'€</td>';
     html+='<td style="text-align:center;font-size:.79rem;color:var(--mid)">€'+Math.round(r.potDay*30*100)/100+'</td>';
     html+='<td style="text-align:right"><div class="er-monthly'+(isReg?' current':'')+'">€'+r.monthly.toFixed(2)+'</div>'+(isReg?'<div style="font-size:.62rem;color:var(--red)">mais caro</div>':'')+'</td></tr>';
@@ -1015,7 +1023,7 @@ function calcEnergy(){
   html+='</tbody>';table.innerHTML=html;
   var sv=Math.round((current-cheapest)*100)/100,sy=Math.round(sv*12);
   var note=document.getElementById('er-note');
-  if(note)note.innerHTML='⚠️ <strong>Valores estimados</strong> com IVA 23% + taxas DGEG incluídas. Poupança potencial vs regulado: <strong style="color:var(--g)">€'+sv+'/mês (€'+sy+'/ano)</strong>. Fonte: comparamais.pt · ERSE · Endesa.pt · Março 2026.';
+  if(note)note.innerHTML='⚠️ <strong>Valores estimados</strong> com IVA 23% + taxas DGEG incluídas. Poupança potencial vs regulado: <strong style="color:var(--g)">€'+sv+'/mês (€'+sy+'/ano)</strong>. Fonte: comparamais.pt · ERSE · Endesa.pt · Abril 2026.';
   var er=document.getElementById('eresults');if(er){er.classList.add('show');er.scrollIntoView({behavior:'smooth',block:'nearest'});}
 }
 window.calcEnergy=calcEnergy;
@@ -1032,7 +1040,7 @@ function pickCat(el,cat){document.querySelectorAll('#fs1 .ch').forEach(function(
 window.pickCat=pickCat;
 var OPS={
   t:[{i:'📡',n:'MEO',s:'Altice Portugal'},{i:'🔵',n:'NOS',s:'Internet+TV+Móvel'},{i:'🔴',n:'Vodafone',s:'Fibra+5G'},{i:'🟢',n:'Digi',s:'Low cost'},{i:'📶',n:'Nowo',s:'Cable+Internet'},{i:'❓',n:'Outro',s:'Operador regional'}],
-  e:[{i:'⚡',n:'EDP',s:'Mercado regulado'},{i:'🌱',n:'Endesa',s:'0.1292€/kWh'},{i:'⚙️',n:'Iberdrola',s:'0.1463€/kWh'},{i:'🛢️',n:'Repsol',s:'0.1480€/kWh'},{i:'🔆',n:'Galp',s:'0.1561€/kWh'},{i:'❓',n:'Outro',s:'Não sei'}],
+  e:[{i:'⚡',n:'EDP',s:'Mercado regulado'},{i:'🌱',n:'Endesa',s:'0.1292€/kWh'},{i:'🌍',n:'Plenitude',s:'0.1389€/kWh'},{i:'⚙️',n:'Iberdrola',s:'0.1463€/kWh'},{i:'🔆',n:'Galp',s:'0.1561€/kWh'},{i:'❓',n:'Outro',s:'Não sei'}],
   b:[{i:'⚡',n:'EDP',s:'Energia'},{i:'📡',n:'MEO',s:'Telecom'},{i:'🔵',n:'NOS',s:'Telecom'},{i:'🔴',n:'Vodafone',s:'Telecom'},{i:'🔆',n:'Galp',s:'Energia'},{i:'❓',n:'Vários',s:'Diferentes operadoras'}],
   d:[{i:'💼',n:'Já tenho site',s:'Quero melhorar'},{i:'🆕',n:'Não tenho nada',s:'Começar do zero'},{i:'📱',n:'Só redes sociais',s:'Instagram/Facebook'},{i:'🤖',n:'Automatização',s:'IA e chatbots'},{i:'📣',n:'Publicidade',s:'Meta Ads / Google'},{i:'📦',n:'Pacote completo',s:'Tudo incluído'}]
 };
@@ -1043,34 +1051,19 @@ function togCk(el){el.classList.toggle('on');var v=el.getAttribute('data-v'),idx
 window.togCk=togCk;
 function submitForm(){var nm=document.getElementById('fnm'),ph=document.getElementById('fph'),dst=document.getElementById('fdst');if(!nm||!ph||!nm.value.trim()||!ph.value.trim()){alert('Por favor preenche nome e telemóvel.');return;}if(dst&&!dst.value){alert('Por favor seleciona o teu distrito.');return;}ST.name=nm.value.trim();ST.phone=ph.value.trim();ST.dist=dst?dst.value:'';var em=document.getElementById('fem');ST.email=em?em.value.trim():'';buildResult();setStep(5);sendLeadAuto();}
 window.submitForm=submitForm;
-function sendLeadAuto(){var cn=ST.cat==='t'?'Telecom':ST.cat==='e'?'Energia':ST.cat==='b'?'Energia+Telecom':'Marketing Digital',sv=ST.svcs.length>0?ST.svcs.join(', '):'não indicado';var msg='🔔 *NOVA LEAD MyPoupar*\n\n👤 *Nome:* '+ST.name+'\n📱 *Telefone:* '+ST.phone+(ST.email?'\n📧 *Email:* '+ST.email:'')+'\n📍 *Distrito:* '+ST.dist+'\n\n🎯 *Interesse:* '+cn+'\n💰 *Fatura atual:* €'+ST.bill+'/mês\n📦 *Serviços:* '+sv+'\n🏢 *Operadora:* '+(ST.op||'não indicado')+'\n\n✅ Via mypoupar.com';goToWA(msg);}
+function sendLeadAuto(){var cn=ST.cat==='t'?'Telecom':ST.cat==='e'?'Energia':ST.cat==='b'?'Energia+Telecom':'Marketing Digital',sv=ST.svcs.length>0?ST.svcs.join(', '):'não indicado';var msg='🔔 *NOVA LEAD MyPoupar*\n\n👤 *Nome:* '+ST.name+'\n📱 *Telefone:* '+ST.phone+(ST.email?'\n📧 *Email:* '+ST.email:'')+'\n📍 *Distrito:* '+ST.dist+'\n\n🎯 *Interesse:* '+cn+'\n💰 *Fatura atual:* €'+ST.bill+'/mês\n📦 *Serviços:* '+sv+'\n🏢 *Operadora:* '+(ST.op||'não indicado')+'\n\n✅ Via mypoupar.pt';goToWA(msg);}
 function buildResult(){var pct=ST.cat==='b'?0.35:ST.cat==='e'?0.20:0.28;if(ST.svcs.length>3)pct+=0.05;var sav=Math.round(ST.bill*pct),annual=sav*12;var ra=document.getElementById('ramt'),rt=document.getElementById('rttl'),rd=document.getElementById('rdsc');if(ra)ra.textContent='€'+sav;if(rt)rt.textContent=ST.name+', podes poupar €'+sav+'/mês! 🎉';if(rd)rd.textContent='Com base na tua fatura atual (€'+ST.bill+'/mês em '+(ST.op||'operadora atual')+') em '+ST.dist+', identificámos ofertas que te podem poupar €'+annual+' por ano.';setTimeout(function(){var fg=document.getElementById('rgfill');if(fg)fg.style.strokeDashoffset=440*(1-Math.min(sav/80,1));},200);var c=document.getElementById('roffers');if(!c)return;c.innerHTML='';getOffers(ST.cat,sav).forEach(function(o,i){var d=document.createElement('div');d.className='ofr'+(i===0?' best':'');d.innerHTML='<div class="ofr-l"><div class="ofr-ic">'+o.i+'</div><div><div class="ofr-nm">'+o.n+(i===0?'<span class="bl">MELHOR</span>':'')+'</div><div class="ofr-ds">'+o.d+'</div></div></div><div class="ofr-r"><div class="ofr-p">€'+o.p+'/mês</div><div class="ofr-s">poupa €'+o.s+'/mês</div></div>';c.appendChild(d);});}
 function getOffers(cat,sav){
   var b=ST.bill;
-  /* Preços públicos Março 2026 */
-  var T=[
-    {i:'🟢',n:'Digi',d:'Fibra 1Gb+TV+2 Móveis',p:32,s:Math.max(1,b-32)},
-    {i:'📡',n:'MEO',d:'M4 Fibra 1Gb+TV+2 Cartões Ilimitados',p:64,s:Math.max(1,b-64)},
-    {i:'🔵',n:'NOS',d:'Fibra 1Gb+TV+2 Cartões Ilimitados',p:64,s:Math.max(1,b-64)}
-  ];
-  var E=[
-    {i:'🌱',n:'Endesa Digital',d:'0.1292€/kWh · 17% desconto permanente',p:Math.max(17,b-Math.round(sav*1.1)),s:Math.round(sav*1.1)},
-    {i:'⚡',n:'EDP Digital',d:'0.1420€/kWh · 15% desconto consumo',p:Math.max(20,b-Math.round(sav*.9)),s:Math.round(sav*.9)},
-    {i:'⚙️',n:'Iberdrola',d:'0.1463€/kWh · 18% desconto+€40',p:Math.max(22,b-Math.round(sav*.7)),s:Math.round(sav*.7)}
-  ];
+  var T=[{i:'🟢',n:'Digi',d:'Fibra 1Gb+TV+2 Móveis',p:32,s:Math.max(1,b-32)},{i:'📡',n:'MEO',d:'M4 Fibra 1Gb+TV+2 Cartões Ilimitados',p:64,s:Math.max(1,b-64)},{i:'🔵',n:'NOS',d:'Fibra 1Gb+TV+2 Cartões Ilimitados',p:64,s:Math.max(1,b-64)}];
+  var E=[{i:'🌱',n:'Endesa Digital',d:'0.1292€/kWh · melhor preço mercado',p:Math.max(17,b-Math.round(sav*1.1)),s:Math.round(sav*1.1)},{i:'🌍',n:'Plenitude',d:'0.1389€/kWh · 100% renovável',p:Math.max(19,b-Math.round(sav*1.0)),s:Math.round(sav*1.0)},{i:'⚡',n:'EDP Digital',d:'0.1420€/kWh · 15% desconto',p:Math.max(20,b-Math.round(sav*.9)),s:Math.round(sav*.9)}];
   if(cat==='e')return E;
   if(cat==='d')return[{i:'📦',n:'Pacote Digital 360°',d:'Site+Redes+IA+Campanhas',p:299,s:0},{i:'🌐',n:'Website Pro',d:'Alta conversão + WhatsApp',p:29,s:0},{i:'📣',n:'Meta Ads',d:'Leads qualificadas local',p:199,s:0}];
-  if(cat==='b')return[{i:'🏆',n:'MEO+Endesa Digital',d:'Fibra+TV+2Cart+Energia+Gás',p:Math.max(105,b-Math.round(sav*1.3)),s:Math.round(sav*1.3)},T[0],E[0]];
+  if(cat==='b')return[{i:'🏆',n:'MEO+Endesa Digital',d:'Fibra+TV+2Cart+Energia',p:Math.max(105,b-Math.round(sav*1.3)),s:Math.round(sav*1.3)},T[0],E[0]];
   return T;
 }
 function goWA(){var pct=ST.cat==='b'?0.35:ST.cat==='e'?0.20:0.28,sav=Math.round(ST.bill*pct),cat=ST.cat==='e'?'energia':ST.cat==='b'?'energia e telecom':ST.cat==='d'?'marketing digital':'telecom';var msg='Olá! Sou '+ST.name+' e fiz a simulação no MyPoupar. Tenho interesse em poupar €'+sav+'/mês em '+cat+(ST.dist?' ('+ST.dist+')':'')+'. Podem enviar proposta?';goToWA(msg);}
 window.goWA=goWA;
-function goWAdirect(){goToWA('Olá! Vi o MyPoupar e gostaria de saber como poupar em energia e telecom. Podem ajudar-me?');}
-window.goWAdirect=goWAdirect;
-function sendLeadCamp(op,price,plan){goToWA('Olá MyPoupar! Tenho interesse na campanha *'+op+'* — '+plan+' por €'+price+'/mês. Podem ajudar-me a aderir?');}
-window.sendLeadCamp=sendLeadCamp;
-function sendDigitalLead(){goToWA('Olá! Tenho interesse numa solução de Marketing Digital para o meu negócio. Podem enviar proposta personalizada?');}
-window.sendDigitalLead=sendDigitalLead;
 function scrollFunnel(){var f=document.getElementById('funnel-sec');if(f)f.scrollIntoView({behavior:'smooth'});}
 window.scrollFunnel=scrollFunnel;
 
@@ -1079,7 +1072,7 @@ function openModal(){document.getElementById('call-overlay').classList.add('open
 function closeModal(){document.getElementById('call-overlay').classList.remove('open');document.body.style.overflow='';}
 window.openModal=openModal;window.closeModal=closeModal;
 document.addEventListener('click',function(e){if(e.target.id==='call-overlay')closeModal();});
-function submitCall(){var nm=document.getElementById('mnm'),ph=document.getElementById('mph'),hr=document.getElementById('mhr'),it=document.getElementById('mint');if(!nm||!ph||!nm.value.trim()||!ph.value.trim()){alert('Por favor preenche nome e telemóvel.');return;}var msg='🔔 *PEDIDO LIGUEM-ME GRÁTIS*\n\n👤 *Nome:* '+nm.value.trim()+'\n📱 *Telefone:* '+ph.value.trim()+'\n⏰ *Melhor hora:* '+(hr?hr.options[hr.selectedIndex].text:'')+'\n🎯 *Interesse:* '+(it?it.options[it.selectedIndex].text:'')+'\n\n✅ Via mypoupar.com';goToWA(msg);}
+function submitCall(){var nm=document.getElementById('mnm'),ph=document.getElementById('mph'),hr=document.getElementById('mhr'),it=document.getElementById('mint');if(!nm||!ph||!nm.value.trim()||!ph.value.trim()){alert('Por favor preenche nome e telemóvel.');return;}var msg='🔔 *PEDIDO LIGUEM-ME GRÁTIS*\n\n👤 *Nome:* '+nm.value.trim()+'\n📱 *Telefone:* '+ph.value.trim()+'\n⏰ *Melhor hora:* '+(hr?hr.options[hr.selectedIndex].text:'')+'\n🎯 *Interesse:* '+(it?it.options[it.selectedIndex].text:'')+'\n\n✅ Via mypoupar.pt';goToWA(msg);var mf=document.getElementById('m-form'),mo=document.getElementById('m-ok');if(mf)mf.style.display='none';if(mo)mo.style.display='block';}
 window.submitCall=submitCall;
 
 /* ═══ TOAST ═══ */
@@ -1103,7 +1096,7 @@ window.uplRestart=uplRestart;
 function getUplMeta(){return{nm:((document.getElementById('upl-nome')||{}).value||'').trim(),tel:((document.getElementById('upl-tel')||{}).value||'').trim(),nota:((document.getElementById('upl-nota')||{}).value||'').trim()};}
 function showUplSuccess(){var s=document.getElementById('upl-success'),m=document.getElementById('upl-methods'),fi=document.getElementById('upl-fields');if(m)m.style.display='none';if(fi)fi.style.display='none';if(s){s.style.display='block';s.scrollIntoView({behavior:'smooth',block:'nearest'});}}
 function showToastMsg(msg,dur){var el=document.getElementById('toast'),t=document.getElementById('toast-txt');if(!el||!t)return;t.textContent=msg;el.classList.add('on');setTimeout(function(){el.classList.remove('on');},dur||4000);}
-function sendViaWA(){var m=getUplMeta(),fi=uplFileName?'📎 *Fatura:* '+uplFileName+' ('+uplFileSize+')':'(sem ficheiro — enviarei a seguir)';var msg='🔔 *ANÁLISE DE FATURA — MyPoupar*\n\n'+fi+(m.nm?'\n👤 *Nome:* '+m.nm:'')+(m.tel?'\n📱 *Tel:* '+m.tel:'')+(m.nota?'\n📝 *Nota:* '+m.nota:'')+'\n\nOlá! Gostava de analisar a minha fatura para ver quanto posso poupar. Aguardo proposta!';goToWA(msg);showToastMsg('💡 No WhatsApp, anexa o ficheiro da fatura!',5500);if(uplFileName)setTimeout(showUplSuccess,800);}
+function sendViaWA(){var m=getUplMeta(),fi=uplFileName?'📎 *Fatura:* '+uplFileName+' ('+uplFileSize+')':'(sem ficheiro)';var msg='🔔 *ANÁLISE DE FATURA — MyPoupar*\n\n'+fi+(m.nm?'\n👤 *Nome:* '+m.nm:'')+(m.tel?'\n📱 *Tel:* '+m.tel:'')+(m.nota?'\n📝 *Nota:* '+m.nota:'')+'\n\nOlá! Gostava de analisar a minha fatura. Aguardo proposta!';goToWA(msg);showToastMsg('💡 No WhatsApp, anexa o ficheiro da fatura!',5500);if(uplFileName)setTimeout(showUplSuccess,800);}
 function sendViaEmail(){var m=getUplMeta(),subj='Análise de Fatura MyPoupar'+(m.nm?' — '+m.nm:''),body='Olá MyPoupar!\n\nFatura: '+uplFileName+' ('+uplFileSize+')\n'+(m.nm?'Nome: '+m.nm+'\n':'')+(m.tel?'Telemóvel: '+m.tel+'\n':'')+(m.nota?'Nota: '+m.nota+'\n':'')+'Aguardo a vossa proposta!';window.location.href='mailto:parcerias@mypoupar.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);showToastMsg('📧 Abre o email, anexa a fatura e envia!',6000);if(uplFileName)setTimeout(showUplSuccess,2500);}
 function sendViaSMS(){var m=getUplMeta();window.location.href='sms:+351968677320?body='+encodeURIComponent('Ola MyPoupar! Quero analisar a minha fatura.'+(m.nm?' Nome: '+m.nm:'')+(uplFileName?' Fatura: '+uplFileName:''));}
 window.sendViaWA=sendViaWA;window.sendViaEmail=sendViaEmail;window.sendViaSMS=sendViaSMS;
@@ -1113,8 +1106,7 @@ document.addEventListener('DOMContentLoaded',function(){
   ssInit(0);
   setTimeout(function(){showToast();setInterval(showToast,8000);},3000);
 });
-
 })();
 </script>
 </body>
-        </html>
+</html>
