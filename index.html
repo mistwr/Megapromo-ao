@@ -835,8 +835,8 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.4);padding:36px 20px 24px;}
     <div class="logo-text">MY<em>POUPAR</em><sup>+</sup></div>
   </a>
   <nav class="hdr-nav">
-    <button class="hn" onclick="switchTab('telecom');document.getElementById('comparar').scrollIntoView({behavior:'smooth'})">📡 Telecom</button>
-    <button class="hn" onclick="switchTab('energia');document.getElementById('comparar').scrollIntoView({behavior:'smooth'})">⚡ Energia</button>
+    <button class="hn" id="hn-telecom">📡 Telecom</button>
+    <button class="hn" id="hn-energia">⚡ Energia</button>
     <button class="hn" onclick="document.getElementById('faq-sec').scrollIntoView({behavior:'smooth'})">FAQ</button>
     <button class="hn" onclick="scrollUpload()">Fatura</button>
   </nav>
@@ -957,9 +957,9 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.4);padding:36px 20px 24px;}
       <p class="sec-s">Preços verificados · Julho 2026 · Todas as operadoras</p>
     </div>
     <div class="tabs">
-      <button class="tab on" id="tab-btn-telecom" onclick="switchTab('telecom',this)">📡 Telecom</button>
-      <button class="tab" id="tab-btn-energia" onclick="switchTab('energia',this)">⚡ Energia</button>
-      <button class="tab" id="tab-btn-digital" onclick="switchTab('digital',this)">💼 Marketing Digital</button>
+      <button class="tab on" id="tab-btn-telecom">📡 Telecom</button>
+      <button class="tab" id="tab-btn-energia">⚡ Energia</button>
+      <button class="tab" id="tab-btn-digital">💼 Marketing Digital</button>
     </div>
 
     <!-- TELECOM TAB -->
@@ -1344,4 +1344,5 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.4);padding:36px 20px 24px;}
     <div class="faq-list">
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">O MyPoupar+ é realmente gratuito? <div class="faq-icon">+</div></div><div class="faq-a"><p>Sim, 100% gratuito. Somos remunerados pelas operadoras apenas quando existe adesão — nunca cobramos nada ao utilizador.</p></div></div>
       <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">A mudança de operadora corta o serviço? <div class="faq-icon">+</div></div><div class="faq-a"><p>Não. A portabilidade é tratada inteiramente por nós. O serviço não é interrompido. Telecom: 5-10 dias úteis. Energia: 3-5 dias úteis.</p></div></div>
-      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Posso mudar se ainda estiver em período de fidelização? <div class="faq-icon">+</div></div><div class="faq-a"><p>Sim, mas poderás ter de pagar uma penalização à operadora atual. Fazemos os cálculos contigo — muita
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Posso mudar se ainda estiver em período de fidelização? <div class="faq-icon">+</div></div><div class="faq-a"><p>Sim, mas poderás ter de pagar uma penalização à operadora atual. Fazemos os cálculos contigo — muitas vezes a poupança mensal amortiza rapidamente a penalização.</p></div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">A Digi é de confiança? A rede é boa? <div class="faq-icon">+</div></div><div class="faq-a"><p>A Digi é um grupo teleco europeu com 
