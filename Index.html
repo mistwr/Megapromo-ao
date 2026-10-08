@@ -711,17 +711,20 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.4);padding:36px 20px 24px;}
 .offer-source{display:inline-flex;align-items:center;min-height:42px;padding:9px 12px;border:1px solid #b8c9be;border-radius:10px;color:#1e5630;font-weight:800;font-size:.9rem}
 .offer-footnote{margin:18px 0;background:#f4f8f5;border-left:4px solid #49bd63;padding:15px 17px;border-radius:8px;font-size:.95rem;line-height:1.55;color:#35463b}
 .lowcost-heading{font:850 1.45rem 'Outfit',sans-serif;color:#14231b;margin:36px 0 8px}
-.lowcost-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.lowcost-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:14px;max-width:980px;margin:0 auto}
 .lowcost-card{background:#f7fbf8;border:1px solid #dce9df;border-radius:15px;padding:18px;display:flex;flex-direction:column;gap:9px}
 .lowcost-card h4{font:850 1.08rem 'Outfit',sans-serif;color:#14231b}
 .lowcost-card p{font-size:.95rem;line-height:1.5;color:#48574e}
 .lowcost-card .offer-source{margin-top:auto;align-self:flex-start}
 .commercial-note{font-size:.9rem;line-height:1.5;color:#52615a;margin-top:16px}
+.market-fact{margin:14px 0 24px;padding:18px 20px;border:1px solid #bddbc4;background:#f0f8f2;border-radius:14px;color:#243c2b;font-size:.96rem;line-height:1.6}
+.market-fact strong{color:#154c24}
+.market-fact a{color:#14532d;font-weight:800;text-decoration:underline;text-underline-offset:2px}
 .network-report{background:#0c1720;color:#eef6f4;padding:60px 20px}
 .network-report-in{max-width:1160px;margin:auto}
 .network-report h2{font:900 clamp(1.8rem,4vw,3rem) 'Outfit',sans-serif;line-height:1.08;max-width:850px;margin:12px 0}
 .network-report .report-lead{font-size:1.05rem;line-height:1.6;color:#c5d4d0;max-width:820px}
-.report-evidence{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0}
+.report-evidence{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0}
 .report-evidence article{border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.04);padding:17px;border-radius:14px}
 .report-evidence h3{font:800 1.02rem 'Outfit',sans-serif;color:#a6efb0;margin-bottom:7px}
 .report-evidence p{font-size:.95rem;line-height:1.5;color:#d4e1de}
@@ -854,6 +857,8 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.4);padding:36px 20px 24px;}
     </div>
   </div>
 
+  <div class="market-fact"><strong>MEO lidera em subscritores de pacotes:</strong> a ANACOM registou 41,7% no 3.º trimestre de 2025 e 53,5% no segmento não residencial. No mesmo trimestre, NOS tinha 34,9% e Vodafone 20,4%. A ANACOM também colocou a MEO na maior quota de assinantes em todos os serviços fixos e móveis no fecho de 2024. A quota mede dimensão, não qualidade na tua morada. No setor público, o acordo-quadro AQ-SCU-2024 da eSPap tem quatro cocontratantes: MEO, NOS, Onitelecom e Vodafone; não sustenta que hospitais ou Governo usem todos MEO. <a href="https://anacom.pt/render.jsp?contentId=1809709" target="_blank" rel="noopener noreferrer">ANACOM · serviços em 2024</a> · <a href="https://anacom.pt/render.jsp?contentId=1822801" target="_blank" rel="noopener noreferrer">Dados ANACOM</a> · <a href="https://www.espap.gov.pt/FrontEnd/Paginas/Noticias/Noticias_Default.aspx?AspxAutoDetectCookieSupport=1&idNoticia=1011" target="_blank" rel="noopener noreferrer">Acordo eSPap</a></div>
+
   <div class="offer-grid">
     <article class="offer-card" data-valid-until="2026-10-15">
       <div class="offer-label">MEO · campanha Rentrée</div>
@@ -875,7 +880,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.4);padding:36px 20px 24px;}
     <article class="offer-card" data-valid-until="2026-12-31">
       <div class="offer-label">NOS · pacote 4+</div>
       <h4>1 Gbps, TV e móvel</h4>
-      <div class="offer-current-promo offer-price">€66,99/mês <small>a partir de 01/01/2027</small></div>
+      <div class="offer-price">€66,99/mês <small>a partir de 01/01/2027</small></div>
       <div class="offer-current-promo">Opção de €0/mês durante 2026, na campanha selecionada</div>
       <p>Na página oficial, o pacote apresenta 1 Gbps, 180 canais e cartão móvel ilimitado. A campanha online inclui condições específicas.</p>
       <ul>
@@ -910,17 +915,9 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.4);padding:36px 20px 24px;}
 
   <div class="commercial-note"><strong>Transparência comercial:</strong> podemos receber comissão quando uma adesão às ofertas que comercializamos é concluída através da nossa equipa. Esta seleção não é uma classificação de qualidade; os preços e a cobertura são confirmados com a operadora.</div>
 
-  <h4 class="lowcost-heading">Referências low-cost para comparar</h4>
-  <p class="offer-intro"><span>Os preços não são diretamente comparáveis quando os serviços incluídos diferem. A DIGI surge apenas como referência textual de preço publicado; esta página não encaminha adesões para a marca.</span></p>
+  <h4 class="lowcost-heading">Alternativas low-cost para comparar</h4>
+  <p class="offer-intro"><span>Compara serviços incluídos, fidelização e preço após campanha. A MyPoupar não comercializa nem encaminha adesões DIGI; a análise factual da rede e das reclamações está abaixo.</span></p>
   <div class="lowcost-grid">
-    <article class="lowcost-card">
-      <div class="offer-label">Fibra · sem TV ou móvel</div>
-      <h4>DIGI · 1 Gbps</h4>
-      <div class="offer-current-promo offer-price">€10/mês</div>
-      <p>Fibra 1 Gbps com router Wi-Fi 6 e fidelização de 3 meses. A página oficial indica também 500 Mbps por €7/mês.</p>
-      <div class="offer-status" role="status">Preço consultado em 08/10/2026 · confirmar cobertura na morada</div>
-      <a class="offer-source" href="https://www.digi.pt/net/" target="_blank" rel="noopener noreferrer">Ver preço e cobertura</a>
-    </article>
 
     <article class="lowcost-card" data-valid-until="2026-11-02">
       <div class="offer-label">Fibra + TV + móvel</div>
@@ -1032,26 +1029,33 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.4);padding:36px 20px 24px;}
 <!-- SLIDESHOW SS2 -->
 <section class="network-report" id="network-report">
   <div class="network-report-in">
-    <div class="offer-label" style="color:#a6efb0">Rede no terreno · relatos sujeitos a validação</div>
-    <h2>O sinal na tua morada vale mais do que a média nacional.</h2>
-    <p class="report-lead">Mapas e prémios ajudam a comparar, mas não garantem a mesma experiência dentro de cada casa. Vamos publicar relatos apenas quando confirmarmos o serviço, a data e a autorização do autor.</p>
+    <div class="offer-label" style="color:#a6efb0">Análise de rede · dados oficiais e relatos validados</div>
+    <h2>DIGI: preço não responde a cobertura, apoio e condições técnicas.</h2>
+    <p class="report-lead">A crítica deve ser concreta. Mostramos indicadores oficiais, os limites conhecidos da rede e relatos documentados. As queixas são registos de reclamação, não decisões que provem automaticamente uma infração.</p>
 
     <div class="report-evidence">
-      <article><h3>Rede móvel</h3><p>Indica concelho, chamadas, dados e pontos onde o sinal falha ou funciona bem.</p></article>
-      <article><h3>Fibra e instalação</h3><p>Regista velocidade medida, estabilidade, data de instalação e tecnologia disponível.</p></article>
-      <article><h3>Apoio e faturação</h3><p>Descreve o pedido, o tempo de resposta e o resultado, sem publicar dados pessoais.</p></article>
+      <article><h3>Queixas ANACOM · 2025–2026</h3><p>Em 2025, a ANACOM registou 6,5 mil queixas DIGI/NOWO e 18,7 por mil clientes; MEO teve 4,0, NOS 6,2 e Vodafone 7,7. A série DIGI/NOWO junta as duas marcas. No 1.ºT26, caiu 42% face ao ano anterior: cerca de mil registos e 2,3 por mil clientes.</p></article>
+      <article><h3>Cobertura móvel</h3><p>A própria DIGI declara que o serviço móvel está indisponível nos Açores e na Madeira. Na página de cobertura, indica máximos de 75 Mbps em 4G e 160 Mbps em 5G e redução para 1 Mbps/512 Kbps após 200 GB. Confirma a cobertura na morada e as condições do teu tarifário.</p></article>
+      <article><h3>CGNAT e IPv4 partilhado</h3><p>A DIGI confirma o uso de CGNAT e de IPv4 público dinâmico partilhado. Isto pode dificultar ligações de entrada, encaminhamento de portas, alojamento próprio ou acesso remoto. A partilha de IP, por si só, não prova que a rede seja insegura; a RFC 6598 do IETF diz que o espaço partilhado não levanta diretamente problemas de segurança.</p></article>
+      <article><h3>Apoio e publicidade: provas primeiro</h3><p>A DIGI publica canais de apoio; isso não prova que os pedidos sejam resolvidos bem ou a tempo. Para avaliar falhas de atendimento ou divergências entre anúncio, contrato e serviço, pedimos datas, respostas e comprovativos com dados pessoais ocultados. Não concluímos que “não há atendimento” nem chamamos a empresa desonesta sem prova específica.</p></article>
     </div>
 
-    <div class="report-empty"><strong>Relatos verificados publicados: 0.</strong> Estamos a iniciar a recolha; não usamos testemunhos inventados nem tratamos publicações de fóruns como prova de cliente.</div>
+    <div class="report-empty"><strong>Relatos de clientes verificados publicados: 0.</strong> Os dados ANACOM acima são estatísticas oficiais; não são testemunhos individuais nem decisões de incumprimento. Publicaremos relatos só depois de confirmar serviço, data, evidência e consentimento.</div>
 
     <div class="report-sources">
-      <a href="https://geo.anacom.pt/" target="_blank" rel="noopener noreferrer">Mapa de infraestruturas ANACOM</a>
-      <a href="https://www.nperf.com/pt/map/PT/" target="_blank" rel="noopener noreferrer">Medições públicas nPerf</a>
+      <a href="https://anacom.pt/render.jsp?contentId=1828169" target="_blank" rel="noopener noreferrer">Reclamações ANACOM · 2025</a>
+      <a href="https://anacom.pt/render.jsp?contentId=1845221" target="_blank" rel="noopener noreferrer">Reclamações ANACOM · 1T 2026</a>
+      <a href="https://www.digi.pt/cobertura-movel" target="_blank" rel="noopener noreferrer">Cobertura e limites publicados pela DIGI</a>
+      <a href="https://geo.anacom.pt/publico/home" target="_blank" rel="noopener noreferrer">Mapa de cobertura GEO.ANACOM</a>
+      <a href="https://www.digi.pt/perguntas-frequentes/net/posso-aderir-ao-servico-de-internet-de-fibra-optica-da-digi-sem-periodo-de-fidelizacao" target="_blank" rel="noopener noreferrer">FAQ DIGI sobre CGNAT</a>
+      <a href="https://www.digi.pt/legal/detail-rates-digi" target="_blank" rel="noopener noreferrer">Condições legais DIGI sobre IP partilhado</a>
+      <a href="https://www.rfc-editor.org/rfc/rfc6598.html" target="_blank" rel="noopener noreferrer">IETF RFC 6598 · espaço partilhado</a>
+      <a href="https://www.digi.pt/apoio-ao-cliente" target="_blank" rel="noopener noreferrer">Canais de apoio DIGI</a>
     </div>
 
     <div class="report-form">
       <h3>Partilha uma experiência para validação</h3>
-      <p>O formulário abre uma mensagem no WhatsApp. Para verificarmos o serviço, podes anexar uma fatura ou teste de rede com NIF, morada, telefone, número de cliente e dados de pagamento ocultados.</p>
+      <p>O formulário abre uma mensagem no WhatsApp. Envia data, concelho e descrição; podes anexar fatura, teste de rede ou resposta do apoio, sempre com NIF, morada, telefone, número de cliente e dados de pagamento ocultados.</p>
       <div class="report-fields">
         <div class="report-field">
           <label for="report-provider">Operadora</label>
@@ -1062,7 +1066,7 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.4);padding:36px 20px 24px;}
         <div class="report-field">
           <label for="report-category">Tema</label>
           <select id="report-category" required>
-            <option value="">Seleciona</option><option>Rede móvel e chamadas</option><option>Fibra, velocidade e estabilidade</option><option>Instalação</option><option>Apoio ao cliente</option><option>Faturação ou cancelamento</option>
+            <option value="">Seleciona</option><option>Rede móvel e chamadas</option><option>Fibra, velocidade e estabilidade</option><option>Instalação</option><option>Apoio ao cliente</option><option>Faturação ou cancelamento</option><option>Diferença entre oferta e serviço</option>
           </select>
         </div>
         <div class="report-field">
@@ -1601,10 +1605,10 @@ function pickCat(el,cat){
 }
 window.pickCat=pickCat;
 var OPS={
-  t:[{i:'📡',n:'MEO',s:'Altice Portugal'},{i:'🔵',n:'NOS',s:'Internet+TV+Móvel'},{i:'🔴',n:'Vodafone',s:'Fibra+5G'},{i:'🟢',n:'Digi',s:'Low cost'},{i:'📶',n:'Outro',s:'Outro operador'}],
+  t:[{i:'📡',n:'MEO',s:'Altice Portugal'},{i:'🔵',n:'NOS',s:'Internet+TV+Móvel'},{i:'🔴',n:'Vodafone',s:'Fibra+5G'},{i:'🟢',n:'DIGI',s:'Operadora atual'},{i:'📶',n:'Outro',s:'Outro operador'}],
   e:[{i:'⚡',n:'EDP',s:'Mercado regulado'},{i:'🌱',n:'Endesa',s:'Energia'},{i:'⚙️',n:'Iberdrola',s:'Energia'},{i:'🔆',n:'Galp',s:'Energia'},{i:'❓',n:'Não sei',s:'Verificar contrato'}],
   b:[{i:'📡',n:'MEO',s:'Telecom'},{i:'🔵',n:'NOS',s:'Telecom'},{i:'🔴',n:'Vodafone',s:'Telecom'},{i:'⚡',n:'EDP',s:'Energia'},{i:'🔆',n:'Galp',s:'Energia'},{i:'❓',n:'Vários',s:'Mistas'}],
-  m:[{i:'📡',n:'MEO',s:'Plano móvel'},{i:'🔵',n:'NOS',s:'Plano móvel'},{i:'🔴',n:'Vodafone',s:'Plano móvel'},{i:'🟢',n:'Digi',s:'Plano móvel'},{i:'❓',n:'Outro',s:'Outro operador'}]
+  m:[{i:'📡',n:'MEO',s:'Plano móvel'},{i:'🔵',n:'NOS',s:'Plano móvel'},{i:'🔴',n:'Vodafone',s:'Plano móvel'},{i:'🟢',n:'DIGI',s:'Operadora atual'},{i:'❓',n:'Outro',s:'Outro operador'}]
 };
 function buildOps(cat){
   var list=OPS[cat]||OPS.t,c=document.getElementById('oplist');
@@ -1681,7 +1685,7 @@ window.showToastMsg=showToastMsg;
 
 /* ─── AI CHAT (Pollinations.ai — sem API key) ─── */
 var aiOpen=false,aiHistory=[],aiLoading=false;
-var AI_SYS='És a LUMIN IA do MyPoupar+, comparador de telecomunicações e energia em Portugal. Responde em português de Portugal, de forma direta e clara. Não inventes preços, cobertura, velocidades, tempos de espera, poupanças ou testemunhos. Usa apenas os valores e condições visíveis na página e indica sempre a fonte e a data de verificação. Se a condição não estiver indicada, diz que deve ser confirmada na página oficial da operadora. Explica que a cobertura e a experiência variam por morada. Os relatos são individuais e só são publicados depois de verificação e consentimento. Informa que o MyPoupar+ pode receber comissão quando uma adesão é concluída através da equipa. Contacto: WhatsApp 968677320 / parcerias@mypoupar.pt';
+var AI_SYS='És a LUMIN IA do MyPoupar+, comparador de telecomunicações e energia em Portugal. Responde em português de Portugal, de forma direta e clara. Não inventes preços, cobertura, velocidades, tempos de espera, poupanças ou testemunhos. Usa apenas os valores e condições visíveis na página e indica sempre a fonte e a data de verificação. Explica que cobertura e experiência variam por morada. Os relatos são individuais e só são publicados depois de verificação e consentimento. Informa que o MyPoupar+ pode receber comissão quando uma adesão é concluída através da equipa. Não encaminhes nem vendas adesões DIGI. Se perguntarem pela DIGI, distingue sempre queixas de infrações: a ANACOM reportou 6,5 mil queixas DIGI/NOWO e 18,7 por mil clientes em 2025, mas a série agrega as duas marcas; no 1.º trimestre de 2026 o grupo caiu 42% para cerca de mil registos e 2,3 por mil. A DIGI declara indisponibilidade móvel nos Açores e Madeira e uso de CGNAT; CGNAT pode limitar ligações de entrada, mas não prova insegurança. A MEO tinha 41,7% dos subscritores de pacotes no 3.º trimestre de 2025, não devendo a quota ser descrita como qualidade ou exclusividade. O acordo eSPap inclui MEO, NOS, Onitelecom e Vodafone, por isso não afirmes que todos os hospitais ou entidades públicas usam MEO. Contacto: WhatsApp 968677320 / parcerias@mypoupar.pt';
 
 function toggleAI(){
   aiOpen=!aiOpen;
