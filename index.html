@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#42C95B">
+<title>MyPoupar+ | Poupe na internet, TV, telemóvel e luz</title>
+<meta name="description" content="Veja as campanhas ativas das operadoras e simule quanto pode poupar na luz, no gás e nas telecomunicações. Sem compromisso.">
+<link rel="canonical" href="https://mypoupar.pt">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MyPoupar+ | Poupe na internet, TV, telemóvel e luz">
+<meta property="og:description" content="Campanhas ativas das operadoras e simulador de eletricidade, gás e autoconsumo.">
+<meta property="og:locale" content="pt_PT">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--g:#2fb34a;--gd:#1f8a37;--gl:#edfaf1;--bg:#f7faf8;--dark:#0b1410;--mid:#35433b;--muted:#6b7a71;--bd:#d6eadc;--white:#fff;--amb:#f59e0b;--red:#dc2626;--r:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--dark);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd)}
+.nav{display:flex;align-items:center;gap:18px;height:64px}
+.logo{font-weight:900;font-size:22px;letter-spacing:-.5px;text-decoration:none}
+.logo b{color:var(--g)}
+nav.links{display:flex;gap:20px;margin-left:auto;font-weight:600;font-size:15px}
+nav.links a{text-decoration:none;color:var(--mid)}
+nav.links a:hover{color:var(--g)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--g);color:#fff;font-weight:700;border:0;border-radius:999px;padding:12px 22px;font-size:15px;cursor:pointer;text-decoration:none;font-family:inherit}
+.btn:hover{background:var(--gd)}
+.btn.ghost{background:#fff;color:var(--dark);border:1.5px solid var(--bd)}
+.btn.ghost:hover{border-color:var(--g);background:var(--gl)}
+.btn.sm{padding:8px 16px;font-size:14px}
+.hero{padding:72px 0 56px;background:radial-gradient(1200px 400px at 80% -10%,#d9f7e1 0,transparent 60%),var(--bg)}
+.hero h1{font-size:clamp(36px,6vw,64px);line-height:1.05;font-weight:900;letter-spacing:-1.5px;max-width:760px}
+.hero h1 span{color:var(--g)}
+.hero p{margin:18px 0 28px;font-size:19px;color:var(--mid);max-width:600px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.chip{background:#fff;border:1px solid var(--bd);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;color:var(--mid)}
+section{padding:64px 0}
+section.alt{background:#fff;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--g)}
+h2{font-size:clamp(28px,4vw,40px);font-weight:900;letter-spacing:-1px;margin:6px 0 8px}
+.sub{color:var(--muted);font-size:17px;max-width:680px}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 20px}
+.pill{border:1.5px solid var(--bd);background:#fff;border-radius:999px;padding:7px 15px;font-weight:600;font-size:14px;cursor:pointer;font-family:inherit;color:var(--mid)}
+.pill.on{background:var(--g);border-color:var(--g);color:#fff}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.card{background:#fff;border:1.5px solid var(--bd);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px}
+.card .top{display:flex;justify-content:space-between;gap:8px;font-size:13px;font-weight:700}
+.tag{background:var(--gl);color:var(--gd);padding:3px 10px;border-radius:999px}
+.tag.e{background:#fef3c7;color:#92400e}
+.card h3{font-size:18px;line-height:1.25;font-weight:800;text-transform:none}
+.card p{font-size:14.5px;color:var(--mid);white-space:pre-wrap}
+.card .foot{margin-top:auto;padding-top:8px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+.state{padding:28px;text-align:center;color:var(--muted);border:1.5px dashed var(--bd);border-radius:var(--r);background:#fff}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:24px 0 14px}
+.frame{width:100%;height:min(86vh,880px);border:1.5px solid var(--bd);border-radius:var(--r);background:#fff}
+.frame-ph{display:flex;align-items:center;justify-content:center;height:320px;border:1.5px dashed var(--bd);border-radius:var(--r);background:#fff}
+table{width:100%;border-collapse:collapse;background:#fff;border:1.5px solid var(--bd);border-radius:var(--r);overflow:hidden;font-size:15px}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--bd)}
+th{background:var(--gl);font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--gd)}
+tr:last-child td{border-bottom:0}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:28px}
+.step{background:var(--bg);border:1.5px solid var(--bd);border-radius:var(--r);padding:22px}
+.step .n{width:36px;height:36px;border-radius:50%;background:var(--g);color:#fff;font-weight:800;display:grid;place-items:center;margin-bottom:10px}
+.step h3{font-size:18px;margin-bottom:4px}
+.step p{color:var(--mid);font-size:15px}
+form.contact{display:grid;gap:12px;max-width:520px;margin-top:22px}
+input,select,textarea{font-family:inherit;font-size:15px;padding:12px 14px;border:1.5px solid var(--bd);border-radius:12px;background:#fff;width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--g);border-color:var(--g)}
+details{background:#fff;border:1.5px solid var(--bd);border-radius:12px;padding:14px 18px;margin-top:10px}
+summary{font-weight:700;cursor:pointer}
+details p{margin-top:8px;color:var(--mid);font-size:15px}
+footer{background:var(--dark);color:#cfe0d5;padding:40px 0;font-size:14px}
+footer a{color:#fff}
+footer .row{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+.teamlink{background:none;border:0;color:#8fa699;cursor:pointer;font-family:inherit;font-size:13px;text-decoration:underline}
+dialog{border:0;border-radius:var(--r);padding:0;max-width:760px;width:calc(100% - 24px);max-height:92vh;overflow:auto;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+.dlg{padding:24px}
+.dlg h3{font-size:22px;font-weight:900;margin-bottom:4px}
+.dlg .x{float:right;background:none;border:0;font-size:26px;cursor:pointer;line-height:1}
+.row2{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.msg{font-size:14px;margin-top:10px}
+.msg.err{color:var(--red)}.msg.ok{color:var(--gd)}
+.adm-item{display:flex;gap:10px;align-items:center;justify-content:space-between;border:1.5px solid var(--bd);border-radius:12px;padding:10px 12px;margin-top:8px}
+.adm-item .t{font-weight:700;font-size:14.5px}.adm-item .s{font-size:12.5px;color:var(--muted)}
+.adm-item.off{opacity:.55}
+@media(max-width:760px){nav.links{display:none}.hero{padding:44px 0 36px}section{padding:44px 0}.row2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="logo" href="#">My<b>Poupar</b>+</a>
+  <nav class="links"><a href="#campanhas">Campanhas</a><a href="#simulador">Simulador</a><a href="#telecom">Telecom</a><a href="#como">Como funciona</a><a href="#faq">FAQ</a></nav>
+  <a class="btn sm" id="wa-top" href="https://wa.me/351968677320" target="_blank" rel="noopener">WhatsApp</a>
+</div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+  <h1>Pague menos pela internet, TV, telemóvel <span>e luz.</span></h1>
+  <p>Veja as campanhas ativas das operadoras e simule quanto pode poupar. Sem compromisso: a comparação é gratuita.</p>
+  <div class="cta"><a class="btn" href="#simulador">Simular a minha poupança</a><a class="btn ghost" href="#campanhas">Ver campanhas ativas</a></div>
+  <div class="chips"><span class="chip">MEO</span><span class="chip">NOS</span><span class="chip">Vodafone</span><span class="chip">EDP</span><span class="chip">Endesa</span><span class="chip">Iberdrola</span><span class="chip">Galp</span><span class="chip">Repsol</span><span class="chip">Yes Energy</span></div>
+</div></div>
+
+<section id="campanhas"><div class="wrap">
+  <div class="eyebrow">Campanhas</div>
+  <h2>Campanhas ativas das operadoras</h2>
+  <p class="sub">Atualizadas pela nossa equipa. Peça-nos uma simulação com a sua fatura e dizemos-lhe se compensa mudar.</p>
+  <div class="pills" id="f-tipo">
+    <button class="pill on" data-v="todos">Todas</button><button class="pill" data-v="telecom">Telecom</button><button class="pill" data-v="energia">Energia</button>
+  </div>
+  <div class="pills" id="f-op"></div>
+  <div id="camp-list" class="grid"><div class="state" style="grid-column:1/-1">A carregar campanhas…</div></div>
+  <p class="note" id="camp-note"></p>
+</div></section>
+
+<section id="simulador" class="alt"><div class="wrap">
+  <div class="eyebrow">Simulador</div>
+  <h2>Simule a sua poupança</h2>
+  <p class="sub">Compare tarifários de eletricidade, gás natural e autoconsumo (painéis solares). Indique o valor da fatura ou o consumo e a potência contratada.</p>
+  <div class="tabs" id="sim-tabs">
+    <button class="pill on" data-p="eletricidade-tiagofelicia">Eletricidade</button>
+    <button class="pill" data-p="gas-natural-tiagofelicia">Gás natural</button>
+    <button class="pill" data-p="autoconsumo-tiagofelicia">Autoconsumo</button>
+  </div>
+  <div id="sim-box" class="frame-ph"><button class="btn" id="sim-load">Abrir o simulador</button></div>
+  <p class="note">Os valores do simulador são estimativas com base em preços públicos. O valor final é confirmado pelo comercializador. <a id="sim-full" href="https://simuladorsolucoesdiferentes.netlify.app/eletricidade-tiagofelicia" target="_blank" rel="noopener">Abrir em ecrã inteiro</a></p>
+</div></section>
+
+<section id="telecom"><div class="wrap">
+  <div class="eyebrow">Telecomunicações</div>
+  <h2>Preços de referência (pacotes com TV, fixo e móvel)</h2>
+  <p class="sub">Valores de referência do COM.escolha da ANACOM (julho 2026), com fidelização de 24 meses. As campanhas atuais podem baixar estes valores: peça a sua simulação.</p>
+  <div style="overflow:auto;margin-top:22px"><table>
+    <tr><th>Operadora</th><th>Pacote</th><th>Preço/mês</th></tr>
+    <tr><td>MEO</td><td>M4 Fibra 1 Gbps + 1 cartão 200 GB + TV + fixo</td><td>56,99 €</td></tr>
+    <tr><td>MEO</td><td>M4 Fibra 1 Gbps + 2 cartões ilimitados + TV + fixo</td><td>64,32 €</td></tr>
+    <tr><td>NOS</td><td>NOS4 1 Gbps + 1 cartão 10 GB + TV + fixo</td><td>65,07 €</td></tr>
+    <tr><td>NOS</td><td>NOS4 1 Gbps + 2 cartões 20 GB + TV + fixo</td><td>70,57 €</td></tr>
+    <tr><td>Vodafone</td><td>fibra4 Light 1 Gbps + 1 cartão 200 GB + TV + fixo</td><td>65,50 €</td></tr>
+    <tr><td>Vodafone</td><td>fibra4 Infinity Family 1 Gbps + 2 cartões ilimitados + TV + fixo</td><td>81,00 €</td></tr>
+  </table></div>
+  <p class="note">Preços com IVA. Fonte: ANACOM COM.escolha. Confirme sempre as condições e a cobertura no seu endereço em <a href="https://geo.anacom.pt/publico/home" target="_blank" rel="noopener">geo.anacom.pt</a>.</p>
+</div></section>
+
+<section id="como" class="alt"><div class="wrap">
+  <div class="eyebrow">Como funciona</div>
+  <h2>Três passos, sem compromisso</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3>Diga-nos o que paga</h3><p>Operadora e valor mensal da internet, TV, telemóveis e luz. Pode usar o simulador ou falar connosco no WhatsApp.</p></div>
+    <div class="step"><div class="n">2</div><h3>Comparamos por si</h3><p>Vemos as campanhas ativas e montamos a solução mais barata para a sua casa, incluindo cartões móveis low-cost.</p></div>
+    <div class="step"><div class="n">3</div><h3>Só avança se quiser</h3><p>Recebe a proposta, confirma e assina online. Até lá não compromete nada.</p></div>
+  </div>
+</div></section>
+
+<section id="contacto"><div class="wrap">
+  <div class="eyebrow">Fale connosco</div>
+  <h2>Quer que vejamos a sua fatura?</h2>
+  <p class="sub">Deixe o seu pedido e continuamos a conversa no WhatsApp.</p>
+  <form class="contact" id="contact-form">
+    <input name="nome" placeholder="O seu nome" required maxlength="80" autocomplete="name">
+    <select name="tema" required>
+      <option value="">O que quer comparar?</option>
+      <option>Internet, TV e telemóveis</option><option>Luz e gás</option><option>Tudo (telecom e energia)</option>
+    </select>
+    <input name="valor" placeholder="Quanto paga por mês? (opcional)" maxlength="40">
+    <button class="btn" type="submit">Continuar no WhatsApp</button>
+    <p class="note">Ao continuar abre-se o WhatsApp com a sua mensagem. Não guardamos dados neste formulário.</p>
+  </form>
+</div></section>
+
+<section id="faq" class="alt"><div class="wrap">
+  <div class="eyebrow">FAQ</div>
+  <h2>Perguntas frequentes</h2>
+  <details><summary>O MyPoupar+ é gratuito?</summary><p>Sim, a comparação é gratuita. Podemos receber uma comissão da operadora quando uma adesão é concluída através da nossa equipa; isso não altera o preço que paga.</p></details>
+  <details><summary>De onde vêm os preços?</summary><p>Das tabelas oficiais das operadoras, do COM.escolha da ANACOM e das campanhas que a nossa equipa recebe dos parceiros. Os valores do simulador são estimativas e o valor final é confirmado antes de assinar.</p></details>
+  <details><summary>Fico preso a alguma coisa ao pedir uma simulação?</summary><p>Não. Só avança se confirmar e assinar. Algumas ofertas têm fidelização, que lhe indicamos antes.</p></details>
+  <details><summary>Que dados pedem?</summary><p>Para simular, só o que paga hoje. Dados pessoais e do contrato só são pedidos no momento de aderir, no documento de assinatura.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap row">
+  <div><strong style="color:#fff;font-size:18px">My<span style="color:#42C95B">Poupar</span>+</strong><br>Comparador e consultoria de telecomunicações e energia.<br>WhatsApp <a href="https://wa.me/351968677320">+351 968 677 320</a> · <a href="mailto:parcerias@mypoupar.pt">parcerias@mypoupar.pt</a></div>
+  <div>Os preços e campanhas podem mudar sem aviso.<br>Parceiros: Soluções Diferentes.<br><button class="teamlink" id="open-admin">Área da equipa</button></div>
+</div></footer>
+
+<dialog id="adm"><div class="dlg">
+  <button class="x" id="adm-x" aria-label="Fechar">×</button>
+  <h3>Área da equipa</h3>
+  <p class="sub" style="font-size:14px">Atualize as campanhas. O que gravar aqui aparece no site e no CRM.</p>
+  <div id="adm-login" style="margin-top:14px">
+    <form id="login-form" class="contact" style="margin-top:0">
+      <input type="email" name="email" placeholder="Email" required autocomplete="username">
+      <input type="password" name="password" placeholder="Palavra-passe" required autocomplete="current-password">
+      <button class="btn" type="submit">Entrar</button>
+    </form>
+    <p class="msg" id="login-msg"></p>
+  </div>
+  <div id="adm-app" hidden>
+    <div style="display:flex;justify-content:space-between;gap:8px;align-items:center;margin-top:12px">
+      <strong id="adm-who" style="font-size:14px"></strong><button class="btn ghost sm" id="adm-logout">Sair</button>
+    </div>
+    <form id="camp-form" class="contact" style="margin-top:14px;max-width:none">
+      <input type="hidden" name="id">
+      <div class="row2">
+        <input name="title" placeholder="Título da campanha" required maxlength="120">
+        <input name="operator" placeholder="Operadora (ex.: MEO)" required maxlength="40">
+      </div>
+      <div class="row2">
+        <select name="service_type"><option value="telecom">Telecom</option><option value="energia">Energia</option></select>
+        <select name="status"><option value="ativa">Ativa (visível no site)</option><option value="inativa">Inativa (escondida)</option></select>
+      </div>
+      <textarea name="description" rows="3" placeholder="Descrição / condições" maxlength="1500"></textarea>
+      <div class="row2">
+        <input name="discount" placeholder="Desconto / destaque (opcional)" maxlength="80">
+        <input name="end_date" type="date" title="Válida até (opcional)">
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" type="submit" id="camp-save">Guardar campanha</button><button class="btn ghost" type="button" id="camp-reset">Nova</button></div>
+      <p class="msg" id="camp-msg"></p>
+    </form>
+    <div id="adm-list"></div>
+  </div>
+</div></dialog>
+
+<script>
+(function(){
+'use strict';
+var SB='https://lblnhttwadvofhkhkbsv.supabase.co';
+var KEY='sb_publishable_FtAZo6j9r7xexaeqjzCqHQ_ngDFJ9cS';
+var SIM='https://simuladorsolucoesdiferentes.netlify.app/';
+var $=function(s,r){return (r||document).querySelector(s)};
+var $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e}
+
+/* ---------- Campanhas públicas ---------- */
+var all=[],fTipo='todos',fOp='Todas';
+function renderCamps(){
+  var box=$('#camp-list');box.textContent='';
+  var list=all.filter(function(c){
+    if(fTipo!=='todos'&&c.service_type!==fTipo)return false;
+    if(fOp!=='Todas'&&c.operator!==fOp)return false;return true});
+  if(!list.length){var s=el('div','state','Sem campanhas nesta seleção.');s.style.gridColumn='1/-1';box.appendChild(s);return}
+  list.forEach(function(c){
+    var card=el('div','card');var top=el('div','top');
+    top.appendChild(el('span','',c.operator||''));
+    top.appendChild(el('span','tag'+(c.service_type==='energia'?' e':''),c.service_type==='energia'?'Energia':'Telecom'));
+    card.appendChild(top);card.appendChild(el('h3','',(c.title||'').trim()));
+    if(c.discount)card.appendChild(el('span','tag',c.discount));
+    if(c.description)card.appendChild(el('p','',c.description));
+    var foot=el('div','foot');
+    var d=c.end_date?'Válida até '+c.end_date.split('-').reverse().join('/'):(c.created_at?'Publicada em '+new Date(c.created_at).toLocaleDateString('pt-PT'):'');
+    foot.appendChild(el('span','',d));
+    var a=el('a','btn sm','Quero esta');
+    a.href='https://wa.me/351968677320?text='+encodeURIComponent('Olá! Tenho interesse na campanha "'+(c.title||'').trim()+'" ('+(c.operator||'')+').');
+    a.target='_blank';a.rel='noopener';foot.appendChild(a);card.appendChild(foot);box.appendChild(card)});
+}
+function renderOps(){
+  var ops=['Todas'];all.forEach(function(c){if(c.operator&&ops.indexOf(c.operator)<0)ops.push(c.operator)});
+  var box=$('#f-op');box.textContent='';
+  ops.forEach(function(o){var b=el('button','pill'+(o===fOp?' on':''),o);b.onclick=function(){fOp=o;renderOps();renderCamps()};box.appendChild(b)});
+}
+$$('#f-tipo .pill').forEach(function(b){b.onclick=function(){fTipo=b.dataset.v;$$('#f-tipo .pill').forEach(function(x){x.classList.toggle('on',x===b)});renderCamps()}});
+function loadCamps(){
+  fetch(SB+'/functions/v1/mypoupar-campanhas-publicas').then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(j){
+    all=j.campanhas||[];renderOps();renderCamps();
+    $('#camp-note').textContent=all.length?all.length+' campanhas ativas. Condições sujeitas a confirmação e a disponibilidade na sua morada.':'';
+  }).catch(function(){var b=$('#camp-list');b.textContent='';var s=el('div','state','Não foi possível carregar as campanhas agora. Fale connosco no WhatsApp.');s.style.gridColumn='1/-1';b.appendChild(s)});
+}
+loadCamps();
+
+/* ---------- Simulador ---------- */
+var simPath='eletricidade-tiagofelicia',simOn=false;
+function showSim(){
+  var box=$('#sim-box');box.className='';box.textContent='';
+  var f=document.createElement('iframe');f.className='frame';f.src=SIM+simPath;f.title='Simulador de energia';f.loading='lazy';
+  f.setAttribute('referrerpolicy','no-referrer-when-downgrade');box.appendChild(f);
+  $('#sim-full').href=SIM+simPath;simOn=true}
+$('#sim-load').onclick=showSim;
+$$('#sim-tabs .pill').forEach(function(b){b.onclick=function(){simPath=b.dataset.p;$$('#sim-tabs .pill').forEach(function(x){x.classList.toggle('on',x===b)});$('#sim-full').href=SIM+simPath;if(simOn)showSim()}});
+
+/* ---------- Contacto ---------- */
+$('#contact-form').onsubmit=function(e){e.preventDefault();var f=e.target;
+  var t='Olá! Chamo-me '+f.nome.value.trim()+'. Quero comparar: '+f.tema.value+'.'+(f.valor.value.trim()?' Pago cerca de '+f.valor.value.trim()+' por mês.':'');
+  window.open('https://wa.me/351968677320?text='+encodeURIComponent(t),'_blank','noopener')};
+
+/* ---------- Área da equipa (login Supabase, RLS só deixa admins escrever) ---------- */
+var dlg=$('#adm'),session=null;
+try{var raw=sessionStorage.getItem('mp_sess');if(raw)session=JSON.parse(raw)}catch(e){}
+function H(auth){var h={apikey:KEY,'Content-Type':'application/json'};if(auth)h.Authorization='Bearer '+session.access_token;return h}
+function setMsg(id,t,ok){var m=$(id);m.textContent=t||'';m.className='msg '+(t?(ok?'ok':'err'):'')}
+function showApp(){$('#adm-login').hidden=!!session;$('#adm-app').hidden=!session;if(session){$('#adm-who').textContent=session.user&&session.user.email||'';loadAdmin()}}
+$('#open-admin').onclick=function(){dlg.showModal();showApp()};
+$('#adm-x').onclick=function(){dlg.close()};
+$('#login-form').onsubmit=function(e){e.preventDefault();var f=e.target;setMsg('#login-msg','A entrar…',true);
+  fetch(SB+'/auth/v1/token?grant_type=password',{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({email:f.email.value.trim(),password:f.password.value})})
+  .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error('Email ou palavra-passe incorretos.');return j})})
+  .then(function(j){session={access_token:j.access_token,user:{id:j.user.id,email:j.user.email}};try{sessionStorage.setItem('mp_sess',JSON.stringify(session))}catch(e){}f.password.value='';setMsg('#login-msg','');showApp()})
+  .catch(function(er){setMsg('#login-msg',er.message)})};
+$('#adm-logout').onclick=function(){session=null;try{sessionStorage.removeItem('mp_sess')}catch(e){}showApp()};
+function loadAdmin(){
+  fetch(SB+'/rest/v1/campanhas?select=id,title,description,operator,service_type,status,discount,end_date&order=created_at.desc',{headers:H(true)})
+  .then(function(r){if(r.status===401){session=null;try{sessionStorage.removeItem('mp_sess')}catch(e){}showApp();throw new Error('Sessão expirada.')}return r.json()})
+  .then(function(rows){var box=$('#adm-list');box.textContent='';if(!Array.isArray(rows))return;
+    rows.forEach(function(c){var it=el('div','adm-item'+(c.status==='ativa'?'':' off'));var l=el('div');
+      l.appendChild(el('div','t',(c.title||'').trim()));l.appendChild(el('div','s',(c.operator||'')+' · '+(c.service_type==='energia'?'Energia':'Telecom')+' · '+(c.status==='ativa'?'ativa':'inativa')));
+      var b=el('div');b.style.display='flex';b.style.gap='6px';
+      var ed=el('button','btn ghost sm','Editar');ed.onclick=function(){var f=$('#camp-form');['id','title','operator','service_type','status','description','discount','end_date'].forEach(function(k){if(f[k])f[k].value=c[k]||(k==='status'?'ativa':'')});f.scrollIntoView({behavior:'smooth',block:'nearest'})};
+      var tg=el('button','btn ghost sm',c.status==='ativa'?'Esconder':'Ativar');tg.onclick=function(){patch(c.id,{status:c.status==='ativa'?'inativa':'ativa'})};
+      var dl=el('button','btn ghost sm','Apagar');dl.onclick=function(){if(confirm('Apagar esta campanha? Também desaparece do CRM.'))del(c.id)};
+      b.appendChild(ed);b.appendChild(tg);b.appendChild(dl);it.appendChild(l);it.appendChild(b);box.appendChild(it)})})
+  .catch(function(er){setMsg('#camp-msg',er.message)})}
+function patch(id,body){fetch(SB+'/rest/v1/campanhas?id=eq.'+encodeURIComponent(id),{method:'PATCH',headers:Object.assign(H(true),{Prefer:'return=representation'}),body:JSON.stringify(body)})
+  .then(function(r){return r.json()}).then(function(j){if(!Array.isArray(j)||!j.length){setMsg('#camp-msg','Sem permissão para alterar (só administradores).');return}setMsg('#camp-msg','Guardado.',true);loadAdmin();loadCamps()})}
+function del(id){fetch(SB+'/rest/v1/campanhas?id=eq.'+encodeURIComponent(id),{method:'DELETE',headers:Object.assign(H(true),{Prefer:'return=representation'})})
+  .then(function(r){return r.json()}).then(function(j){if(!Array.isArray(j)||!j.length){setMsg('#camp-msg','Sem permissão para apagar (só administradores).');return}setMsg('#camp-msg','Apagada.',true);loadAdmin();loadCamps()})}
+$('#camp-reset').onclick=function(){$('#camp-form').reset();$('#camp-form').id.value='';setMsg('#camp-msg','')};
+$('#camp-form').onsubmit=function(e){e.preventDefault();var f=e.target;
+  var body={title:f.title.value.trim(),operator:f.operator.value.trim(),service_type:f.service_type.value,status:f.status.value,description:f.description.value.trim(),discount:f.discount.value.trim(),end_date:f.end_date.value||''};
+  if(f.id.value){patch(f.id.value,body);return}
+  body.created_by=session.user.id;
+  fetch(SB+'/rest/v1/campanhas',{method:'POST',headers:Object.assign(H(true),{Prefer:'return=representation'}),body:JSON.stringify(body)})
+  .then(function(r){return r.json()}).then(function(j){if(!Array.isArray(j)||!j.length){setMsg('#camp-msg','Sem permissão para criar (só administradores).');return}f.reset();f.id.value='';setMsg('#camp-msg','Campanha criada.',true);loadAdmin();loadCamps()})};
+})();
+</script>
+</body>
+</html>
